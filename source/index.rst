@@ -15,3 +15,10 @@ documentation for details.
    :maxdepth: 2
    :caption: Contents:
 
+   ./rozdzial_1/index
+   ./rozdzial_2/index
+   ./rozdzial_3/index
+   ./rozdzial_4/index
+
+
+
