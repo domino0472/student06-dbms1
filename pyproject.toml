@@ -1,12 +1,13 @@
 [project]
-name = "partycjonownie-danych"
+name = "sprawozdanie"
 version = "1.0.0"
-description = ""
+description = "Moje srodowisko"
 authors = [
-    {name = "Damian Dominiak Michal Bytrzak"}
+    {name = "Damian Dominiak"}
 ]
 requires-python = ">=3.14"
 dependencies = [
+    "sphinx (>=9.1.0,<10.0.0)"
 ]
 
 
