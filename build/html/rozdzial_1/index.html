@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="pl" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Rozdział 1. Wprowadzenie &#8212; Partycjonowanie Danych  - dokumentacja</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=9893e7ba"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/translations.js?v=2827c288"></script>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Szukaj" href="../search.html" />
+    <link rel="next" title="Przegląd literatury" href="../rozdzial_2/index.html" />
+    <link rel="prev" title="Partycjonowanie Danych documentation" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>/Author: [Damian Dominiak, Michal Bystrzak] / Date: 2026-05-15 / Version: 1.0 /</p>
+<section id="rozdzial-1-wprowadzenie">
+<h1>Rozdział 1. Wprowadzenie<a class="headerlink" href="#rozdzial-1-wprowadzenie" title="Link to this heading">¶</a></h1>
+<section id="repozytoria-wykorzystane-w-projekcie">
+<h2>1.1. Repozytoria wykorzystane w projekcie<a class="headerlink" href="#repozytoria-wykorzystane-w-projekcie" title="Link to this heading">¶</a></h2>
+<p>Poniżej znajdują się odnośniki do repozytoriów zawierających kody źródłowe oraz dokumentację sprawozdania:</p>
+<ul class="simple">
+<li><p><strong>Sprawozdanie główne i dokumentacja (Sphinx):</strong> <a class="reference external" href="https://github.com/...">[Wklej link do repozytorium GitHub]</a></p></li>
+<li><p><strong>Badania literaturowe (Michał Bystrzak):</strong> <a class="reference external" href="https://github.com/...">[Wklej link do podłączonego repozytorium]</a></p></li>
+<li><p><strong>Eksperymenty i skrypty bazodanowe:</strong> <a class="reference external" href="https://github.com/...">[Wklej link do repozytorium ze skryptami .py]</a></p></li>
+</ul>
+</section>
+<section id="opis-tematyki-projektu">
+<h2>1.2. Opis tematyki projektu<a class="headerlink" href="#opis-tematyki-projektu" title="Link to this heading">¶</a></h2>
+<p>Przedmiotem niniejszego projektu jest zaprojektowanie, zdefiniowanie oraz obsługa relacyjnej bazy danych dla systemu zarządzania serwisem sprzętu IT. Aplikacja docelowa ma za zadanie obsługiwać pełen cykl życia zlecenia serwisowego – od momentu przyjęcia sprzętu od klienta, poprzez diagnozę i zużycie części magazynowych, aż po ostateczne rozliczenie i wydanie naprawionego urządzenia.</p>
+<p>W ramach zajęć laboratoryjnych przygotowano schematy (koncepcyjny, logiczny i fizyczny), przeprowadzono normalizację bazy oraz przetestowano proces wprowadzania danych testowych i wykonywania zaawansowanych zapytań SQL w dwóch środowiskach: <strong>SQLite</strong> oraz <strong>PostgreSQL</strong>.</p>
+</section>
+<section id="wnioski-koncowe-z-zajec-laboratoryjnych">
+<h2>1.3. Wnioski końcowe z zajęć laboratoryjnych<a class="headerlink" href="#wnioski-koncowe-z-zajec-laboratoryjnych" title="Link to this heading">¶</a></h2>
+<p>Przeprowadzone ćwiczenia i eksperymenty pozwoliły na wyciągnięcie następujących wniosków:</p>
+<ul class="simple">
+<li><p><strong>Projektowanie struktury:</strong> Normalizacja do 3. postaci normalnej (3NF) jest kluczowa w systemach takich jak zarządzanie zleceniami, aby uniknąć redundancji danych i anomalii przy aktualizacji statusów zleceń lub magazynu.</p></li>
+<li><p><strong>Proces importu danych:</strong> Mechanizm <code class="docutils literal notranslate"><span class="pre">COPY</span></code> dostępny w PostgreSQL znacząco przewyższa wydajnością wielokrotne instrukcje <code class="docutils literal notranslate"><span class="pre">INSERT</span></code> w SQLite podczas wsadowego ładowania dużych zbiorów danych (np. tysięcy zużytych części).</p></li>
+<li><p><strong>Różnice w dialektach SQL:</strong> Choć oba silniki wspierają standard SQL, widoczne są różnice w zaawansowanych funkcjach wierszowych oraz mechanizmach auto-inkrementacji (<code class="docutils literal notranslate"><span class="pre">SERIAL</span></code> w PostgreSQL vs zintegrowany mechanizm dla kluczy głównych w SQLite). PostgreSQL oferuje znacznie bogatszy system typów (np. precyzyjny typ <code class="docutils literal notranslate"><span class="pre">NUMERIC</span></code> dla kosztów robocizny).</p></li>
+</ul>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Partycjonowanie Danych</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Szukaj" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Nawigacja</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Rozdział 1. Wprowadzenie</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#repozytoria-wykorzystane-w-projekcie">1.1. Repozytoria wykorzystane w projekcie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#opis-tematyki-projektu">1.2. Opis tematyki projektu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wnioski-koncowe-z-zajec-laboratoryjnych">1.3. Wnioski końcowe z zajęć laboratoryjnych</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../rozdzial_2/index.html">Przegląd literatury</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rozdzial_3/index.html">Rozdział 3. Dokumentacja projektowa bazy danych</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rozdzial_4/index.html">Rozdział 4. Definiowanie bazy i wprowadzanie danych</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rozdzial_5/index.html">Rozdział 5. Zapytania do bazy danych</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="poprzedni rozdział">Partycjonowanie Danych documentation</a></li>
+      <li>Next: <a href="../rozdzial_2/index.html" title="następny rozdział">Przegląd literatury</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Dominiak Bystrzak.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/rozdzial_1/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

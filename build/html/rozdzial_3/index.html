@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html lang="pl" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Rozdział 3. Dokumentacja projektowa bazy danych &#8212; Partycjonowanie Danych  - dokumentacja</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=9893e7ba"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/translations.js?v=2827c288"></script>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Szukaj" href="../search.html" />
+    <link rel="next" title="Rozdział 4. Definiowanie bazy i wprowadzanie danych" href="../rozdzial_4/index.html" />
+    <link rel="prev" title="Przegląd literatury" href="../rozdzial_2/index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>/Author: [Damian Dominiak Michał Bystrzak] / Date: 2026-05-14 / Version: 1.0 /</p>
+<section id="rozdzial-3-dokumentacja-projektowa-bazy-danych">
+<h1>Rozdział 3. Dokumentacja projektowa bazy danych<a class="headerlink" href="#rozdzial-3-dokumentacja-projektowa-bazy-danych" title="Link to this heading">¶</a></h1>
+<section id="wybor-zagadnienia-i-opis-procesow">
+<h2>3.1. Wybór zagadnienia i opis procesów<a class="headerlink" href="#wybor-zagadnienia-i-opis-procesow" title="Link to this heading">¶</a></h2>
+<p>Tematem projektu jest relacyjna baza danych dla systemu zarządzania serwisem sprzętu IT. Aplikacja docelowa ma za zadanie obsługiwać pełen cykl życia zlecenia serwisowego – od momentu przyjęcia sprzętu od klienta, poprzez diagnozę i zużycie części magazynowych, aż po ostateczne rozliczenie i wydanie naprawionego urządzenia.</p>
+<p><strong>Główne procesy obsługiwane przez system:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Ewidencja klientów i urządzeń:</strong> Rejestracja danych kontaktowych klienta oraz powiązanie z nim konkretnych egzemplarzy sprzętu (identyfikowanych m.in. na podstawie numerów seryjnych).</p></li>
+<li><p><strong>Zarządzanie zleceniami:</strong> Tworzenie nowych zleceń naprawy dla konkretnych urządzeń, przypisywanie do nich techników prowadzących oraz śledzenie statusu prac.</p></li>
+<li><p><strong>Gospodarka magazynowa części:</strong> Rejestrowanie zużycia części wymiennych w ramach konkretnych zleceń, co pozwala na dokładne wyliczenie kosztów końcowych.</p></li>
+</ol>
+</section>
+<section id="prototypy-danych-i-analiza-typow">
+<h2>3.2. Prototypy danych i analiza typów<a class="headerlink" href="#prototypy-danych-i-analiza-typow" title="Link to this heading">¶</a></h2>
+<p>W celu weryfikacji kompletności gromadzonych informacji przygotowano prototypowe pliki z jednym wierszem danych dla centralnej encji systemu, jaką jest zlecenie serwisowe.</p>
+<p><strong>Prototyp w formacie JSON:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id_zlecenia&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data_przyjecia&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-05-14T12:00:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;opis_usterki&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Uszkodzona matryca - pionowe pasy na ekranie&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;W trakcie diagnozy&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;koszt_robocizny&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">180.50</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;id_klienta&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;id_technika&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Prototyp w formacie CSV:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>id_zlecenia,data_przyjecia,opis_usterki,status,koszt_robocizny,id_klienta,id_technika
+1024,2024-05-14T12:00:00Z,Uszkodzona matryca - pionowe pasy na ekranie,W trakcie diagnozy,180.50,45,12
+</pre></div>
+</div>
+<p><strong>Zestawienie typów danych dla wybranych silników:</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Atrybut</p></th>
+<th class="head"><p>Typ danych (SQLite)</p></th>
+<th class="head"><p>Typ danych (PostgreSQL)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id_zlecenia</span></code></p></td>
+<td><p>INTEGER PRIMARY KEY</p></td>
+<td><p>SERIAL PRIMARY KEY</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">data_przyjecia</span></code></p></td>
+<td><p>TEXT</p></td>
+<td><p>TIMESTAMP</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">opis_usterki</span></code></p></td>
+<td><p>TEXT</p></td>
+<td><p>TEXT</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">status</span></code></p></td>
+<td><p>TEXT</p></td>
+<td><p>VARCHAR(50)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">koszt_robocizny</span></code></p></td>
+<td><p>REAL</p></td>
+<td><p>NUMERIC(10, 2)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">id_klienta</span></code></p></td>
+<td><p>INTEGER</p></td>
+<td><p>INT</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="model-koncepcyjny-bazy-danych">
+<h2>3.3. Model koncepcyjny bazy danych<a class="headerlink" href="#model-koncepcyjny-bazy-danych" title="Link to this heading">¶</a></h2>
+<p>Na etapie modelowania koncepcyjnego zdefiniowano główne wymagania informacyjne systemu. Zidentyfikowano encje, ich atrybuty oraz relacje zachodzące w analizowanym środowisku. Do wizualizacji wybrano notację Crow’s Foot (kurzych łapek) jako współczesny standard branżowy, który zapewnia wyższą czytelność i płynniejsze przejście do modelu logicznego niż tradycyjna notacja Chena.</p>
+<p><strong>Zidentyfikowane encje mocne i ich klucze:</strong></p>
+<ul class="simple">
+<li><p><strong>KLIENT:</strong> <code class="docutils literal notranslate"><span class="pre">ID_Klienta</span></code> (PK), Imię, Nazwisko, Telefon, Email.</p></li>
+<li><p><strong>PRACOWNIK:</strong> <code class="docutils literal notranslate"><span class="pre">ID_Pracownika</span></code> (PK), Imię, Nazwisko, Stanowisko.</p></li>
+<li><p><strong>ZLECENIE:</strong> <code class="docutils literal notranslate"><span class="pre">ID_Zlecenia</span></code> (PK), Data_przyjecia, Opis_usterki, Status, Koszt_robocizny.</p></li>
+<li><p><strong>CZĘŚĆ:</strong> <code class="docutils literal notranslate"><span class="pre">ID_Czesci</span></code> (PK), Nazwa, Producent, Stan_magazynowy, Cena.</p></li>
+</ul>
+<p><strong>Zidentyfikowana encja słaba:</strong></p>
+<ul class="simple">
+<li><p><strong>URZĄDZENIE:</strong> Posiada klucz częściowy <code class="docutils literal notranslate"><span class="pre">Numer_kolejny</span></code> oraz atrybuty Marka, Model, Numer_seryjny. Jest to encja słaba, ponieważ jej egzystencja w systemie jest całkowicie zależna od istnienia powiązanej encji mocnej (KLIENT).</p></li>
+</ul>
+<p><strong>Związki i krotności:</strong></p>
+<p>W modelu poprawnie zamodelowano ścieżkę powiązań <code class="docutils literal notranslate"><span class="pre">KLIENT</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">URZĄDZENIE</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">ZLECENIE</span></code>. Uniknięto w ten sposób związku niepoprawnego, zwanego pułapką wiatraka (fan trap), który wystąpiłby, gdyby encje <code class="docutils literal notranslate"><span class="pre">URZĄDZENIE</span></code> oraz <code class="docutils literal notranslate"><span class="pre">ZLECENIE</span></code> były połączone z encją <code class="docutils literal notranslate"><span class="pre">KLIENT</span></code> w sposób niezależny.
+W modelu zidentyfikowano również związek wiele-do-wielu (M:N) pomiędzy encjami <code class="docutils literal notranslate"><span class="pre">ZLECENIE</span></code> oraz <code class="docutils literal notranslate"><span class="pre">CZĘŚĆ</span></code>.</p>
+<figure class="align-center" id="id1">
+<img alt="Diagram koncepcyjny ERD" src="../_images/diagram_koncepcyjny.jpeg" />
+<figcaption>
+<p><span class="caption-text">Rys. 1. Diagram koncepcyjny bazy danych serwisu IT.</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="model-logiczny-i-normalizacja">
+<h2>3.4. Model logiczny i normalizacja<a class="headerlink" href="#model-logiczny-i-normalizacja" title="Link to this heading">¶</a></h2>
+<p>Model logiczny został opracowany na bazie modelu koncepcyjnego poprzez uszczegółowienie struktury i dostosowanie jej do paradygmatu relacyjnego.</p>
+<p><strong>Eliminacja relacji M:N</strong></p>
+<p>Występująca w modelu koncepcyjnym relacja wiele-do-wielu między zleceniami a częściami została rozwiązana poprzez wprowadzenie tabeli asocjacyjnej (pośredniczącej) o nazwie <code class="docutils literal notranslate"><span class="pre">ZUZYTE_CZESCI</span></code>. Tabela ta posiada złożony klucz główny (<code class="docutils literal notranslate"><span class="pre">ID_Zlecenia</span></code>, <code class="docutils literal notranslate"><span class="pre">ID_Czesci</span></code>) oraz dodatkowy atrybut niekluczowy <code class="docutils literal notranslate"><span class="pre">Ilosc</span></code>. Wprowadzono również klucze sztuczne i obce.</p>
+<p><strong>Proces normalizacji:</strong></p>
+<p>Zaprojektowana struktura została poddana procesowi normalizacji, osiągając <strong>3. postać normalną (3NF)</strong>, co stanowi optymalny kompromis między wydajnością systemu a eliminacją redundancji danych.</p>
+<ul class="simple">
+<li><p><strong>1NF:</strong> Tabela spełnia pierwszą postać normalną, ponieważ wszystkie atrybuty są atomowe, a dane nadmiarowe (np. wiele użytych części w jednym zleceniu) zostały przeniesione do nowej tabeli.</p></li>
+<li><p><strong>2NF:</strong> Warunek drugiej postaci normalnej jest spełniony. Każdy atrybut niekluczowy jest w pełni funkcyjnie zależny od całego klucza głównego (istotne zwłaszcza w tabeli <code class="docutils literal notranslate"><span class="pre">ZUZYTE_CZESCI</span></code>, gdzie wartość <code class="docutils literal notranslate"><span class="pre">Ilosc</span></code> zależy wprost od pary zlecenie-część).</p></li>
+<li><p><strong>3NF:</strong> Model osiąga trzecią postać normalną, gdyż nie występują w nim żadne zależności przechodnie (tranzytywne) między atrybutami niekluczowymi.</p></li>
+</ul>
+<figure class="align-center" id="id2">
+<img alt="Diagram logiczny ERD" src="../_images/diagram_logiczny.jpeg" />
+<figcaption>
+<p><span class="caption-text">Rys. 2. Diagram logiczny bazy danych serwisu IT w 3NF.</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="model-fizyczny">
+<h2>3.5. Model fizyczny<a class="headerlink" href="#model-fizyczny" title="Link to this heading">¶</a></h2>
+<p>Na podstawie schematu logicznego przygotowano fizyczną implementację struktury danych z uwzględnieniem specyfiki dwóch różnych systemów zarządzania relacyjnymi bazami danych: SQLite oraz PostgreSQL.</p>
+<section id="implementacja-w-srodowisku-sqlite">
+<h3>3.5.1. Implementacja w środowisku SQLite<a class="headerlink" href="#implementacja-w-srodowisku-sqlite" title="Link to this heading">¶</a></h3>
+<p>Model wykorzystuje proste typowanie dostępne w silniku SQLite.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">KLIENT</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">ID_Klienta</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Imie</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Nazwisko</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Telefon</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Email</span><span class="w"> </span><span class="nb">TEXT</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">URZADZENIE</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">ID_Urzadzenia</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ID_Klienta</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Marka</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Model</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Numer_seryjny</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">ID_Klienta</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">KLIENT</span><span class="p">(</span><span class="n">ID_Klienta</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">PRACOWNIK</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">ID_Pracownika</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Imie</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Nazwisko</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Stanowisko</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">ZLECENIE</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">ID_Zlecenia</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ID_Urzadzenia</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ID_Pracownika</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Data_przyjecia</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Opis_usterki</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Status</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Koszt_robocizny</span><span class="w"> </span><span class="nb">REAL</span><span class="p">,</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">ID_Urzadzenia</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">URZADZENIE</span><span class="p">(</span><span class="n">ID_Urzadzenia</span><span class="p">),</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">ID_Pracownika</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">PRACOWNIK</span><span class="p">(</span><span class="n">ID_Pracownika</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">CZESC</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">ID_Czesci</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Nazwa</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Producent</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Stan_magazynowy</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Cena</span><span class="w"> </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">ZUZYTE_CZESCI</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">ID_Zlecenia</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ID_Czesci</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Ilosc</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">ID_Zlecenia</span><span class="p">,</span><span class="w"> </span><span class="n">ID_Czesci</span><span class="p">),</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">ID_Zlecenia</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">ZLECENIE</span><span class="p">(</span><span class="n">ID_Zlecenia</span><span class="p">),</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">ID_Czesci</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">CZESC</span><span class="p">(</span><span class="n">ID_Czesci</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="implementacja-w-srodowisku-postgresql">
+<h3>3.5.2. Implementacja w środowisku PostgreSQL<a class="headerlink" href="#implementacja-w-srodowisku-postgresql" title="Link to this heading">¶</a></h3>
+<p>Model dostosowany do zaawansowanych możliwości silnika PostgreSQL, wykorzystujący automatyczne generowanie kluczy głównych (typ <code class="docutils literal notranslate"><span class="pre">SERIAL</span></code>), precyzyjne typowanie numeryczne (<code class="docutils literal notranslate"><span class="pre">NUMERIC</span></code>) oraz rygorystyczne więzy integralności (np. <code class="docutils literal notranslate"><span class="pre">CHECK</span></code>).</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">KLIENT</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">ID_Klienta</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Imie</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Nazwisko</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Telefon</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">URZADZENIE</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">ID_Urzadzenia</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ID_Klienta</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">KLIENT</span><span class="p">(</span><span class="n">ID_Klienta</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Marka</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Model</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Numer_seryjny</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">PRACOWNIK</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">ID_Pracownika</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Imie</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Nazwisko</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Stanowisko</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">ZLECENIE</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">ID_Zlecenia</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ID_Urzadzenia</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">URZADZENIE</span><span class="p">(</span><span class="n">ID_Urzadzenia</span><span class="p">),</span>
+<span class="w">    </span><span class="n">ID_Pracownika</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">PRACOWNIK</span><span class="p">(</span><span class="n">ID_Pracownika</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Data_przyjecia</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Opis_usterki</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Status</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Koszt_robocizny</span><span class="w"> </span><span class="nb">NUMERIC</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">CZESC</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">ID_Czesci</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Nazwa</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Producent</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Stan_magazynowy</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">Stan_magazynowy</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Cena</span><span class="w"> </span><span class="nb">NUMERIC</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">Cena</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">ZUZYTE_CZESCI</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">ID_Zlecenia</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">ZLECENIE</span><span class="p">(</span><span class="n">ID_Zlecenia</span><span class="p">),</span>
+<span class="w">    </span><span class="n">ID_Czesci</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">CZESC</span><span class="p">(</span><span class="n">ID_Czesci</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Ilosc</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">Ilosc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">ID_Zlecenia</span><span class="p">,</span><span class="w"> </span><span class="n">ID_Czesci</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Partycjonowanie Danych</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Szukaj" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Nawigacja</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rozdzial_1/index.html">Rozdział 1. Wprowadzenie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rozdzial_2/index.html">Przegląd literatury</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Rozdział 3. Dokumentacja projektowa bazy danych</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#wybor-zagadnienia-i-opis-procesow">3.1. Wybór zagadnienia i opis procesów</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prototypy-danych-i-analiza-typow">3.2. Prototypy danych i analiza typów</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-koncepcyjny-bazy-danych">3.3. Model koncepcyjny bazy danych</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-logiczny-i-normalizacja">3.4. Model logiczny i normalizacja</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-fizyczny">3.5. Model fizyczny</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../rozdzial_4/index.html">Rozdział 4. Definiowanie bazy i wprowadzanie danych</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rozdzial_5/index.html">Rozdział 5. Zapytania do bazy danych</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../rozdzial_2/index.html" title="poprzedni rozdział">Przegląd literatury</a></li>
+      <li>Next: <a href="../rozdzial_4/index.html" title="następny rozdział">Rozdział 4. Definiowanie bazy i wprowadzanie danych</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Dominiak Bystrzak.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/rozdzial_3/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

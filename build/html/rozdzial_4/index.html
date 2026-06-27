@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html lang="pl" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Rozdział 4. Definiowanie bazy i wprowadzanie danych &#8212; Partycjonowanie Danych  - dokumentacja</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=9893e7ba"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/translations.js?v=2827c288"></script>
+    <link rel="index" title="Indeks" href="../genindex.html" />
+    <link rel="search" title="Szukaj" href="../search.html" />
+    <link rel="next" title="Rozdział 5. Zapytania do bazy danych" href="../rozdzial_5/index.html" />
+    <link rel="prev" title="Rozdział 3. Dokumentacja projektowa bazy danych" href="../rozdzial_3/index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>/Author: [Damian Dominiak, Michał Bystrzak] / Date: 2026-05-15 / Version: 1.0 /</p>
+<section id="rozdzial-4-definiowanie-bazy-i-wprowadzanie-danych">
+<h1>Rozdział 4. Definiowanie bazy i wprowadzanie danych<a class="headerlink" href="#rozdzial-4-definiowanie-bazy-i-wprowadzanie-danych" title="Link to this heading">¶</a></h1>
+<p>W tym rozdziale opisano mechanizmy wykorzystane do wsadowego wprowadzania danych testowych do baz SQLite oraz PostgreSQL dla systemu serwisu IT.</p>
+<section id="generowanie-danych-testowych">
+<h2>4.1. Generowanie danych testowych<a class="headerlink" href="#generowanie-danych-testowych" title="Link to this heading">¶</a></h2>
+<p>W celu symulacji rzeczywistego środowiska pracy serwisu sprzętu IT, przygotowano skrypt w języku Python, który automatycznie generuje losowe dane testowe (m.in. dane klientów, urządzeń, pracowników oraz zleceń i zużytych części) i eksportuje je do plików w formacie CSV.</p>
+</section>
+<section id="import-danych-do-postgresql">
+<h2>4.2. Import danych do PostgreSQL<a class="headerlink" href="#import-danych-do-postgresql" title="Link to this heading">¶</a></h2>
+<p>Dla silnika PostgreSQL zdecydowano się na wykorzystanie natywnego mechanizmu <code class="docutils literal notranslate"><span class="pre">COPY</span></code>. Pozwala on na najszybszy bulk-insert danych z plików CSV.</p>
+</section>
+<section id="import-danych-do-sqlite">
+<h2>4.3. Import danych do SQLite<a class="headerlink" href="#import-danych-do-sqlite" title="Link to this heading">¶</a></h2>
+<p>W przypadku bazy SQLite zaimplementowano skrypt w języku Python z wykorzystaniem wbudowanej biblioteki <code class="docutils literal notranslate"><span class="pre">sqlite3</span></code>, który wczytuje dane z plików CSV i wykonuje instrukcje <code class="docutils literal notranslate"><span class="pre">INSERT</span></code> wewnątrz transakcji, co znacząco optymalizuje czas wstawiania setek rekordów.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Partycjonowanie Danych</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Szukaj" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Nawigacja</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../rozdzial_1/index.html">Rozdział 1. Wprowadzenie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rozdzial_2/index.html">Przegląd literatury</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rozdzial_3/index.html">Rozdział 3. Dokumentacja projektowa bazy danych</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Rozdział 4. Definiowanie bazy i wprowadzanie danych</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#generowanie-danych-testowych">4.1. Generowanie danych testowych</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import-danych-do-postgresql">4.2. Import danych do PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import-danych-do-sqlite">4.3. Import danych do SQLite</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../rozdzial_5/index.html">Rozdział 5. Zapytania do bazy danych</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../rozdzial_3/index.html" title="poprzedni rozdział">Rozdział 3. Dokumentacja projektowa bazy danych</a></li>
+      <li>Next: <a href="../rozdzial_5/index.html" title="następny rozdział">Rozdział 5. Zapytania do bazy danych</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Dominiak Bystrzak.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/rozdzial_4/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
