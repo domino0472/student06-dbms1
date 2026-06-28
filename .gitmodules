@@ -1,3 +1,24 @@
 [submodule "source/rozdzial_2/rozdzial_26"]
 	path = source/rozdzial_2/rozdzial_26
 	url = git@github.com:domino0472/Partycjonowani-Danych.git
+[submodule "source/rozdzial_2/2.1"]
+	path = source/rozdzial_2/2.1
+	url = https://github.com/karaskamil/Sprzet-dla-bazy-danych.git
+[submodule "source/rozdzial_2/2.2"]
+	path = source/rozdzial_2/2.2
+	url = https://github.com/Youarecheck/Bazy_Danych_Tematyczne_Repo_MK.git
+[submodule "source/rozdzial_2/2.3"]
+	path = source/rozdzial_2/2.3
+	url = https://github.com/pawlos1337/Bazy-danych-temat.git
+[submodule "source/rozdzial_2/2.5"]
+	path = source/rozdzial_2/2.5
+	url = https://github.com/KMachoK/Tematyczne.git
+[submodule "source/rozdzial_2/2.6"]
+	path = source/rozdzial_2/2.6
+	url = https://github.com/bystrzakmichal/Partycjonowanie-Danych.git
+[submodule "source/rozdzial_2/2.7"]
+	path = source/rozdzial_2/2.7
+	url = https://github.com/oski486/BazyDanych-Subject.git
+[submodule "source/rozdzial_2/2.8"]
+	path = source/rozdzial_2/2.8
+	url = https://github.com/Koko9077/Kopie-zapasowe-i-odzyskiwanie-danych.git
