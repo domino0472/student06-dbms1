@@ -1,13 +1,15 @@
 
 
-/Author: [Damian Dominiak Michał Bystrzak] / Date: 2026-05-14 / Version: 1.0 /
 
-===============================================
-Rozdział 3. Dokumentacja projektowa bazy danych
-===============================================
 
-3.1. Wybór zagadnienia i opis procesów
---------------------------------------
+===================================
+Dokumentacja projektowa bazy danych
+===================================
+
+Autorzy: Michał Bystrzak, Damian Dominiak
+
+Wybór zagadnienia i opis procesów
+---------------------------------
 
 Tematem projektu jest relacyjna baza danych dla systemu zarządzania serwisem sprzętu IT. Aplikacja docelowa ma za zadanie obsługiwać pełen cykl życia zlecenia serwisowego – od momentu przyjęcia sprzętu od klienta, poprzez diagnozę i zużycie części magazynowych, aż po ostateczne rozliczenie i wydanie naprawionego urządzenia.
 
@@ -17,8 +19,8 @@ Tematem projektu jest relacyjna baza danych dla systemu zarządzania serwisem sp
 2. **Zarządzanie zleceniami:** Tworzenie nowych zleceń naprawy dla konkretnych urządzeń, przypisywanie do nich techników prowadzących oraz śledzenie statusu prac.
 3. **Gospodarka magazynowa części:** Rejestrowanie zużycia części wymiennych w ramach konkretnych zleceń, co pozwala na dokładne wyliczenie kosztów końcowych.
 
-3.2. Prototypy danych i analiza typów
--------------------------------------
+Prototypy danych i analiza typów
+--------------------------------
 
 W celu weryfikacji kompletności gromadzonych informacji przygotowano prototypowe pliki z jednym wierszem danych dla centralnej encji systemu, jaką jest zlecenie serwisowe.
 
@@ -71,8 +73,8 @@ W celu weryfikacji kompletności gromadzonych informacji przygotowano prototypow
      - INTEGER
      - INT
 
-3.3. Model koncepcyjny bazy danych
-----------------------------------
+Model koncepcyjny bazy danych
+-----------------------------
 
 Na etapie modelowania koncepcyjnego zdefiniowano główne wymagania informacyjne systemu. Zidentyfikowano encje, ich atrybuty oraz relacje zachodzące w analizowanym środowisku. Do wizualizacji wybrano notację Crow's Foot (kurzych łapek) jako współczesny standard branżowy, który zapewnia wyższą czytelność i płynniejsze przejście do modelu logicznego niż tradycyjna notacja Chena.
 
@@ -99,8 +101,8 @@ W modelu zidentyfikowano również związek wiele-do-wielu (M:N) pomiędzy encja
    Rys. 1. Diagram koncepcyjny bazy danych serwisu IT.
 
 
-3.4. Model logiczny i normalizacja
-----------------------------------
+Model logiczny i normalizacja
+-----------------------------
 
 Model logiczny został opracowany na bazie modelu koncepcyjnego poprzez uszczegółowienie struktury i dostosowanie jej do paradygmatu relacyjnego.
 
@@ -122,13 +124,13 @@ Zaprojektowana struktura została poddana procesowi normalizacji, osiągając **
 
    Rys. 2. Diagram logiczny bazy danych serwisu IT w 3NF.
 
-3.5. Model fizyczny
--------------------
+Model fizyczny
+--------------
 
 Na podstawie schematu logicznego przygotowano fizyczną implementację struktury danych z uwzględnieniem specyfiki dwóch różnych systemów zarządzania relacyjnymi bazami danych: SQLite oraz PostgreSQL.
 
-3.5.1. Implementacja w środowisku SQLite
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Implementacja w środowisku SQLite
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Model wykorzystuje proste typowanie dostępne w silniku SQLite.
 
@@ -187,8 +189,8 @@ Model wykorzystuje proste typowanie dostępne w silniku SQLite.
         FOREIGN KEY (ID_Czesci) REFERENCES CZESC(ID_Czesci)
     );
 
-3.5.2. Implementacja w środowisku PostgreSQL
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Implementacja w środowisku PostgreSQL
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Model dostosowany do zaawansowanych możliwości silnika PostgreSQL, wykorzystujący automatyczne generowanie kluczy głównych (typ ``SERIAL``), precyzyjne typowanie numeryczne (``NUMERIC``) oraz rygorystyczne więzy integralności (np. ``CHECK``).
 

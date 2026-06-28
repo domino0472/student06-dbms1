@@ -67,9 +67,9 @@
 
 
 \title{Partycjonowanie Danych}
-\date{27 cze 2026}
+\date{28 cze 2026}
 \release{}
-\author{Dominiak Bystrzak}
+\author{Michał Bystrzak, Damian Dominiak}
 \newcommand{\sphinxlogo}{\vbox{}}
 \renewcommand{\releasename}{}
 \makeindex
@@ -88,50 +88,41 @@
 \phantomsection\label{\detokenize{index::doc}}
 
 
-\sphinxAtStartPar
-Add your content using \sphinxcode{\sphinxupquote{reStructuredText}} syntax. See the
-\sphinxhref{https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html}{reStructuredText}
-documentation for details.
-
 \sphinxstepscope
 
+
+\chapter{Wprowadzenie}
+\label{\detokenize{rozdzial_1/index:wprowadzenie}}\label{\detokenize{rozdzial_1/index::doc}}
 \sphinxAtStartPar
-/Author: {[}Damian Dominiak, Michal Bystrzak{]} / Date: 2026\sphinxhyphen{}05\sphinxhyphen{}15 / Version: 1.0 /
+Autor: Michał Bystrzak
 
 
-\chapter{Rozdział 1. Wprowadzenie}
-\label{\detokenize{rozdzial_1/index:rozdzial-1-wprowadzenie}}\label{\detokenize{rozdzial_1/index::doc}}
-
-\section{1.1. Repozytoria wykorzystane w projekcie}
+\section{Repozytoria wykorzystane w projekcie}
 \label{\detokenize{rozdzial_1/index:repozytoria-wykorzystane-w-projekcie}}
 \sphinxAtStartPar
 Poniżej znajdują się odnośniki do repozytoriów zawierających kody źródłowe oraz dokumentację sprawozdania:
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
-\sphinxstylestrong{Sprawozdanie główne i dokumentacja (Sphinx):} \sphinxhref{https://github.com/...}{{[}Wklej link do repozytorium GitHub{]}}
+\sphinxstylestrong{Sprawozdanie główne i dokumentacja:} \sphinxurl{https://github.com/bystrzakmichal/student04-dbms1}
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstylestrong{Badania literaturowe (Michał Bystrzak):} \sphinxhref{https://github.com/...}{{[}Wklej link do podłączonego repozytorium{]}}
-
-\item {} 
-\sphinxAtStartPar
-\sphinxstylestrong{Eksperymenty i skrypty bazodanowe:} \sphinxhref{https://github.com/...}{{[}Wklej link do repozytorium ze skryptami .py{]}}
+\sphinxstylestrong{Badania literaturowe (Michał Bystrzak):} \sphinxurl{https://github.com/bystrzakmichal/Partycjonowanie-Danych}
 
 \end{itemize}
 
 
-\section{1.2. Opis tematyki projektu}
+\section{Opis tematyki projektu}
 \label{\detokenize{rozdzial_1/index:opis-tematyki-projektu}}
 \sphinxAtStartPar
 Przedmiotem niniejszego projektu jest zaprojektowanie, zdefiniowanie oraz obsługa relacyjnej bazy danych dla systemu zarządzania serwisem sprzętu IT. Aplikacja docelowa ma za zadanie obsługiwać pełen cykl życia zlecenia serwisowego \textendash{} od momentu przyjęcia sprzętu od klienta, poprzez diagnozę i zużycie części magazynowych, aż po ostateczne rozliczenie i wydanie naprawionego urządzenia.
 
 \sphinxAtStartPar
-W ramach zajęć laboratoryjnych przygotowano schematy (koncepcyjny, logiczny i fizyczny), przeprowadzono normalizację bazy oraz przetestowano proces wprowadzania danych testowych i wykonywania zaawansowanych zapytań SQL w dwóch środowiskach: \sphinxstylestrong{SQLite} oraz \sphinxstylestrong{PostgreSQL}.
+W ramach zajęć laboratoryjnych przygotowano schematy (koncepcyjny, logiczny i fizyczny), przeprowadzono normalizację bazy oraz przetestowano proces wprowadzania danych testowych i wykonywania zaawansowanych zapytań SQL w dwóch środowiskach: SQLite oraz PostgreSQL.
 
 
-\section{1.3. Wnioski końcowe z zajęć laboratoryjnych}
+\section{Wnioski końcowe z zajęć laboratoryjnych}
 \label{\detokenize{rozdzial_1/index:wnioski-koncowe-z-zajec-laboratoryjnych}}
 \sphinxAtStartPar
 Przeprowadzone ćwiczenia i eksperymenty pozwoliły na wyciągnięcie następujących wniosków:
@@ -142,11 +133,11 @@ Przeprowadzone ćwiczenia i eksperymenty pozwoliły na wyciągnięcie następuj�
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstylestrong{Proces importu danych:} Mechanizm \sphinxcode{\sphinxupquote{COPY}} dostępny w PostgreSQL znacząco przewyższa wydajnością wielokrotne instrukcje \sphinxcode{\sphinxupquote{INSERT}} w SQLite podczas wsadowego ładowania dużych zbiorów danych (np. tysięcy zużytych części).
+\sphinxstylestrong{Proces importu danych:} Mechanizm COPY dostępny w PostgreSQL znacząco przewyższa wydajnością wielokrotne instrukcje INSERT w SQLite podczas wsadowego ładowania dużych zbiorów danych (np. tysięcy zużytych części).
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstylestrong{Różnice w dialektach SQL:} Choć oba silniki wspierają standard SQL, widoczne są różnice w zaawansowanych funkcjach wierszowych oraz mechanizmach auto\sphinxhyphen{}inkrementacji (\sphinxcode{\sphinxupquote{SERIAL}} w PostgreSQL vs zintegrowany mechanizm dla kluczy głównych w SQLite). PostgreSQL oferuje znacznie bogatszy system typów (np. precyzyjny typ \sphinxcode{\sphinxupquote{NUMERIC}} dla kosztów robocizny).
+\sphinxstylestrong{Różnice w dialektach SQL:} Choć oba silniki wspierają standard SQL, widoczne są różnice w zaawansowanych funkcjach wierszowych oraz mechanizmach auto\sphinxhyphen{}inkrementacji (SERIAL w PostgreSQL vs zintegrowany mechanizm dla kluczy głównych w SQLite). PostgreSQL oferuje znacznie bogatszy system typów (np. precyzyjny typ NUMERIC dla kosztów robocizny).
 
 \end{itemize}
 
@@ -157,14 +148,2479 @@ Przeprowadzone ćwiczenia i eksperymenty pozwoliły na wyciągnięcie następuj�
 \label{\detokenize{rozdzial_2/index:przeglad-literatury}}\label{\detokenize{rozdzial_2/index::doc}}
 \sphinxstepscope
 
+
+\section{Sprzęt dla bazy danych}
+\label{\detokenize{rozdzial_2/2.1/index:sprzet-dla-bazy-danych}}\label{\detokenize{rozdzial_2/2.1/index::doc}}\begin{quote}\begin{description}
+\sphinxlineitem{Autorzy}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
 \sphinxAtStartPar
-/Author: {[}Damian Dominiak Michał Bystrzak{]} / Date: 2026\sphinxhyphen{}05\sphinxhyphen{}14 / Version: 1.0 /
+Wiktor Głogowski
+
+\item {} 
+\sphinxAtStartPar
+Olga Grześkowiak
+
+\item {} 
+\sphinxAtStartPar
+Kamil Karaś
+
+\end{enumerate}
+
+\end{description}\end{quote}
 
 
-\chapter{Rozdział 3. Dokumentacja projektowa bazy danych}
-\label{\detokenize{rozdzial_3/index:rozdzial-3-dokumentacja-projektowa-bazy-danych}}\label{\detokenize{rozdzial_3/index::doc}}
+\subsection{Wstęp}
+\label{\detokenize{rozdzial_2/2.1/index:wstep}}
+\sphinxAtStartPar
+Współczesne systemy zarządzania bazami danych (DBMS) stanowią fundament operacyjny większości przedsiębiorstw. Efektywność ich działania zależy bezpośrednio od synergii pomiędzy warstwą oprogramowania a architekturą sprzętową, na której są one uruchamiane. Bazy danych wykazują unikalne, skrajnie wysokie wymagania względem podsystemów wejścia/wyjścia (I/O), procesora, pamięci operacyjnej oraz niezawodności zasilania.
 
-\section{3.1. Wybór zagadnienia i opis procesów}
+\sphinxAtStartPar
+W zależności od profilu obciążenia systemu, infrastrukturę sprzętową klasyfikuje się pod dwa główne typy zadań:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{OLTP (Online Transaction Processing):} Systemy transakcyjne charakteryzujące się ogromną liczbą jednoczesnych, krótkich operacji zapisu i odczytu (np. systemy bankowe, sklepy internetowe). Kluczowym parametrem jest tu minimalne opóźnienie oraz wysoka liczba operacji wejścia/wyjścia na sekundę (IOPS).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{OLAP (Online Analytical Processing):} Hurtownie danych i systemy analityczne realizujące długie, złożone zapytania, które agregują miliony rekordów. Tutaj priorytetem jest przepustowość sekwencyjna oraz masowa wielordzeniowość procesorów.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Poniższy rozdział opisuje architekturę fizyczną bazy danych oraz wytyczne w sprawie doboru komponentów.
+
+
+\subsection{Procesor (CPU)}
+\label{\detokenize{rozdzial_2/2.1/index:procesor-cpu}}
+\sphinxAtStartPar
+Wybór procesora dla serwera bazodanowego determinowany jest nie tylko surową wydajnością obliczeniową, ale również architekturą pamięci podręcznej, topologią połączeń międzygniazdowych oraz modelami licencjonowania oprogramowania.
+
+
+\subsubsection{Wydajność Jednowątkowa vs Wielordzeniowość}
+\label{\detokenize{rozdzial_2/2.1/index:wydajnosc-jednowatkowa-vs-wielordzeniowosc}}
+\sphinxAtStartPar
+Decyzja o wyborze modelu procesora zależy od struktury zapytań generowanych przez aplikację:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Taktowanie Zegara:} W środowiskach OLTP, gdzie transakcje często wykonują się sekwencyjnie lub są blokowane przez zamki i zatrzaski, wyższe taktowanie rdzenia (np. 3.6 GHz \sphinxhyphen{} 4.0 GHz) przynosi lepsze rezultaty niż ekstremalna liczba rdzeni o niskim taktowaniu. Szybka realizacja pojedynczego wątku skraca czas trwania blokad.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Skalowanie Wielordzeniowe:} W systemach OLAP silniki baz danych potrafią dzielić jedno zapytanie na wiele wątków. W tym przypadku procesory posiadające 64, 96 lub więcej rdzeni fizycznych (np. AMD EPYC, Intel Xeon Scalable) pozwalają na równoległe skanowanie indeksów i tabel, drastycznie przyspieszając operacje analityczne.
+
+\end{enumerate}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Wpływ Licencjonowania na Wybór CPU:} Wiodący producenci oprogramowania bazodanowego (np. Microsoft SQL Server Enterprise, Oracle) stosują model licencjonowania per\sphinxhyphen{}core. Koszt licencji na jeden rdzeń wielokrotnie przewyższa koszt zakupu samego sprzętu. Z tego powodu ekonomicznie i wydajnościowo uzasadniony jest wybór procesorów o mniejszej liczbie rdzeni, ale o maksymalnym dostępnym taktowaniu bazowym i zaawansowanej architekturze cache.
+
+
+\subsubsection{Topologia NUMA (Non\sphinxhyphen{}Uniform Memory Access)}
+\label{\detokenize{rozdzial_2/2.1/index:topologia-numa-non-uniform-memory-access}}
+\sphinxAtStartPar
+Wieloprocesorowe serwery (np. architektury dwu\sphinxhyphen{} lub czterogniazdowe) dzielą zasoby na tzw. węzły NUMA. Każdy procesor posiada swój zintegrowany kontroler pamięci i bezpośredni dostęp do fizycznie najbliższych banków RAM (pamięć lokalna).
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Dostęp Lokalny:} Charakteryzuje się minimalnymi opóźnieniami i maksymalnym pasmem przenoszenia.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Dostęp Zdalny:} Jeśli procesor osadzony w gnieździe 0 potrzebuje danych znajdujących się w banku pamięci przypisanym do gniazda 1, transakcja musi odbyć się za pośrednictwem magistrali międzyprocesorowej (Intel UPI lub AMD Infinity Fabric). Generuje to narzut opóźnienia zwany \sphinxstyleemphasis{NUMA penalty}.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Niewłaściwa alokacja wątków przez system operacyjny może prowadzić do ciągłego przemieszczania danych między węzłami (\sphinxstyleemphasis{NUMA bouncing}), co drastycznie obniża wydajność bazy danych. Wymagane jest stosowanie silników bazodanowych w pełni wspierających i optymalizujących architekturę NUMA (\sphinxstyleemphasis{NUMA\sphinxhyphen{}aware}).
+
+
+\subsubsection{Znaczenie Pamięci Podręcznej (Cache L3)}
+\label{\detokenize{rozdzial_2/2.1/index:znaczenie-pamieci-podrecznej-cache-l3}}
+\sphinxAtStartPar
+Struktury danych w relacyjnych bazach (drzewa B+, tabele stron) sprawiają, że procesor wykonuje ogromną liczbę operacji skoków i wyszukiwań wskaźników. Powoduje to częste chybienia pamięci podręcznej, zmuszając procesor do czekania na dane z RAM\sphinxhyphen{}u. Procesory wyposażone w powiększoną pamięć podręczną poziomu trzeciego (L3), takie jak układy z technologią 3D V\sphinxhyphen{}Cache, pozwalają na zatrzymanie krytycznych struktur indeksowych wewnątrz struktur procesora, generując ogromne zyski wydajnościowe.
+
+
+\subsection{Pamięć RAM}
+\label{\detokenize{rozdzial_2/2.1/index:pamiec-ram}}
+\sphinxAtStartPar
+Pamięć operacyjna RAM decyduje o tym, jak duża część bazy danych może być przetwarzana bezpośrednio w super\sphinxhyphen{}szybkiej pamięci półprzewodnikowej, bez konieczności odwoływania się do podsystemu dyskowego.
+
+
+\subsubsection{Mechanizm Buforowania Danych}
+\label{\detokenize{rozdzial_2/2.1/index:mechanizm-buforowania-danych}}
+\sphinxAtStartPar
+Podstawową jednostką wymiany danych między dyskiem a pamięcią w bazach danych jest strona (zazwyczaj o rozmiarze 8 KB). Silnik bazy danych alokuje obszar pamięci RAM nazywany \sphinxstylestrong{Buffer Pool} (w MS SQL Server) lub \sphinxstylestrong{Shared Buffers} (w PostgreSQL).
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Odczyty z Pamięci (Logical Reads):} Jeśli żądana strona danych znajduje się już w RAM, odczyt następuje natychmiastowo (rzędu nanosekund).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Odczyty z Dysku (Physical Reads):} W przypadku braku strony w buforze, wątek bazy danych zostaje zawieszony do czasu fizycznego załadowania strony z pamięci masowej, co zwiększa czas odpowiedzi o rzędy wielkości.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Docelowym stanem konfiguracyjnym dla systemów produkcyjnych jest posiadanie takiej ilości pamięci RAM, która pozwala na bezproblemowe przetrzymywanie w całości tzw. hot data set, czyli najczęściej modyfikowanych i odpytywanych danych wraz z ich indeksami.
+
+
+\subsubsection{Wymóg Technologii ECC (Error\sphinxhyphen{}Correcting Code)}
+\label{\detokenize{rozdzial_2/2.1/index:wymog-technologii-ecc-error-correcting-code}}
+\sphinxAtStartPar
+W serwerach bazodanowych niedopuszczalne jest stosowanie pamięci bez obsługi korekcji błędów (non\sphinxhyphen{}ECC). Pamięci \sphinxstylestrong{ECC} posiadają dodatkowe układy scalone pozwalające na wykrywanie i automatyczną korekcję błędów jednobitowych oraz wykrywanie błędów wielobitowych.
+
+\sphinxAtStartPar
+Wystąpienie zjawiska \sphinxstyleemphasis{bit\sphinxhyphen{}flip} (samorzutnej zmiany wartości bitu w pamięci RAM pod wpływem np. tła radiacyjnego lub zakłóceń elektromagnetycznych) w systemie bez ECC niesie katastrofalne skutki dla baz danych:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Cicha korupcja danych:} Błędna wartość może zostać zapisana z bufora pamięci wprost na dysk, powodując trwałe i niezauważalne zniszczenie struktury tabeli lub błędne zapisy księgowe.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Uszkodzenie stron indeksowych:} Powoduje błędy integralności i uniemożliwia poprawne wykonywanie zapytań SQL.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Awaria krytyczna:} W przypadku naruszenia pamięci jądra systemu operacyjnego lub krytycznego procesu bazy danych dochodzi do natychmiastowego zatrzymania serwera (Kernel Panic / BSOD).
+
+\end{itemize}
+
+
+\subsubsection{Parametry Wydajnościowe: Przepustowość i Opóźnienia}
+\label{\detokenize{rozdzial_2/2.1/index:parametry-wydajnosciowe-przepustowosc-i-opoznienia}}
+\sphinxAtStartPar
+Współczesne standardy serwerowe opierają się na pamięciach DDR5, oferujących zaawansowaną architekturę wielokanałową (np. 8 lub 12 kanałów pamięci na jedno gniazdo CPU). Wysoka przepustowość (wyrażana w MT/s) przyspiesza operacje sortowania w pamięci, tworzenie tabel tymczasowych oraz operacje złączania typu \sphinxstyleemphasis{Hash Join}, które są na porządku dziennym w systemach analitycznych.
+
+
+\subsection{Pamięć Masowa}
+\label{\detokenize{rozdzial_2/2.1/index:pamiec-masowa}}
+\sphinxAtStartPar
+Podsystem pamięci masowej bezpośrednio determinuje ostateczną trwałość danych (cecha \sphinxstyleemphasis{Durability} z paradygmatu ACID) oraz jest najczęstszym wąskim gardłem systemu informatycznego z uwagi na mechaniczne lub interfejsowe ograniczenia prędkości.
+
+
+\subsubsection{Klasyfikacja Nośników i Ich Przydatność}
+\label{\detokenize{rozdzial_2/2.1/index:klasyfikacja-nosnikow-i-ich-przydatnosc}}
+\sphinxAtStartPar
+Współczesna inżynieria bazodanowa całkowicie odchodzi od talerzowych dysków magnetycznych HDD w środowiskach produkcyjnych na rzecz pamięci półprzewodnikowych Flash.
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Dyski HDD (SAS 10K/15K):} Ze względu na ograniczenia mechaniczne oferują zaledwie kilkaset IOPS i wysokie opóźnienia (\textgreater{}5 ms). Ich zastosowanie ogranicza się obecnie wyłącznie do składowania archiwalnych kopii zapasowych (backups).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Dyski SSD (SATA/SAS Enterprise):} Zapewniają stabilną wydajność na poziomie do 90 000 IOPS dla odczytu, jednak ograniczeniem staje się interfejs SATA (6 Gb/s) lub SAS\sphinxhyphen{}3 (12 Gb/s).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Nośniki NVMe (PCIe Gen4/Gen5):} Komunikują się bezpośrednio z procesorem poprzez magistralę PCI Express, eliminując narzut protokołów SCSI/ATA. Osiągają wydajność przekraczającą 1 000 000 IOPS oraz redukują opóźnienia do wartości mikrosekundowych (\textless{}50 µs), stając się bezdyskusyjnym standardem dla baz danych.
+
+\end{itemize}
+
+
+\subsubsection{Fizyczna Separacja Architektury Plików}
+\label{\detokenize{rozdzial_2/2.1/index:fizyczna-separacja-architektury-plikow}}
+\sphinxAtStartPar
+Poprawna konfiguracja pamięci masowej wymaga rozdzielenia różnych typów aktywności wejścia/wyjścia na odseparowane fizycznie wolumeny dyskowe:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Dziennik Transakcji:} Każda operacja modyfikacji danych (INSERT, UPDATE, DELETE) musi zostać najpierw sekwencyjnie zapisana w dzienniku transakcji, zanim baza potwierdzi jej pomyślne wykonanie. Ruch ten ma charakter niemal wyłącznie sekwencyjnego zapisu o krytycznym znaczeniu dla opóźnienia aplikacji. Dziennik transakcji powinien znajdować się na najszybszych dedykowanych nośnikach o minimalnym opóźnieniu zapisu.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Pliki Danych:} Przechowują właściwe tabele i indeksy. Ruch na tych plikach ma charakter wysoce losowy (zarówno odczyty, jak i zapisy wywoływane przez proces \sphinxstyleemphasis{Checkpoint}, który zrzuca zmodyfikowane strony z RAM na dysk). Wymagają macierzy zoptymalizowanej pod kątem wysokiej liczby losowych IOPS.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Baza Tymczasowa (TempDB / Swapping Space):} Wykorzystywana przez silnik bazy do przechowywania obiektów tymczasowych, wyników pośrednich podzapytań oraz sortowania. Generuje bardzo intensywny, mieszany ruch. Umieszcza się ją na ultra\sphinxhyphen{}szybkich dyskach o wysokiej wytrzymałości.
+
+\end{enumerate}
+
+
+\subsubsection{Żywotność i Wytrzymałość Zapisu (DWPD)}
+\label{\detokenize{rozdzial_2/2.1/index:zywotnosc-i-wytrzymalosc-zapisu-dwpd}}
+\sphinxAtStartPar
+Bazy danych nieustannie modyfikują i nadpisują sektory. Z tego powodu stosowanie dysków klasy konsumenckiej grozi ich błyskawicznym zużyciem. Przy doborze nośników kluczowym parametrem jest \sphinxstylestrong{DWPD} (\sphinxstyleemphasis{Drive Writes Per Day}) \textendash{} wskaźnik określający, ile razy dziennie można zapisać całą pojemność dysku przez okres gwarancyjny (zazwyczaj 5 lat). Do baz danych wymagane są nośniki klasy \sphinxstyleemphasis{Enterprise Mixed\sphinxhyphen{}Use} lub \sphinxstyleemphasis{Write\sphinxhyphen{}Intensive} o współczynniku DWPD wynoszącym minimum 3\sphinxhyphen{}5.
+
+
+\subsection{Kontrolery i Interfejsy Pamięci}
+\label{\detokenize{rozdzial_2/2.1/index:kontrolery-i-interfejsy-pamieci}}
+\sphinxAtStartPar
+Kontrolery realizują zadania pośrednictwa, zarządzania macierzami nadmiarowymi (RAID) oraz gwarantują integralność zapisu.
+
+
+\subsubsection{Sprzętowy RAID vs Software\sphinxhyphen{}Defined Storage}
+\label{\detokenize{rozdzial_2/2.1/index:sprzetowy-raid-vs-software-defined-storage}}
+\sphinxAtStartPar
+Przez lata standardem były sprzętowe kontrolery RAID (\sphinxstyleemphasis{Hardware RAID}) wyposażone we własny procesor i pamięć cache. Odciążają one procesor główny serwera z obliczeń sum kontrolnych (szczególnie parzystości w RAID 5/6).
+
+\sphinxAtStartPar
+W przypadku nowoczesnych pamięci NVMe sprzętowe kontrolery starszego typu stawały się wąskim gardłem, blokując bezpośredni dostęp do linii PCIe. Współcześnie odchodzi się od nich na rzecz:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Bezpośredniego podłączenia NVMe (Direct Attached PCIe)} i zarządzania programowego na poziomie zaawansowanych systemów plików (np. ZFS) lub warstw logicznych OS (np. Linux mdadm / LVM).
+
+\item {} 
+\sphinxAtStartPar
+Modernistycznych, dedykowanych sprzętowych kontrolerów NVMe RAID klasy Enterprise, zdolnych do natywnego przetwarzania protokołu NVMe z pełną prędkością magistrali PCIe Gen5.
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Pamięć Podtrzymywana Bateryjnie (BBU/FBWC):}
+W przypadku korzystania ze sprzętowego kontrolera RAID z włączoną pamięcią podręczną zapisu (\sphinxstyleemphasis{Write\sphinxhyphen{}Back Cache}), \sphinxstylestrong{bezwzględnym warunkiem bezpieczeństwa} jest obecność modułu \sphinxstylestrong{BBU} (\sphinxstyleemphasis{Battery Backup Unit}) lub \sphinxstylestrong{FBWC} (\sphinxstyleemphasis{Flash\sphinxhyphen{}Backed Write Cache}). W razie awarii zasilania serwera, moduł ten podtrzymuje dane w pamięci cache kontrolera (lub przepisuje je do dedykowanej pamięci flash), zapobiegając utracie nieutrwalonych transakcji i uszkodzeniu struktury macierzy.
+
+
+\subsubsection{Wybór Poziomu RAID pod Kątem Baz Danych}
+\label{\detokenize{rozdzial_2/2.1/index:wybor-poziomu-raid-pod-katem-baz-danych}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{RAID 10 (Striped Mirror):} Rekomendowany układ dla większości systemów bazodanowych. Łączy zalety wydajnościowe paskowania (RAID 0) i bezpieczeństwa lustrzanego (RAID 1). Zapewnia doskonałą wydajność losowego zapisu, ponieważ nie generuje tzw. narzutu parzystości (\sphinxstyleemphasis{write penalty}).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{RAID 5 / RAID 6:} Zapewniają lepsze wykorzystanie przestrzeni dyskowej, ale każda operacja zapisu wymaga odczytu danych, obliczenia nowej parzystości i ponownego zapisu (\sphinxstyleemphasis{kara za zapis}). Są \sphinxstylestrong{wysoce niewskazane dla baz transakcyjnych OLTP}. Mogą być stosowane jedynie w hurtowniach danych (OLAP), gdzie operacje zapisu są sekwencyjne i rzadkie (procesy ETL).
+
+\end{itemize}
+
+
+\subsection{Zasilanie i Niezawodność}
+\label{\detokenize{rozdzial_2/2.1/index:zasilanie-i-niezawodnosc}}
+\sphinxAtStartPar
+Podsystem zasilania w infrastrukturze bazodanowej traktowany jest jako integralny element ochrony integralności logicznej danych, a nie tylko komponent ciągłości działania.
+
+
+\subsubsection{Nadmiarowość Zasilaczy i Niezależne Linie Zasilające}
+\label{\detokenize{rozdzial_2/2.1/index:nadmiarowosc-zasilaczy-i-niezalezne-linie-zasilajace}}
+\sphinxAtStartPar
+Serwer bazodanowy musi posiadać zasilacze nadmiarowe typu \sphinxstyleemphasis{Hot\sphinxhyphen{}Swap} (z możliwością wymiany podczas pracy) w konfiguracji minimum \sphinxstylestrong{N+1} lub optymalnie \sphinxstylestrong{2N} (Full Redundancy).
+
+\sphinxAtStartPar
+Zasilacze muszą być podpięte do fizycznie odseparowanych źródeł zasilania:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Zasilacz A:} Podłączony do Linii zasilającej A oraz dedykowanego modułu UPS A.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Zasilacz B:} Podłączony do Linii zasilającej B oraz dedykowanego modułu UPS B.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Taka topologia gwarantuje, że awaria jednego zasilacza, uszkodzenie kabla lub całkowity zanik napięcia na jednej z linii energetycznych nie spowoduje wyłączenia serwera.
+
+
+\subsubsection{Infrastruktura UPS i Agregaty Prądotwórcze}
+\label{\detokenize{rozdzial_2/2.1/index:infrastruktura-ups-i-agregaty-pradotworcze}}
+\sphinxAtStartPar
+Wszelkie systemy serwerowe DBMS muszą współpracować z zasilaczami awaryjnymi UPS działającymi w topologii \sphinxstyleemphasis{Online} (podwójne przetwarzanie). Zapewniają one idealną sinusoidę napięcia, eliminują przepięcia i gwarantują czas podtrzymania niezbędny do automatycznego uruchomienia spalinowych agregatów prądotwórczych o odpowiedniej mocy.
+
+
+\subsubsection{Zapobieganie Zjawisku „Torn Writes”}
+\label{\detokenize{rozdzial_2/2.1/index:zapobieganie-zjawisku-torn-writes}}
+\sphinxAtStartPar
+Zjawisko \sphinxstyleemphasis{Torn Write} (rozbity/częściowy zapis) występuje, gdy system operacyjny przesyła do zapisu stronę danych (np. 8 KB), a w trakcie fizycznego zapisu na komórkę pamięci Flash dochodzi do nagłego odcięcia zasilania. W efekcie na dysku ląduje np. tylko 4 KB danych, co powoduje bezpowrotne uszkodzenie struktury tej strony i błąd sumy kontrolnej przy próbie kolejnego uruchomienia bazy danych.
+
+\sphinxAtStartPar
+Poza mechanizmami programowymi (takimi jak \sphinxstyleemphasis{Doublewrite Buffer} w silniku InnoDB/MySQL), na poziomie sprzętowym stosuje się technologię \sphinxstylestrong{PLP (Power Loss Protection)}. Dyski klasy Enterprise posiadają wbudowane banki kondensatorów tantalowych. W momencie wykrycia spadku napięcia, energia z kondensatorów pozwala na podtrzymanie pracy kontrolera dysku przez czas wymagany do bezpiecznego opróżnienia pamięci podręcznej RAM dysku i utrwalenia wszystkich danych w nieulotnych komórkach pamięci NAND Flash.
+
+
+\subsection{Podsumowanie}
+\label{\detokenize{rozdzial_2/2.1/index:podsumowanie}}
+\sphinxAtStartPar
+Dobór sprzętu dla systemów zarządzania bazami danych musi być ściśle dopasowany do profilu obciążenia, z wyraźnym podziałem na transakcyjne środowiska OLTP oraz analityczne systemy OLAP. Wybór procesora stanowi kompromis pomiędzy taktowaniem a wielordzeniowością ze względu na koszty licencyjne, podczas gdy w przypadku pamięci operacyjnej absolutnym wymogiem jest zastosowanie technologii ECC chroniącej przed cichą korupcją danych. W obszarze pamięci masowej standardem stały się nośniki półprzewodnikowe NVMe o wysokiej wytrzymałości (DWPD), które ze względów wydajnościowych wymagają fizycznej separacji wolumenów dla dzienników transakcji i plików danych. Do zabezpieczenia pracy dysków rekomenduje się użycie konfiguracji RAID 10 w połączeniu z nowoczesnymi kontrolerami sprzętowymi lub rozwiązaniami programowymi. Całość infrastruktury musi być kategorycznie chroniona przed awariami poprzez nadmiarowe zasilacze w konfiguracji 2N, systemy UPS w topologii Online oraz dyski wyposażone w sprzętową ochronę PLP eliminującą zjawisko uszkodzonych zapisów.
+
+\sphinxstepscope
+
+
+\section{Konfiguracja bazy danych PostgreSQL}
+\label{\detokenize{rozdzial_2/2.2/index:konfiguracja-bazy-danych-postgresql}}\label{\detokenize{rozdzial_2/2.2/index::doc}}
+
+\subsection{Wstęp}
+\label{\detokenize{rozdzial_2/2.2/index:wstep}}
+\sphinxAtStartPar
+Rozdział opisuje konfigurację połączenia z bazą danych \sphinxstylestrong{PostgreSQL} \textendash{} dojrzałym, open\sphinxhyphen{}source’owym systemem zarządzania relacyjnymi bazami danych (RDBMS), który wyróżnia się pełną zgodnością ze standardem SQL oraz silnym naciskiem na rozszerzalność i niezawodność.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Wymagania:}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+dostęp do instancji PostgreSQL,
+
+\item {} 
+\sphinxAtStartPar
+zmienne środowiskowe,
+
+\item {} 
+\sphinxAtStartPar
+narzędzia projektowe (np. \sphinxcode{\sphinxupquote{psql}}, \sphinxcode{\sphinxupquote{pg\_isready}}).
+
+\end{itemize}
+
+
+\subsection{Podstawowe parametry}
+\label{\detokenize{rozdzial_2/2.2/index:podstawowe-parametry}}
+\sphinxAtStartPar
+Każde połączenie z PostgreSQL wymaga:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+hosta i portu (domyślnie \sphinxcode{\sphinxupquote{localhost}} i \sphinxcode{\sphinxupquote{5432}}),
+
+\item {} 
+\sphinxAtStartPar
+nazwy bazy danych,
+
+\item {} 
+\sphinxAtStartPar
+użytkownika i hasła.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Dane wrażliwe (np. hasła) przechowuj w \sphinxstylestrong{zmiennych środowiskowych} \textendash{} to oddziela konfigurację od kodu.
+Pamiętaj: zmienne środowiskowe nie są mechanizmem bezpieczeństwa; w produkcji uzupełnij je o dedykowane
+zarządzanie sekretami (np. HashiCorp Vault, AWS Secrets Manager).
+
+
+\subsection{Lokalizacja i struktura katalogów PostgreSQL}
+\label{\detokenize{rozdzial_2/2.2/index:lokalizacja-i-struktura-katalogow-postgresql}}
+\sphinxAtStartPar
+Pliki konfiguracyjne PostgreSQL znajdują się w katalogu danych (\sphinxcode{\sphinxupquote{PGDATA}}).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Główne pliki konfiguracyjne:}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{postgresql.conf}} \textendash{} podstawowa konfiguracja serwera (port, pamięć, logi)
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_hba.conf}} \textendash{} kontrola dostępu (kto i skąd może się łączyć)
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_ident.conf}} \textendash{} mapowanie użytkowników systemowych na role PostgreSQL
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Domyślne lokalizacje:}
+
+
+\begin{savenotes}\sphinxattablestart
+\sphinxthistablewithglobalstyle
+\centering
+\sphinxcapstartof{table}
+\sphinxthecaptionisattop
+\sphinxcaption{Domyślne lokalizacje}\label{\detokenize{rozdzial_2/2.2/index:id6}}
+\sphinxaftertopcaption
+\begin{tabular}[t]{\X{30}{100}\X{70}{100}}
+\sphinxtoprule
+\begin{varwidth}[t]{\sphinxcolwidth{1}{2}}
+\sphinxstyletheadfamily \sphinxAtStartPar
+System
+\sphinxbeforeendvarwidth
+\end{varwidth}%
+&\begin{varwidth}[t]{\sphinxcolwidth{1}{2}}
+\sphinxstyletheadfamily \sphinxAtStartPar
+Katalog danych
+\sphinxbeforeendvarwidth
+\end{varwidth}%
+\\
+\sphinxmidrule
+\sphinxtableatstartofbodyhook\begin{varwidth}[t]{\sphinxcolwidth{1}{2}}
+\sphinxAtStartPar
+Linux (RPM/DEB)
+\sphinxbeforeendvarwidth
+\end{varwidth}%
+&\begin{varwidth}[t]{\sphinxcolwidth{1}{2}}
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{/var/lib/pgsql/data/}} lub \sphinxcode{\sphinxupquote{/var/lib/postgresql/*/main/}}
+\sphinxbeforeendvarwidth
+\end{varwidth}%
+\\
+\sphinxhline\begin{varwidth}[t]{\sphinxcolwidth{1}{2}}
+\sphinxAtStartPar
+Linux (kompilacja źródłowa)
+\sphinxbeforeendvarwidth
+\end{varwidth}%
+&\begin{varwidth}[t]{\sphinxcolwidth{1}{2}}
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{/usr/local/pgsql/data/}}
+\sphinxbeforeendvarwidth
+\end{varwidth}%
+\\
+\sphinxhline\begin{varwidth}[t]{\sphinxcolwidth{1}{2}}
+\sphinxAtStartPar
+Windows
+\sphinxbeforeendvarwidth
+\end{varwidth}%
+&\begin{varwidth}[t]{\sphinxcolwidth{1}{2}}
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{C:\textbackslash{}Program Files\textbackslash{}PostgreSQL\textbackslash{}\textless{}version\textgreater{}\textbackslash{}data\textbackslash{}}}
+\sphinxbeforeendvarwidth
+\end{varwidth}%
+\\
+\sphinxhline\begin{varwidth}[t]{\sphinxcolwidth{1}{2}}
+\sphinxAtStartPar
+Docker
+\sphinxbeforeendvarwidth
+\end{varwidth}%
+&\begin{varwidth}[t]{\sphinxcolwidth{1}{2}}
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{/var/lib/postgresql/data/}} (w kontenerze)
+\sphinxbeforeendvarwidth
+\end{varwidth}%
+\\
+\sphinxbottomrule
+\end{tabular}
+\sphinxtableafterendhook\par
+\sphinxattableend\end{savenotes}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Zmiana katalogu danych:}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Inicjalizacja nowego katalogu}
+initdb\PYG{+w}{ }\PYGZhy{}D\PYG{+w}{ }/ścieżka/do/katalogu
+
+\PYG{c+c1}{\PYGZsh{} Uruchomienie z niestandardowym PGDATA}
+pg\PYGZus{}ctl\PYG{+w}{ }\PYGZhy{}D\PYG{+w}{ }/ścieżka/do/katalogu\PYG{+w}{ }start
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Struktura katalogu danych:}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZdl{}PGDATA/
+├── postgresql.conf   \PYGZsh{} główny plik konfiguracyjny
+├── pg\PYGZus{}hba.conf       \PYGZsh{} polityka dostępu
+├── pg\PYGZus{}ident.conf     \PYGZsh{} mapowanie tożsamości
+├── base/             \PYGZsh{} rzeczywiste bazy danych
+├── global/           \PYGZsh{} tabele systemowe
+├── log/              \PYGZsh{} logi serwera
+└── pg\PYGZus{}wal/           \PYGZsh{} Write\PYGZhy{}Ahead Log (WAL)
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Sprawdzenie aktualnej lokalizacji:}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SHOW}\PYG{+w}{ }\PYG{n}{data\PYGZus{}directory}\PYG{p}{;}
+\PYG{k}{SHOW}\PYG{+w}{ }\PYG{n}{config\PYGZus{}file}\PYG{p}{;}
+\PYG{k}{SHOW}\PYG{+w}{ }\PYG{n}{hba\PYGZus{}file}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{Środowiska i profile}
+\label{\detokenize{rozdzial_2/2.2/index:srodowiska-i-profile}}
+\sphinxAtStartPar
+Przełączanie środowisk PostgreSQL (dev/test/prod) realizuj przez:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+zmienne środowiskowe (np. \sphinxcode{\sphinxupquote{PGHOST}}, \sphinxcode{\sphinxupquote{PGPORT}}, \sphinxcode{\sphinxupquote{PGDATABASE}}, \sphinxcode{\sphinxupquote{PGUSER}}, \sphinxcode{\sphinxupquote{PGPASSWORD}}),
+
+\item {} 
+\sphinxAtStartPar
+profile konfiguracyjne,
+
+\item {} 
+\sphinxAtStartPar
+osobne pliki \sphinxcode{\sphinxupquote{.env}} dla każdego środowiska.
+
+\end{itemize}
+
+
+\subsection{Automatyzacja}
+\label{\detokenize{rozdzial_2/2.2/index:automatyzacja}}
+\sphinxAtStartPar
+Zalecenia dla PostgreSQL:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+walidacja konfiguracji przy starcie za pomocą \sphinxcode{\sphinxupquote{pg\_isready}},
+
+\item {} 
+\sphinxAtStartPar
+skrypty sprawdzające kompletność zmiennych środowiskowych,
+
+\item {} 
+\sphinxAtStartPar
+integracja z CI/CD (np. GitHub Actions, GitLab CI).
+
+\end{itemize}
+
+\sphinxAtStartPar
+Dokumentację generuj automatycznie (Sphinx).
+
+
+\subsection{Przykłady}
+\label{\detokenize{rozdzial_2/2.2/index:przyklady}}
+\sphinxAtStartPar
+\sphinxstylestrong{PostgreSQL \textendash{} zmienne środowiskowe (.env)}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+PGHOST=localhost
+PGPORT=5432
+PGDATABASE=aplikacja
+PGUSER=app\PYGZus{}user
+PGPASSWORD=\PYGZdl{}\PYGZob{}DB\PYGZus{}PASSWORD\PYGZcb{}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+\sphinxstylestrong{PostgreSQL \textendash{} URL połączenia}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+DATABASE\PYGZus{}URL=postgresql://\PYGZdl{}\PYGZob{}PGUSER\PYGZcb{}:\PYGZdl{}\PYGZob{}PGPASSWORD\PYGZcb{}@\PYGZdl{}\PYGZob{}PGHOST\PYGZcb{}:\PYGZdl{}\PYGZob{}PGPORT\PYGZcb{}/\PYGZdl{}\PYGZob{}PGDATABASE\PYGZcb{}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+\sphinxstylestrong{PostgreSQL \textendash{} sprawdzenie połączenia}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+pg\PYGZus{}isready \PYGZhy{}h \PYGZdl{}\PYGZob{}PGHOST\PYGZcb{} \PYGZhy{}p \PYGZdl{}\PYGZob{}PGPORT\PYGZcb{} \PYGZhy{}U \PYGZdl{}\PYGZob{}PGUSER\PYGZcb{} \PYGZhy{}d \PYGZdl{}\PYGZob{}PGDATABASE\PYGZcb{}
+\end{sphinxVerbatim}
+
+
+\subsection{Najlepsze praktyki}
+\label{\detokenize{rozdzial_2/2.2/index:najlepsze-praktyki}}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Nie przechowuj sekretów w repozytorium.
+
+\item {} 
+\sphinxAtStartPar
+Stosuj \sphinxcode{\sphinxupquote{.env.example}} zamiast rzeczywistych danych.
+
+\item {} 
+\sphinxAtStartPar
+Używaj standardowych zmiennych środowiskowych PostgreSQL (\sphinxcode{\sphinxupquote{PG*}}).
+
+\item {} 
+\sphinxAtStartPar
+Waliduj konfigurację przed uruchomieniem (\sphinxcode{\sphinxupquote{pg\_isready}}).
+
+\item {} 
+\sphinxAtStartPar
+W środowiskach produkcyjnych używaj połączeń SSL/TLS (\sphinxcode{\sphinxupquote{sslmode=require}}).
+
+\end{enumerate}
+
+
+\subsection{Podsumowanie}
+\label{\detokenize{rozdzial_2/2.2/index:podsumowanie}}
+\sphinxAtStartPar
+Poprawna konfiguracja połączenia z PostgreSQL zwiększa bezpieczeństwo i przenośność aplikacji między środowiskami. Standardowe zmienne środowiskowe oraz narzędzia takie jak \sphinxcode{\sphinxupquote{pg\_isready}} ułatwiają automatyzację i walidację.
+
+
+\subsection{Szczegółowe omówienie plików konfiguracyjnych}
+\label{\detokenize{rozdzial_2/2.2/index:szczegolowe-omowienie-plikow-konfiguracyjnych}}
+\sphinxAtStartPar
+Po omówieniu podstawowych wymagań środowiskowych można przejść do szczegółowej konfiguracji PostgreSQL.
+
+\sphinxAtStartPar
+W kolejnych sekcjach przedstawiono najważniejsze parametry konfiguracyjne dostępne w plikach:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{postgresql.conf}} \textendash{} konfiguracja działania serwera,
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_hba.conf}} \textendash{} kontrola dostępu do bazy danych,
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_ident.conf}} \textendash{} mapowanie użytkowników systemowych na role PostgreSQL.
+
+\end{itemize}
+
+
+\subsection{postgresql.conf}
+\label{\detokenize{rozdzial_2/2.2/index:postgresql-conf}}
+\sphinxAtStartPar
+Plik \sphinxcode{\sphinxupquote{postgresql.conf}} jest głównym plikiem konfiguracyjnym klastra PostgreSQL.
+Zawiera ustawienia wpływające na działanie serwera, wydajność, bezpieczeństwo, logowanie oraz replikację.
+
+\sphinxAtStartPar
+Lokalizację aktywnego pliku można sprawdzić poleceniem:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SHOW}\PYG{+w}{ }\PYG{n}{config\PYGZus{}file}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Najważniejsze parametry}
+\label{\detokenize{rozdzial_2/2.2/index:najwazniejsze-parametry}}
+
+\paragraph{Połączenia sieciowe}
+\label{\detokenize{rozdzial_2/2.2/index:polaczenia-sieciowe}}\begin{description}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{listen\_addresses}}}
+\sphinxAtStartPar
+Określa adresy IP, na których PostgreSQL nasłuchuje połączeń.
+
+\sphinxAtStartPar
+Najczęstsze wartości:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{localhost}} \textendash{} tylko połączenia lokalne,
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{*}} \textendash{} wszystkie interfejsy sieciowe,
+
+\item {} 
+\sphinxAtStartPar
+lista adresów, np. \sphinxcode{\sphinxupquote{\textquotesingle{}192.168.1.10,localhost\textquotesingle{}}}.
+
+\end{itemize}
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{port}}}
+\sphinxAtStartPar
+Port TCP używany przez PostgreSQL.
+
+\sphinxAtStartPar
+Domyślna wartość:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+na}{port}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{5432}
+\end{sphinxVerbatim}
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{max\_connections}}}
+\sphinxAtStartPar
+Maksymalna liczba jednoczesnych połączeń z bazą danych.
+
+\sphinxAtStartPar
+Zbyt wysoka wartość może zwiększać zużycie pamięci.
+
+\end{description}
+
+
+\paragraph{Pamięć i wydajność}
+\label{\detokenize{rozdzial_2/2.2/index:pamiec-i-wydajnosc}}\begin{description}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{shared\_buffers}}}
+\sphinxAtStartPar
+Ilość pamięci RAM używanej przez PostgreSQL do buforowania danych.
+
+\sphinxAtStartPar
+Typowe wartości:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+128MB \textendash{} środowiska testowe,
+
+\item {} 
+\sphinxAtStartPar
+25\% pamięci RAM \textendash{} środowiska produkcyjne.
+
+\end{itemize}
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{work\_mem}}}
+\sphinxAtStartPar
+Ilość pamięci wykorzystywanej przez operacje sortowania i zapytania.
+
+\sphinxAtStartPar
+Parametr jest przydzielany dla pojedynczej operacji.
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{maintenance\_work\_mem}}}
+\sphinxAtStartPar
+Pamięć używana podczas operacji administracyjnych, np.:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{VACUUM}},
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{CREATE INDEX}},
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{ALTER TABLE}}.
+
+\end{itemize}
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{effective\_cache\_size}}}
+\sphinxAtStartPar
+Szacowany rozmiar pamięci podręcznej dostępnej dla PostgreSQL.
+
+\sphinxAtStartPar
+Parametr pomaga optymalizatorowi zapytań wybierać odpowiednie plany wykonania.
+
+\end{description}
+
+
+\paragraph{Logowanie}
+\label{\detokenize{rozdzial_2/2.2/index:logowanie}}\begin{description}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{logging\_collector}}}
+\sphinxAtStartPar
+Włącza zapisywanie logów do plików.
+
+\sphinxAtStartPar
+Dostępne wartości:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{on}},
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{off}}.
+
+\end{itemize}
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{log\_directory}}}
+\sphinxAtStartPar
+Katalog przechowywania logów.
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{log\_filename}}}
+\sphinxAtStartPar
+Wzorzec nazw plików logów.
+
+\sphinxAtStartPar
+Przykład:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+na}{log\PYGZus{}filename}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{postgresql\PYGZhy{}\PYGZpc{}Y\PYGZhy{}\PYGZpc{}m\PYGZhy{}\PYGZpc{}d.log}\PYG{l+s}{\PYGZsq{}}
+\end{sphinxVerbatim}
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{log\_min\_duration\_statement}}}
+\sphinxAtStartPar
+Określa minimalny czas wykonania zapytania (w ms), po którym zostanie ono zapisane w logach.
+
+\sphinxAtStartPar
+Przykład:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+na}{log\PYGZus{}min\PYGZus{}duration\PYGZus{}statement}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{1000}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Wartość \sphinxcode{\sphinxupquote{1000}} oznacza logowanie zapytań trwających dłużej niż 1 sekundę.
+
+\end{description}
+
+
+\paragraph{Bezpieczeństwo}
+\label{\detokenize{rozdzial_2/2.2/index:bezpieczenstwo}}\begin{description}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{password\_encryption}}}
+\sphinxAtStartPar
+Algorytm szyfrowania haseł użytkowników.
+
+\sphinxAtStartPar
+Zalecana wartość:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+na}{password\PYGZus{}encryption}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{scram\PYGZhy{}sha\PYGZhy{}256}
+\end{sphinxVerbatim}
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{ssl}}}
+\sphinxAtStartPar
+Włącza obsługę połączeń SSL/TLS.
+
+\sphinxAtStartPar
+Dostępne wartości:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{on}},
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{off}}.
+
+\end{itemize}
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{ssl\_cert\_file}} / \sphinxcode{\sphinxupquote{ssl\_key\_file}}}
+\sphinxAtStartPar
+Ścieżki do certyfikatu i klucza prywatnego SSL.
+
+\end{description}
+
+
+\paragraph{Replikacja i WAL}
+\label{\detokenize{rozdzial_2/2.2/index:replikacja-i-wal}}\begin{description}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{wal\_level}}}
+\sphinxAtStartPar
+Określa poziom szczegółowości Write\sphinxhyphen{}Ahead Log (WAL).
+
+\sphinxAtStartPar
+Dostępne wartości:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{minimal}},
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{replica}},
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{logical}}.
+
+\end{itemize}
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{max\_wal\_size}}}
+\sphinxAtStartPar
+Maksymalny rozmiar plików WAL przed wykonaniem checkpointu.
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{archive\_mode}}}
+\sphinxAtStartPar
+Włącza archiwizację WAL.
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{archive\_command}}}
+\sphinxAtStartPar
+Polecenie wykonywane podczas archiwizacji plików WAL.
+
+\end{description}
+
+
+\subsubsection{Przykładowa konfiguracja}
+\label{\detokenize{rozdzial_2/2.2/index:przykladowa-konfiguracja}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+na}{listen\PYGZus{}addresses}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{*}\PYG{l+s}{\PYGZsq{}}
+\PYG{n+na}{port}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{5432}
+\PYG{n+na}{max\PYGZus{}connections}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{200}
+
+\PYG{n+na}{shared\PYGZus{}buffers}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{1GB}
+\PYG{n+na}{work\PYGZus{}mem}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{16MB}
+\PYG{n+na}{maintenance\PYGZus{}work\PYGZus{}mem}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{256MB}
+
+\PYG{n+na}{logging\PYGZus{}collector}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{on}
+\PYG{n+na}{log\PYGZus{}directory}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{log}\PYG{l+s}{\PYGZsq{}}
+
+\PYG{n+na}{ssl}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{on}
+\PYG{n+na}{password\PYGZus{}encryption}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{scram\PYGZhy{}sha\PYGZhy{}256}
+
+\PYG{n+na}{wal\PYGZus{}level}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{replica}
+\PYG{n+na}{max\PYGZus{}wal\PYGZus{}size}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{2GB}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Weryfikacja konfiguracji}
+\label{\detokenize{rozdzial_2/2.2/index:weryfikacja-konfiguracji}}
+\sphinxAtStartPar
+Po zmianie parametrów konfigurację można przeładować bez restartu serwera:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+SELECT\PYG{+w}{ }pg\PYGZus{}reload\PYGZus{}conf\PYG{o}{(}\PYG{o}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Niektóre parametry wymagają pełnego restartu PostgreSQL.
+
+\sphinxAtStartPar
+Aktualne wartości parametrów można sprawdzić poleceniem:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SHOW}\PYG{+w}{ }\PYG{n}{shared\PYGZus{}buffers}\PYG{p}{;}
+\PYG{k}{SHOW}\PYG{+w}{ }\PYG{n}{wal\PYGZus{}level}\PYG{p}{;}
+\PYG{k}{SHOW}\PYG{+w}{ }\PYG{n}{max\PYGZus{}connections}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{pg\_hba.conf}
+\label{\detokenize{rozdzial_2/2.2/index:pg-hba-conf}}
+\sphinxAtStartPar
+Plik \sphinxcode{\sphinxupquote{pg\_hba.conf}} (Host\sphinxhyphen{}Based Authentication) odpowiada za kontrolę dostępu do serwera PostgreSQL.
+
+\sphinxAtStartPar
+Definiuje:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+kto może połączyć się z bazą danych,
+
+\item {} 
+\sphinxAtStartPar
+z jakiego adresu IP,
+
+\item {} 
+\sphinxAtStartPar
+do jakiej bazy danych,
+
+\item {} 
+\sphinxAtStartPar
+przy użyciu jakiej metody uwierzytelniania.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Lokalizację aktywnego pliku można sprawdzić poleceniem:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SHOW}\PYG{+w}{ }\PYG{n}{hba\PYGZus{}file}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Składnia wpisu}
+\label{\detokenize{rozdzial_2/2.2/index:skladnia-wpisu}}
+\sphinxAtStartPar
+Każdy wpis w \sphinxcode{\sphinxupquote{pg\_hba.conf}} ma następującą strukturę:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{TYPE}    \PYG{n}{DATABASE}    \PYG{n}{USER}    \PYG{n}{ADDRESS}    \PYG{n}{METHOD}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Znaczenie pól:
+\begin{description}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{TYPE}}}
+\sphinxAtStartPar
+Typ połączenia.
+
+\sphinxAtStartPar
+Dostępne wartości:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{local}} \textendash{} połączenia lokalne (Unix socket),
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{host}} \textendash{} połączenia TCP/IP,
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{hostssl}} \textendash{} połączenia TCP/IP z SSL,
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{hostnossl}} \textendash{} połączenia TCP/IP bez SSL.
+
+\end{itemize}
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{DATABASE}}}
+\sphinxAtStartPar
+Nazwa bazy danych, do której użytkownik może się połączyć.
+
+\sphinxAtStartPar
+Możliwe wartości:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+konkretna nazwa bazy,
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{all}} \textendash{} wszystkie bazy,
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{sameuser}} \textendash{} baza o nazwie zgodnej z użytkownikiem.
+
+\end{itemize}
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{USER}}}
+\sphinxAtStartPar
+Użytkownik lub rola PostgreSQL.
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{ADDRESS}}}
+\sphinxAtStartPar
+Adres IP lub zakres sieci w notacji CIDR.
+
+\sphinxAtStartPar
+Przykłady:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{127.0.0.1/32}},
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{192.168.1.0/24}},
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{0.0.0.0/0}} \textendash{} wszystkie adresy.
+
+\end{itemize}
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{METHOD}}}
+\sphinxAtStartPar
+Metoda uwierzytelniania użytkownika.
+
+\end{description}
+
+
+\subsubsection{Najczęściej używane metody uwierzytelniania}
+\label{\detokenize{rozdzial_2/2.2/index:najczesciej-uzywane-metody-uwierzytelniania}}\begin{description}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{trust}}}
+\sphinxAtStartPar
+Zezwala na połączenie bez uwierzytelniania.
+
+\sphinxAtStartPar
+Zalecane wyłącznie w środowiskach testowych.
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{reject}}}
+\sphinxAtStartPar
+Odrzuca połączenie.
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{md5}}}
+\sphinxAtStartPar
+Uwierzytelnianie przy użyciu hasła MD5.
+
+\sphinxAtStartPar
+Metoda starsza i mniej bezpieczna niż SCRAM.
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{scram\sphinxhyphen{}sha\sphinxhyphen{}256}}}
+\sphinxAtStartPar
+Nowoczesna metoda uwierzytelniania oparta na SCRAM.
+
+\sphinxAtStartPar
+Zalecana dla nowych instalacji PostgreSQL.
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{peer}}}
+\sphinxAtStartPar
+Uwierzytelnianie na podstawie użytkownika systemowego.
+
+\sphinxAtStartPar
+Najczęściej używane dla lokalnych połączeń Linux/Unix.
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{ident}}}
+\sphinxAtStartPar
+Mapowanie użytkownika systemowego przy użyciu \sphinxcode{\sphinxupquote{pg\_ident.conf}}.
+
+\end{description}
+
+
+\subsubsection{Przykładowa konfiguracja}
+\label{\detokenize{rozdzial_2/2.2/index:id1}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Połączenia lokalne}
+\PYG{n+na}{local   all             postgres                        peer}
+
+\PYG{c+c1}{\PYGZsh{} Połączenia localhost IPv4}
+\PYG{n+na}{host    all             all         127.0.0.1/32        scram\PYGZhy{}sha\PYGZhy{}256}
+
+\PYG{c+c1}{\PYGZsh{} Połączenia localhost IPv6}
+\PYG{n+na}{host    all             all}\PYG{+w}{         }\PYG{o}{:}\PYG{l+s}{:1/128             scram\PYGZhy{}sha\PYGZhy{}256}
+
+\PYG{c+c1}{\PYGZsh{} Sieć lokalna}
+\PYG{n+na}{host    aplikacja       app\PYGZus{}user    192.168.1.0/24      scram\PYGZhy{}sha\PYGZhy{}256}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Najlepsze praktyki}
+\label{\detokenize{rozdzial_2/2.2/index:id2}}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Używaj \sphinxcode{\sphinxupquote{scram\sphinxhyphen{}sha\sphinxhyphen{}256}} zamiast \sphinxcode{\sphinxupquote{md5}}.
+
+\item {} 
+\sphinxAtStartPar
+Ograniczaj dostęp do konkretnych adresów IP.
+
+\item {} 
+\sphinxAtStartPar
+Nie używaj \sphinxcode{\sphinxupquote{trust}} w środowiskach produkcyjnych.
+
+\item {} 
+\sphinxAtStartPar
+Stosuj \sphinxcode{\sphinxupquote{hostssl}} dla połączeń zdalnych.
+
+\item {} 
+\sphinxAtStartPar
+Po zmianie konfiguracji wykonuj reload konfiguracji:
+
+\end{enumerate}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{pg\PYGZus{}reload\PYGZus{}conf}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{pg\_ident.conf}
+\label{\detokenize{rozdzial_2/2.2/index:pg-ident-conf}}
+\sphinxAtStartPar
+Plik \sphinxcode{\sphinxupquote{pg\_ident.conf}} umożliwia mapowanie użytkowników systemowych na role PostgreSQL.
+
+\sphinxAtStartPar
+Najczęściej używany jest razem z metodami uwierzytelniania:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{peer}},
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{ident}}.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Lokalizację aktywnego pliku można sprawdzić poleceniem:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SHOW}\PYG{+w}{ }\PYG{n}{ident\PYGZus{}file}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Zastosowanie}
+\label{\detokenize{rozdzial_2/2.2/index:zastosowanie}}
+\sphinxAtStartPar
+Mechanizm mapowania pozwala określić, który użytkownik systemowy może zostać powiązany z konkretną rolą PostgreSQL.
+
+\sphinxAtStartPar
+Jest to szczególnie przydatne:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+w środowiskach Linux/Unix,
+
+\item {} 
+\sphinxAtStartPar
+przy automatyzacji administracyjnej,
+
+\item {} 
+\sphinxAtStartPar
+dla lokalnych połączeń bez użycia haseł.
+
+\end{itemize}
+
+
+\subsubsection{Składnia wpisu}
+\label{\detokenize{rozdzial_2/2.2/index:id3}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{MAPNAME}    \PYG{n}{SYSTEM}\PYG{o}{\PYGZhy{}}\PYG{n}{USERNAME}    \PYG{n}{PG}\PYG{o}{\PYGZhy{}}\PYG{n}{USERNAME}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Znaczenie pól:
+\begin{description}
+\sphinxlineitem{\sphinxcode{\sphinxupquote{MAPNAME}}}
+\sphinxAtStartPar
+Nazwa mapowania wykorzystywana w \sphinxcode{\sphinxupquote{pg\_hba.conf}}.
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{SYSTEM\sphinxhyphen{}USERNAME}}}
+\sphinxAtStartPar
+Użytkownik systemu operacyjnego.
+
+\sphinxlineitem{\sphinxcode{\sphinxupquote{PG\sphinxhyphen{}USERNAME}}}
+\sphinxAtStartPar
+Rola PostgreSQL, na którą użytkownik ma zostać zmapowany.
+
+\end{description}
+
+
+\subsubsection{Przykładowa konfiguracja}
+\label{\detokenize{rozdzial_2/2.2/index:id4}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} MAPNAME    SYSTEM\PYGZhy{}USERNAME    PG\PYGZhy{}USERNAME}
+\PYG{n+na}{admin\PYGZus{}map    postgres           postgres}
+\PYG{n+na}{admin\PYGZus{}map    deploy             db\PYGZus{}admin}
+\PYG{n+na}{app\PYGZus{}map      appuser            aplikacja}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Przykład użycia w \sphinxcode{\sphinxupquote{pg\_hba.conf}}:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+na}{local   all     all     peer map}\PYG{o}{=}\PYG{l+s}{admin\PYGZus{}map}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+W powyższym przykładzie użytkownicy systemowi zdefiniowani w \sphinxcode{\sphinxupquote{admin\_map}} mogą logować się jako odpowiadające im role PostgreSQL.
+
+
+\subsubsection{Najlepsze praktyki}
+\label{\detokenize{rozdzial_2/2.2/index:id5}}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Ograniczaj mapowania wyłącznie do wymaganych użytkowników.
+
+\item {} 
+\sphinxAtStartPar
+Nie mapuj użytkowników systemowych na role superuser bez uzasadnienia.
+
+\item {} 
+\sphinxAtStartPar
+Stosuj osobne role administracyjne i aplikacyjne.
+
+\item {} 
+\sphinxAtStartPar
+Dokumentuj wszystkie mapowania użytkowników.
+
+\item {} 
+\sphinxAtStartPar
+Regularnie przeglądaj konfigurację dostępu.
+
+\end{enumerate}
+
+\begin{sphinxadmonition}{note}{Opracowanie}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Autor:} Michał Kraus
+\sphinxstylestrong{Przedmiot:} Bazy danych
+\sphinxstylestrong{Data:} maj 2026
+\end{sphinxadmonition}
+
+\sphinxstepscope
+
+
+\section{Kontrola i konserwacja}
+\label{\detokenize{rozdzial_2/2.3/index:kontrola-i-konserwacja}}\label{\detokenize{rozdzial_2/2.3/index::doc}}\begin{quote}\begin{description}
+\sphinxlineitem{Autorzy}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Paweł Łoćwin
+
+\item {} 
+\sphinxAtStartPar
+Paweł Łosowski
+
+\end{enumerate}
+
+\end{description}\end{quote}
+
+
+\subsection{Wprowadzenie i planowanie konserwacji}
+\label{\detokenize{rozdzial_2/2.3/index:wprowadzenie-i-planowanie-konserwacji}}
+\sphinxAtStartPar
+Współczesne systemy relacyjnych baz danych to wysoce skomplikowane środowiska, które wymagają ciągłego i proaktywnego nadzoru. Aby zagwarantować wysoką dostępność i niezawodność, niezbędne jest rygorystyczne planowanie procesów konserwacyjnych, które opiera się na odpowiedzi na trzy kluczowe pytania:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Kiedy?} Operacje inwazyjne (np. pełna przebudowa tabel i indeksów) powinny być planowane w tzw. oknach serwisowych, czyli w godzinach najniższego obciążenia systemu (zwykle w nocy lub w weekendy). Lżejsze prace konserwacyjne mogą odbywać się w tle.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{W jakim zakresie?} Należy precyzyjnie określić, czy konserwacji wymaga cała instancja, pojedyncza baza danych, czy tylko wytypowane, najszybciej rosnące tabele. Skupienie się na najbardziej obciążonych obszarach oszczędza zasoby sprzętowe.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Jak?} Konserwacja powinna być maksymalnie zautomatyzowana (np. z wykorzystaniem systemowego demona CRON lub rozszerzenia \sphinxcode{\sphinxupquote{pg\_cron}} w PostgreSQL). Ręczne interwencje administratora powinny być zarezerwowane wyłącznie dla sytuacji awaryjnych.
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstyleemphasis{Uwaga dla środowisk SQLite:} W przeciwieństwie do potężnego PostgreSQL, SQLite jako baza plikowa i wbudowana (embedded) nie posiada demonów działających w tle, więc pojęcie „planowania konserwacji” sprowadza się najczęściej do ręcznego wywoływania skryptów optymalizujących (np. z poziomu aplikacji klienckiej) w momentach, gdy plik bazy nie jest zablokowany.
+
+
+\subsection{Zarządzanie stanem serwera i sesjami}
+\label{\detokenize{rozdzial_2/2.3/index:zarzadzanie-stanem-serwera-i-sesjami}}
+\sphinxAtStartPar
+Podstawą kontroli nad środowiskiem bazodanowym w architekturze klient\sphinxhyphen{}serwer (takiej jak PostgreSQL) jest zarządzanie cyklem życia samej usługi. Uruchamianie, zatrzymywanie i restartowanie serwera bazy danych realizuje się najczęściej za pośrednictwem menedżera usług systemu operacyjnego (np. polecenia \sphinxcode{\sphinxupquote{systemctl start/stop/restart postgresql}}) lub za pomocą dedykowanego narzędzia wiersza poleceń \sphinxcode{\sphinxupquote{pg\_ctl}}.
+
+\sphinxAtStartPar
+Podczas wdrażania krytycznych aktualizacji lub w sytuacjach awaryjnych, konieczne jest sprawne zarządzanie ruchem użytkowników:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Zapobieganie nowym połączeniom:} Administrator może tymczasowo zablokować możliwość logowania się do konkretnej bazy danych poprzez zmianę jej metadanych. Pozwala to na „odcięcie” aplikacji bez wyłączania całego serwera.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Ograniczanie i rozłączanie użytkowników:} Istniejące, aktywne sesje, które np. zawiesiły się lub blokują ważne operacje, można siłowo przerwać, zwalniając tym samym zablokowane zasoby.
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Zapobieganie nawiązywaniu nowych połączeń do bazy danych (PostgreSQL)}
+\PYG{k}{ALTER}\PYG{+w}{ }\PYG{k}{DATABASE}\PYG{+w}{ }\PYG{n}{biblioteka\PYGZus{}db}\PYG{+w}{ }\PYG{n}{ALLOW\PYGZus{}CONNECTIONS}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{false}\PYG{p}{;}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Siłowe rozłączenie wszystkich aktywnych użytkowników (poza aktualną sesją)}
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{pg\PYGZus{}terminate\PYGZus{}backend}\PYG{p}{(}\PYG{n}{pid}\PYG{p}{)}
+\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{pg\PYGZus{}stat\PYGZus{}activity}
+\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{datname}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}biblioteka\PYGZus{}db\PYGZsq{}}\PYG{+w}{ }\PYG{k}{AND}\PYG{+w}{ }\PYG{n}{pid}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{pg\PYGZus{}backend\PYGZus{}pid}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+\sphinxstyleemphasis{Uwaga dla środowisk SQLite:} Ponieważ SQLite nie posiada procesu serwera zarządzającego użytkownikami sieciowymi, nie ma tu koncepcji „zabijania sesji” czy blokowania nowych połączeń sieciowych. Dostęp jest kontrolowany wyłącznie na poziomie blokad plików systemu operacyjnego (file locks).
+
+
+\subsection{Proces Vacuum}
+\label{\detokenize{rozdzial_2/2.3/index:proces-vacuum}}
+\sphinxAtStartPar
+Architektura PostgreSQL opiera się na mechanizmie MVCC (Multi\sphinxhyphen{}Version Concurrency Control). Oznacza to, że instrukcje aktualizacji (UPDATE) i usuwania (DELETE) nie niszczą fizycznie starych danych, lecz tworzą tzw. „martwe krotki” (dead tuples). Do zarządzania nimi służy proces czyszczenia:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{VACUUM:} Standardowa operacja zwalniająca miejsce po martwych wierszach, czyniąca je dostępnymi dla nowych danych. Nie zmniejsza ona fizycznego rozmiaru pliku na dysku i nie blokuje możliwości jednoczesnego odczytu i zapisu tabeli.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{VACUUM FULL:} Inwazyjna i ciężka operacja, która fizycznie przebudowuje tabelę, faktycznie zmniejszając jej rozmiar i zwracając wolne miejsce do systemu operacyjnego. Wymaga ekskluzywnej blokady (lock), całkowicie odcinając aplikację od modyfikowanej tabeli na czas trwania procesu.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{AUTOVACUUM:} Zautomatyzowany proces działający w tle, który regularnie monitoruje poziom zmian w tabelach i samoczynnie wyzwala standardowy Vacuum, zapobiegając niekontrolowanemu puchnięciu bazy danych (table bloat).
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstyleemphasis{Uwaga dla środowisk SQLite:} SQLite w odpowiedzi na operację DELETE po prostu oznacza miejsce jako „wolne” w pliku. Aby fizycznie skurczyć plik, należy wywołać unikalne polecenie \sphinxcode{\sphinxupquote{VACUUM}} (odpowiednik \sphinxcode{\sphinxupquote{VACUUM FULL}} z PostgreSQL). Możliwe jest również włączenie trybu \sphinxcode{\sphinxupquote{PRAGMA auto\_vacuum = FULL}}, jednak ze względów wydajnościowych narzuca on znaczny koszt przy każdej modyfikacji.
+
+
+\subsection{Zarządzanie transakcjami i schematy (SCHEMA)}
+\label{\detokenize{rozdzial_2/2.3/index:zarzadzanie-transakcjami-i-schematy-schema}}
+\sphinxAtStartPar
+Kolejnym aspektem administracji jest dbanie o logiczną strukturę bazy oraz spójność operacji.
+
+\sphinxAtStartPar
+\sphinxstylestrong{SCHEMA (Schematy)} to wirtualne przestrzenie nazw (przypominające katalogi w systemie operacyjnym), służące do logicznego grupowania tabel, widoków i funkcji. Warto nadmienić, że mechanizm logicznych schematów znany z PostgreSQL nie występuje natywnie w SQLite (istnieje tam komenda ATTACH do dołączania innych plików baz danych jako schematów, ale działa to na innej zasadzie). Główne zastosowania schematów w PostgreSQL to:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Izolacja danych różnych mikrousług lub aplikacji wewnątrz jednej wspólnej bazy danych.
+
+\item {} 
+\sphinxAtStartPar
+Implementacja architektury wielodostępowej (multi\sphinxhyphen{}tenant), gdzie każdy klient aplikacji obsługiwany jest w dedykowanym, oddzielnym schemacie.
+
+\item {} 
+\sphinxAtStartPar
+Ułatwione i zbiorcze zarządzanie uprawnieniami dostępu.
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Zarządzanie transakcjami} to proces kontrolowania instrukcji (BEGIN, COMMIT, ROLLBACK) w taki sposób, aby zachować zgodność z regułami ACID. Administrator musi zwracać szczególną uwagę na zapobieganie tzw. długim transakcjom (long\sphinxhyphen{}running transactions). Otwarta i porzucona transakcja powstrzymuje proces Vacuum przed usuwaniem martwych krotek, co prowadzi do drastycznego spadku wydajności całej bazy (dotyczy to tak samo PostgreSQL, jak i SQLite, gdzie długa transakcja zapisu blokuje cały plik bazy).
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Przykład logiki transakcyjnej z wykorzystaniem konkretnego schematu}
+\PYG{k}{BEGIN}\PYG{p}{;}
+\PYG{k}{INSERT}\PYG{+w}{ }\PYG{k}{INTO}\PYG{+w}{ }\PYG{n}{finanse}\PYG{p}{.}\PYG{n}{historia}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{kwota}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{opis}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{VALUES}\PYG{+w}{ }\PYG{p}{(}\PYG{l+m+mi}{200}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Opłata serwisowa\PYGZsq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{k}{UPDATE}\PYG{+w}{ }\PYG{n}{finanse}\PYG{p}{.}\PYG{n}{konta}\PYG{+w}{ }\PYG{k}{SET}\PYG{+w}{ }\PYG{n}{saldo}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{saldo}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{200}\PYG{+w}{ }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{id\PYGZus{}klienta}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{p}{;}
+\PYG{k}{COMMIT}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{Zarządzanie indeksami}
+\label{\detokenize{rozdzial_2/2.3/index:zarzadzanie-indeksami}}
+\sphinxAtStartPar
+Indeksy są fundamentalne dla wydajnego wyszukiwania danych, jednak ich utrzymanie kosztuje — spowalniają one modyfikacje danych (DML) i konsumują miejsce na dysku.
+
+\sphinxAtStartPar
+Prawidłowe zarządzanie indeksami polega na stałym monitorowaniu ich wykorzystania. Należy identyfikować i usuwać indeksy, które nie są wykorzystywane przez planistę zapytań (tzw. unused indexes). Dodatkowo, podobnie jak tabele, indeksy ulegają fragmentacji. Z tego powodu administrator powinien regularnie planować operację \sphinxstylestrong{REINDEX}, która od nowa buduje strukturę drzewa indeksu, przywracając mu optymalny rozmiar i maksymalną wydajność. W systemach PostgreSQL o wysokiej dostępności stosuje się przebudowę w trybie \sphinxcode{\sphinxupquote{CONCURRENTLY}}, która nie przerywa pracy aplikacji (SQLite posiada jedynie standardowe polecenie REINDEX, blokujące tabele).
+
+
+\subsection{Podsumowanie}
+\label{\detokenize{rozdzial_2/2.3/index:podsumowanie}}
+\sphinxAtStartPar
+Prawidłowa kontrola i konserwacja środowiska bazodanowego to wielowymiarowy proces, wymagający głębokiego zrozumienia zarówno architektury logicznej, jak i fizycznej silnika.
+
+\sphinxAtStartPar
+Stabilność i wydajność dużych systemów relacyjnych (PostgreSQL) zależy w równej mierze od prawidłowego zarządzania stanem usługi i połączeniami sieciowymi, dogłębnego planowania okien serwisowych, jak i proaktywnego zarządzania mechanizmem AutoVacuum. Z kolei w środowiskach wbudowanych (SQLite) ciężar ten przenosi się na precyzyjne zarządzanie blokadami plików operacyjnych oraz manualną defragmentację przestrzeni. Niezależnie od wybranego silnika, regularne dbanie o kondycję indeksów i izolacja transakcyjna pozwalają na zbudowanie stabilnego systemu odpornego na obciążenia w trudnych, produkcyjnych warunkach.
+
+\sphinxstepscope
+
+
+\section{Monitorowanie i diagnostyka}
+\label{\detokenize{rozdzial_2/2.4/index:monitorowanie-i-diagnostyka}}\label{\detokenize{rozdzial_2/2.4/index::doc}}\begin{quote}\begin{description}
+\sphinxlineitem{Autorzy}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Oskar Wrona
+
+\item {} 
+\sphinxAtStartPar
+Kamil Lewandowski
+
+\item {} 
+\sphinxAtStartPar
+Adam Tarkowski
+
+\end{enumerate}
+
+\end{description}\end{quote}
+
+
+\subsection{Wstęp}
+\label{\detokenize{rozdzial_2/2.4/index:wstep}}
+\sphinxAtStartPar
+Monitorowanie i diagnostyka baz danych obejmują zestaw działań, które pozwalają administratorowi lub zespołowi utrzymania sprawdzić, czy system działa poprawnie, bezpiecznie i wydajnie. W praktyce nie chodzi jedynie o obserwowanie pojedynczych parametrów serwera, ale o łączenie informacji pochodzących z wielu warstw: samej bazy danych, systemu operacyjnego, aplikacji oraz narzędzi zewnętrznych. Dzięki temu można szybciej wykrywać przeciążenia, błędy konfiguracji, problemy z zapytaniami SQL, nieprawidłowe uprawnienia oraz awarie sprzętowe lub sieciowe.
+
+\sphinxAtStartPar
+W systemach bazodanowych szczególnie ważne jest to, że wiele problemów nie jest od razu widocznych dla użytkownika końcowego. Przykładowo zapytania mogą stopniowo wykonywać się coraz wolniej, liczba aktywnych sesji może rosnąć, a logi mogą zawierać powtarzające się ostrzeżenia. Bez monitorowania takie sygnały są łatwe do przeoczenia. Diagnostyka pozwala natomiast przejść od samego wykrycia problemu do ustalenia jego przyczyny, np. przez analizę sesji, blokad, planów zapytań, dzienników błędów lub zużycia zasobów systemowych.
+
+
+\subsection{Sesje i użytkownicy}
+\label{\detokenize{rozdzial_2/2.4/index:sesje-i-uzytkownicy}}
+\sphinxAtStartPar
+Jednym z podstawowych obszarów monitorowania bazy danych jest obserwowanie aktywnych sesji i użytkowników. Sesja oznacza połączenie użytkownika lub aplikacji z serwerem bazy danych. W ramach sesji wykonywane są zapytania, transakcje oraz operacje administracyjne. Analiza sesji pozwala sprawdzić między innymi, kto jest aktualnie połączony z bazą, z jakiego hosta pochodzi połączenie, jakie zapytanie jest wykonywane oraz czy sesja jest aktywna, bezczynna albo zablokowana.
+
+\sphinxAtStartPar
+W wielu systemach zarządzania bazami danych dostępne są specjalne widoki lub narzędzia administracyjne służące do obserwowania bieżącej aktywności. Na przykład PostgreSQL udostępnia mechanizmy monitorowania aktywności bazy danych oraz widoki statystyczne, takie jak \sphinxcode{\sphinxupquote{pg\_stat\_activity}}, które pozwalają sprawdzać informacje o procesach serwera i wykonywanych zapytaniach %
+\begin{footnote}[1]\sphinxAtStartFootnote
+PostgreSQL Documentation, \sphinxstyleemphasis{Monitoring Database Activity} oraz \sphinxstyleemphasis{The Cumulative Statistics System}, \sphinxurl{https://www.postgresql.org/docs/current/monitoring.html}
+%
+\end{footnote}. W MySQL podobną rolę może pełnić Performance Schema, które gromadzi dane diagnostyczne o pracy serwera i może być wykorzystywane do analizy wydajności %
+\begin{footnote}[2]\sphinxAtStartFootnote
+MySQL Documentation, \sphinxstyleemphasis{Using the Performance Schema to Diagnose Problems}, \sphinxurl{https://dev.mysql.com/doc/refman/8.2/en/performance-schema-examples.html}
+%
+\end{footnote}.
+
+\sphinxAtStartPar
+Monitorowanie sesji jest istotne zarówno z punktu widzenia wydajności, jak i bezpieczeństwa. Zbyt duża liczba jednoczesnych połączeń może prowadzić do przeciążenia serwera, a długo działające transakcje mogą blokować inne operacje. Z kolei nietypowe połączenia, np. z nieznanych adresów lub wykonywane poza normalnymi godzinami pracy, mogą wskazywać na błąd konfiguracji albo próbę nieautoryzowanego dostępu.
+
+
+\subsection{Śledzenie dostępu użytkowników do tabel}
+\label{\detokenize{rozdzial_2/2.4/index:sledzenie-dostepu-uzytkownikow-do-tabel}}
+\sphinxAtStartPar
+Kolejnym ważnym elementem jest kontrola tego, którzy użytkownicy uzyskują dostęp do określonych tabel i jakie operacje wykonują. W bazach danych przechowywane są często dane wrażliwe, dlatego sama informacja o tym, że użytkownik posiada konto w systemie, nie jest wystarczająca. Należy również wiedzieć, czy jego działania są zgodne z nadanymi uprawnieniami oraz z zasadami bezpieczeństwa obowiązującymi w organizacji.
+
+\sphinxAtStartPar
+Śledzenie dostępu może obejmować operacje odczytu danych, modyfikacji rekordów, usuwania danych, tworzenia nowych obiektów oraz zmian w uprawnieniach. W praktyce realizuje się to za pomocą mechanizmów audytu, dzienników zapytań, wyzwalaczy, narzędzi klasy Database Activity Monitoring lub funkcji wbudowanych w konkretny system bazodanowy. Przykładowo Oracle Database udostępnia mechanizmy audytu, a nowsze wersje zalecają korzystanie z unified auditing zamiast starszego audytu tradycyjnego %
+\begin{footnote}[3]\sphinxAtStartFootnote
+Oracle Documentation, \sphinxstyleemphasis{AUDIT\_TRAIL} oraz informacje o unified auditing, \sphinxurl{https://docs.oracle.com/en/database/oracle/oracle-database/21/refrn/AUDIT\_TRAIL.html}
+%
+\end{footnote}.
+
+\sphinxAtStartPar
+Takie śledzenie jest potrzebne nie tylko przy wykrywaniu incydentów bezpieczeństwa. Pomaga również w spełnianiu wymagań formalnych, analizie błędów użytkowników oraz odtwarzaniu przebiegu zdarzeń po awarii. Przykładowo, jeśli w tabeli pojawiły się nieprawidłowe dane, historia dostępu może pomóc ustalić, kiedy doszło do zmiany i która aplikacja lub który użytkownik ją wykonał.
+
+
+\subsection{Błędy dziennika, logi i raporty}
+\label{\detokenize{rozdzial_2/2.4/index:bledy-dziennika-logi-i-raporty}}
+\sphinxAtStartPar
+Dzienniki zdarzeń, czyli logi, są jednym z najważniejszych źródeł informacji diagnostycznych. Serwer bazy danych może zapisywać w nich komunikaty o błędach, ostrzeżeniach, nieudanych logowaniach, problemach z zapytaniami, restartach, zmianach konfiguracji lub przekroczeniu określonych progów wydajnościowych. Analiza logów pozwala wykrywać problemy, które nie zawsze są widoczne w aplikacji klienckiej.
+
+\sphinxAtStartPar
+W zależności od systemu bazodanowego logi mogą mieć różną postać. PostgreSQL obsługuje różne metody logowania komunikatów serwera, między innymi \sphinxcode{\sphinxupquote{stderr}}, \sphinxcode{\sphinxupquote{csvlog}}, \sphinxcode{\sphinxupquote{jsonlog}} oraz \sphinxcode{\sphinxupquote{syslog}}; w systemie Windows możliwe jest także użycie dziennika zdarzeń %
+\begin{footnote}[4]\sphinxAtStartFootnote
+PostgreSQL Documentation, \sphinxstyleemphasis{Error Reporting and Logging}, \sphinxurl{https://www.postgresql.org/docs/current/runtime-config-logging.html}
+%
+\end{footnote}. MySQL udostępnia między innymi general query log, który może rejestrować połączenia i zapytania otrzymywane przez serwer, oraz slow query log, używany do identyfikowania zapytań wykonujących się zbyt długo %
+\begin{footnote}[5]\sphinxAtStartFootnote
+MySQL Documentation, \sphinxstyleemphasis{The General Query Log} oraz \sphinxstyleemphasis{The Slow Query Log}, \sphinxurl{https://dev.mysql.com/doc/en/query-log.html}
+%
+\end{footnote}.
+
+\sphinxAtStartPar
+Raporty diagnostyczne są rozwinięciem surowych logów. Zamiast ręcznie analizować tysiące wpisów, administrator może korzystać z raportów podsumowujących liczbę błędów, najwolniejsze zapytania, częstotliwość nieudanych logowań lub zmiany obciążenia w czasie. Raporty są szczególnie przydatne w pracy zespołowej, ponieważ pozwalają dokumentować problemy i porównywać stan systemu przed oraz po wprowadzeniu zmian optymalizacyjnych.
+
+
+\subsection{Monitorowanie na poziomie systemu operacyjnego}
+\label{\detokenize{rozdzial_2/2.4/index:monitorowanie-na-poziomie-systemu-operacyjnego}}
+\sphinxAtStartPar
+Baza danych działa na konkretnym systemie operacyjnym i korzysta z jego zasobów. Dlatego diagnostyka nie może ograniczać się wyłącznie do samego silnika bazy danych. Wydajność zapytań może zależeć od procesora, pamięci RAM, operacji wejścia/wyjścia na dysku, sieci, liczby procesów oraz ogólnego obciążenia systemu.
+
+\sphinxAtStartPar
+W systemach Linux często wykorzystuje się narzędzia takie jak \sphinxcode{\sphinxupquote{iostat}}, \sphinxcode{\sphinxupquote{htop}} oraz \sphinxcode{\sphinxupquote{vmstat}}. Narzędzie \sphinxcode{\sphinxupquote{iostat}} pozwala obserwować wykorzystanie procesora i urządzeń wejścia/wyjścia, co jest szczególnie ważne przy bazach danych intensywnie korzystających z dysku. \sphinxcode{\sphinxupquote{htop}} umożliwia wygodne śledzenie procesów i zużycia zasobów w czasie rzeczywistym. \sphinxcode{\sphinxupquote{vmstat}} pokazuje między innymi informacje o pamięci, procesach, wymianie danych z dyskiem oraz obciążeniu procesora.
+
+\sphinxAtStartPar
+W systemach Microsoft Windows podobną rolę pełnią Menedżer zadań oraz Monitor wydajności. Pozwalają one obserwować zużycie procesora, pamięci, dysków, sieci oraz usług działających w tle. W środowiskach produkcyjnych takie dane są często zbierane automatycznie i zestawiane z metrykami pochodzącymi z bazy danych. Dzięki temu można odróżnić problem wynikający z nieoptymalnego zapytania SQL od problemu spowodowanego np. przeciążeniem dysku lub brakiem pamięci.
+
+
+\subsection{Monitorowanie serwera}
+\label{\detokenize{rozdzial_2/2.4/index:monitorowanie-serwera}}
+\sphinxAtStartPar
+Ostatnim poziomem jest monitorowanie całego serwera lub infrastruktury, w której działa baza danych. Obejmuje ono dostępność usług, czas odpowiedzi, zużycie zasobów, stan dysków, wykorzystanie sieci, działanie kopii zapasowych oraz wysyłanie powiadomień w przypadku awarii. W tym celu stosuje się narzędzia takie jak Nagios, Grafana, Prometheus, Zabbix lub inne systemy monitoringu.
+
+\sphinxAtStartPar
+Nagios jest przykładem narzędzia używanego do monitorowania usług i hostów, sprawdzania ich stanu oraz informowania administratorów o problemach %
+\begin{footnote}[6]\sphinxAtStartFootnote
+Nagios Open Source Documentation, \sphinxurl{https://www.nagios.org/documentation/}
+%
+\end{footnote}. Grafana z kolei służy przede wszystkim do wizualizacji danych monitorujących w formie dashboardów. Panele Grafany mogą prezentować metryki w postaci wykresów, tabel i innych wizualizacji, a moduł alertów pozwala reagować na określone zdarzenia lub przekroczenie progów %
+\begin{footnote}[7]\sphinxAtStartFootnote
+Grafana Documentation, \sphinxstyleemphasis{Dashboards overview} oraz \sphinxstyleemphasis{Grafana Alerting}, \sphinxurl{https://grafana.com/docs/grafana/latest/fundamentals/dashboards-overview/}
+%
+\end{footnote}.
+
+\sphinxAtStartPar
+Monitorowanie serwera jest szczególnie ważne w środowiskach, w których baza danych stanowi element większego systemu. Awaria bazy może wynikać nie tylko z błędu samego silnika, ale również z problemu sieciowego, zapełnionego dysku, braku pamięci, błędnej konfiguracji systemu lub nieudanego wdrożenia aplikacji. Centralne monitorowanie pozwala zebrać te informacje w jednym miejscu i szybciej wskazać źródło problemu.
+
+
+\subsection{Znaczenie monitorowania i diagnostyki w bazach danych}
+\label{\detokenize{rozdzial_2/2.4/index:znaczenie-monitorowania-i-diagnostyki-w-bazach-danych}}
+\sphinxAtStartPar
+Monitorowanie i diagnostyka są ważne, ponieważ wpływają na trzy kluczowe obszary: dostępność, wydajność i bezpieczeństwo danych. Dostępność oznacza, że baza danych jest osiągalna dla użytkowników i aplikacji. Wydajność oznacza, że zapytania wykonują się w akceptowalnym czasie. Bezpieczeństwo oznacza natomiast, że dostęp do danych jest kontrolowany, a podejrzane działania mogą zostać wykryte i przeanalizowane.
+
+\sphinxAtStartPar
+W dobrze utrzymanym środowisku bazodanowym monitorowanie powinno działać stale, a nie dopiero wtedy, gdy pojawi się awaria. Regularne obserwowanie sesji, logów, dostępu do tabel, parametrów systemu operacyjnego i stanu serwera pozwala wykrywać problemy na wczesnym etapie. Diagnostyka pozwala natomiast ustalić przyczyny tych problemów i zaplanować odpowiednie działania, takie jak optymalizacja zapytań, zmiana konfiguracji, zwiększenie zasobów, poprawa uprawnień lub wdrożenie dodatkowych zabezpieczeń.
+
+
+\subsection{Podsumowanie}
+\label{\detokenize{rozdzial_2/2.4/index:podsumowanie}}
+\sphinxAtStartPar
+Monitorowanie i diagnostyka baz danych tworzą wielowarstwowy proces kontroli działania systemu. Na poziomie bazy danych analizuje się sesje, użytkowników, zapytania, blokady, dostęp do tabel oraz logi. Na poziomie systemu operacyjnego obserwuje się zużycie procesora, pamięci, dysku i sieci. Na poziomie serwera wykorzystuje się narzędzia monitorujące, które zbierają metryki, tworzą wykresy oraz wysyłają alerty. Dopiero połączenie tych perspektyw daje pełny obraz stanu systemu i pozwala skutecznie reagować na błędy, spadki wydajności oraz potencjalne incydenty bezpieczeństwa.
+
+
+\subsection{Źródła}
+\label{\detokenize{rozdzial_2/2.4/index:zrodla}}
+\sphinxstepscope
+
+
+\section{Wydajność, skalowanie i replikacja}
+\label{\detokenize{rozdzial_2/2.5/index:wydajnosc-skalowanie-i-replikacja}}\label{\detokenize{rozdzial_2/2.5/index::doc}}\begin{quote}\begin{description}
+\sphinxlineitem{Autorzy}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Olaf Chomicki
+
+\item {} 
+\sphinxAtStartPar
+Konrad Machowski
+
+\item {} 
+\sphinxAtStartPar
+Wiktor Wydrzyński
+
+\end{enumerate}
+
+\end{description}\end{quote}
+
+
+\subsection{Wydajność, skalowanie i replikacja}
+\label{\detokenize{rozdzial_2/2.5/index:id1}}
+\sphinxAtStartPar
+Współczesne systemy bazodanowe muszą sprostać wymaganiom związanym z wykładniczym przyrostem wolumenu danych oraz stale rosnącą liczbą jednoczesnych użytkowników. W tym kontekście kluczowe staje się zrozumienie trzech fundamentalnych pojęć: wydajności, skalowania i replikacji. Wydajność odnosi się do szybkości przetwarzania pojedynczych transakcji i zapytań przy optymalnym wykorzystaniu dostępnych zasobów.
+
+\sphinxAtStartPar
+Gdy optymalizacja kodu przestaje wystarczać, konieczne staje się skalowanie \textendash{} pionowe (zwiększanie mocy pojedynczego serwera) lub poziome (rozpraszanie obciążenia na wiele maszyn). Replikacja z kolei stanowi most łączący skalowanie odczytów z zapewnieniem wysokiej dostępności i odporności systemu na awarie sprzętowe.
+
+
+\subsection{Kontrola i buforowanie połączeń z bazą danych}
+\label{\detokenize{rozdzial_2/2.5/index:kontrola-i-buforowanie-polaczen-z-baza-danych}}
+\sphinxAtStartPar
+Nawiązywanie nowego połączenia z bazą danych jest operacją niezwykle kosztowną procesorowo i czasowo, ponieważ wymaga uwierzytelnienia użytkownika, alokacji pamięci oraz ustanowienia sesji sieciowej. W systemach o dużym natężeniu ruchu brak kontroli nad liczbą połączeń prowadzi do szybkiego wyczerpania zasobów serwera.
+
+\sphinxAtStartPar
+Rozwiązaniem tego problemu jest buforowanie połączeń (Connection Pooling). Mechanizm ten polega na utrzymywaniu stałej puli otwartych, gotowych do użycia połączeń, które są wielokrotnie współdzielone przez aplikację. Narzędzia takie jak PgBouncer (dla PostgreSQL) czy wbudowane pule w serwerach aplikacji drastycznie zmniejszają narzut overhead, stabilizując czas reakcji bazy danych pod dużym obciążeniem.
+
+\sphinxAtStartPar
+Przykład konfiguracji PgBouncer (fragment pliku \sphinxcode{\sphinxupquote{pgbouncer.ini}}):
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{[databases]}
+\PYG{n+na}{moja\PYGZus{}baza}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{host=127.0.0.1 port=5432 dbname=produkcja}
+
+\PYG{k}{[pgbouncer]}
+\PYG{n+na}{listen\PYGZus{}port}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{6432}
+\PYG{n+na}{listen\PYGZus{}addr}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{*}
+\PYG{n+na}{auth\PYGZus{}type}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{md5}
+\PYG{n+na}{auth\PYGZus{}file}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{/etc/pgbouncer/userlist.txt}
+\PYG{n+na}{pool\PYGZus{}mode}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{transaction}
+\PYG{n+na}{max\PYGZus{}client\PYGZus{}conn}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{1000}
+\PYG{n+na}{default\PYGZus{}pool\PYGZus{}size}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{20}
+\end{sphinxVerbatim}
+
+
+\subsection{INDEX i CLUSTER}
+\label{\detokenize{rozdzial_2/2.5/index:index-i-cluster}}
+\sphinxAtStartPar
+Indeksowanie to podstawowa technika optymalizacji zapytań o charakterze odczytowym. Instrukcja \sphinxcode{\sphinxupquote{INDEX}} tworzy pomocniczą strukturę danych (najczęściej w formie B\sphinxhyphen{}drzewa), która pozwala silnikowi bazy danych na błyskawiczne odnalezienie żądanych wierszy bez konieczności kosztownego przeszukiwania całej tabeli (Full Table Scan).
+
+\sphinxAtStartPar
+Z kolei polecenie \sphinxcode{\sphinxupquote{CLUSTER}} idzie o krok dalej \textendash{} fizycznie reorganizuje strukturę danych na dysku w taki sposób, aby kolejność wierszy w tabeli dokładnie odpowiadała kolejności indeksu. Powoduje to, że powiązane rekordy są składowane obok siebie w tych samych blokach pamięci, co radykalnie przyspiesza zapytania zakresowe (Range Queries).
+
+\sphinxAtStartPar
+Przykład użycia poleceń w PostgreSQL:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} 1. Tworzenie standardowego indeksu B\PYGZhy{}drzewa na kolumnie data\PYGZus{}zamowienia}
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{INDEX}\PYG{+w}{ }\PYG{n}{idx\PYGZus{}zamowienia\PYGZus{}data}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{zamowienia}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{data\PYGZus{}zamowienia}\PYG{p}{)}\PYG{p}{;}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} 2. Fizyczne przemieszczenie danych na dysku według kolejności indeksu}
+\PYG{k}{CLUSTER}\PYG{+w}{ }\PYG{n}{zamowienia}\PYG{+w}{ }\PYG{k}{USING}\PYG{+w}{ }\PYG{n}{idx\PYGZus{}zamowienia\PYGZus{}data}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{Rola i zastosowanie replikacji}
+\label{\detokenize{rozdzial_2/2.5/index:rola-i-zastosowanie-replikacji}}
+\sphinxAtStartPar
+Replikacja polega na permanentnym kopiowaniu i synchronizowaniu danych z głównego węzła bazy danych (Primary/Master) na węzły pomocnicze (Replica/Slave). Jej rola w architekturze systemów IT jest wieloaspektowa. Po pierwsze, gwarantuje wysoką dostępność (High Availability) \textendash{} w przypadku fizycznej awarii Mastera, jedna z replik może automatycznie przejąć jego funkcje (proces Failover).
+
+\sphinxAtStartPar
+Po drugie, umożliwia skalowanie odczytów (Read Scalability). Przekierowanie operacji modyfikujących (INSERT, UPDATE) do węzła głównego, a operacji odczytu oraz generowania ciężkich raportów na repliki pozwala na znaczne odciążenie głównego serwera.
+
+
+\subsection{Oprogramowanie i zaimplementowane mechanizmy replikacji}
+\label{\detokenize{rozdzial_2/2.5/index:oprogramowanie-i-zaimplementowane-mechanizmy-replikacji}}
+\sphinxAtStartPar
+Mechanizmy replikacji mogą być realizowane na poziomie silnika bazy danych lub za pomocą zewnętrznego oprogramowania. Wyróżnia się dwa główne podejścia pod kątem transmisji danych: replikację opartą na logu (WAL \sphinxhyphen{} Write\sphinxhyphen{}Ahead Logging) oraz replikację logiczną. Ze względu na synchronizację, proces ten może przebiegać synchronicznie lub asynchronicznie.
+
+\sphinxAtStartPar
+Przykład konfiguracji replikacji logicznej (wbudowanej w PostgreSQL):
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} KROK 1: Uruchomienie na węźle głównym (Primary) \PYGZhy{} zdefiniowanie publikacji}
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{n}{PUBLICATION}\PYG{+w}{ }\PYG{n}{pub\PYGZus{}dane\PYGZus{}sprzedazy}\PYG{+w}{ }\PYG{k}{FOR}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{n}{zamowienia}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{klienci}\PYG{p}{;}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} KROK 2: Uruchomienie na węźle pomocniczym (Replica) \PYGZhy{} subskrypcja danych}
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{n}{SUBSCRIPTION}\PYG{+w}{ }\PYG{n}{sub\PYGZus{}dane\PYGZus{}sprzedazy}
+\PYG{k}{CONNECTION}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}host=192.168.1.50 port=5432 dbname=produkcja user=repl\PYGZus{}user password=secret\PYGZsq{}}
+\PYG{n}{PUBLICATION}\PYG{+w}{ }\PYG{n}{pub\PYGZus{}dane\PYGZus{}sprzedazy}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{Limity systemu oraz ograniczanie dostępu użytkowników}
+\label{\detokenize{rozdzial_2/2.5/index:limity-systemu-oraz-ograniczanie-dostepu-uzytkownikow}}
+\sphinxAtStartPar
+Bezpieczeństwo i stabilność bazy danych wymagają rygorystycznego zarządzania limitami systemowymi oraz uprawnieniami. Zbyt duża swoboda przyznana użytkownikom lub procesom aplikacyjnym może doprowadzić do celowego bądź przypadkowego unieruchomienia systemu.
+
+\sphinxAtStartPar
+Przykład nakładania restrykcji i limitów zasobów w PostgreSQL:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} 1. Ograniczenie maksymalnej liczby jednoczesnych połączeń dla danej roli}
+\PYG{k}{ALTER}\PYG{+w}{ }\PYG{k}{ROLE}\PYG{+w}{ }\PYG{n}{rola\PYGZus{}analityk}\PYG{+w}{ }\PYG{k}{CONNECTION}\PYG{+w}{ }\PYG{k}{LIMIT}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{p}{;}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} 2. Ustawienie maksymalnego czasu wykonywania pojedynczego zapytania (np. 30 sekund)}
+\PYG{k}{ALTER}\PYG{+w}{ }\PYG{k}{ROLE}\PYG{+w}{ }\PYG{n}{rola\PYGZus{}analityk}\PYG{+w}{ }\PYG{k}{SET}\PYG{+w}{ }\PYG{n}{statement\PYGZus{}timeout}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}30s\PYGZsq{}}\PYG{p}{;}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} 3. Nadanie uprawnień wyłącznie do odczytu danych w wybranym schemacie}
+\PYG{k}{REVOKE}\PYG{+w}{ }\PYG{k}{ALL}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{k}{ALL}\PYG{+w}{ }\PYG{n}{TABLES}\PYG{+w}{ }\PYG{k}{IN}\PYG{+w}{ }\PYG{k}{SCHEMA}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{rola\PYGZus{}analityk}\PYG{p}{;}
+\PYG{k}{GRANT}\PYG{+w}{ }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{k}{ALL}\PYG{+w}{ }\PYG{n}{TABLES}\PYG{+w}{ }\PYG{k}{IN}\PYG{+w}{ }\PYG{k}{SCHEMA}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{TO}\PYG{+w}{ }\PYG{n}{rola\PYGZus{}analityk}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{Testy wydajności sprzętu na poziomie systemu operacyjnego}
+\label{\detokenize{rozdzial_2/2.5/index:testy-wydajnosci-sprzetu-na-poziomie-systemu-operacyjnego}}
+\sphinxAtStartPar
+Przed wdrożeniem produkcyjnym bazy danych kluczowe jest przeprowadzenie niezależnych testów wydajnościowych podzespołów sprzętowych (Benchmarków) bezpośrednio na poziomie systemu operacyjnego, aby wykluczyć błędy konfiguracyjne środowiska.
+
+\sphinxAtStartPar
+Przykłady poleceń diagnostycznych i testowych w systemie Linux:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} 1. Test wydajności procesora (CPU) za pomocą sysbench}
+sysbench\PYG{+w}{ }cpu\PYG{+w}{ }\PYGZhy{}\PYGZhy{}cpu\PYGZhy{}max\PYGZhy{}prime\PYG{o}{=}\PYG{l+m}{20000}\PYG{+w}{ }run
+
+\PYG{c+c1}{\PYGZsh{} 2. Test przepustowości i alokacji pamięci RAM}
+sysbench\PYG{+w}{ }memory\PYG{+w}{ }\PYGZhy{}\PYGZhy{}memory\PYGZhy{}block\PYGZhy{}size\PYG{o}{=}1M\PYG{+w}{ }\PYGZhy{}\PYGZhy{}memory\PYGZhy{}total\PYGZhy{}size\PYG{o}{=}10G\PYG{+w}{ }run
+
+\PYG{c+c1}{\PYGZsh{} 3. Zaawansowany test wydajności dysku (IOPS i opóźnienia) narzędziem fio}
+\PYG{c+c1}{\PYGZsh{} Symulacja losowego odczytu/zapisu (Random R/W) specyficznego dla baz danych}
+fio\PYG{+w}{ }\PYGZhy{}\PYGZhy{}name\PYG{o}{=}test\PYGZus{}bazy\PYG{+w}{ }\PYGZhy{}\PYGZhy{}ioengine\PYG{o}{=}libaio\PYG{+w}{ }\PYGZhy{}\PYGZhy{}rw\PYG{o}{=}randrw\PYG{+w}{ }\PYGZhy{}\PYGZhy{}bs\PYG{o}{=}4k\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }\PYGZhy{}\PYGZhy{}size\PYG{o}{=}2G\PYG{+w}{ }\PYGZhy{}\PYGZhy{}numjobs\PYG{o}{=}\PYG{l+m}{2}\PYG{+w}{ }\PYGZhy{}\PYGZhy{}runtime\PYG{o}{=}\PYG{l+m}{30}\PYG{+w}{ }\PYGZhy{}\PYGZhy{}time\PYGZus{}based\PYG{+w}{ }\PYG{l+s+se}{\PYGZbs{}}
+\PYG{+w}{    }\PYGZhy{}\PYGZhy{}filename\PYG{o}{=}/var/lib/postgresql/test\PYGZus{}io.file\PYG{+w}{ }\PYGZhy{}\PYGZhy{}group\PYGZus{}reporting
+\end{sphinxVerbatim}
+
+\sphinxstepscope
+
+
+\section{Partycjonowanie danych}
+\label{\detokenize{rozdzial_2/2.6/index:partycjonowanie-danych}}\label{\detokenize{rozdzial_2/2.6/index::doc}}
+\sphinxAtStartPar
+\sphinxstylestrong{Autorzy}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Michał Bystrzak
+
+\item {} 
+\sphinxAtStartPar
+Damian Dominiak
+
+\end{enumerate}
+
+
+\subsection{Wstęp i istota problemu}
+\label{\detokenize{rozdzial_2/2.6/index:wstep-i-istota-problemu}}
+\sphinxAtStartPar
+W dobie systemów informatycznych przetwarzających gigabajty lub terabajty informacji (tzw. VLDB \sphinxhyphen{} Very Large Databases), tradycyjne podejście do składowania danych staje się wysoce niewydajne. Kiedy pojedyncza tabela rozrasta się do setek milionów rekordów, fizyczne ograniczenia sprzętowe oraz narzuty na zarządzanie indeksami powodują drastyczny spadek wydajności. Partycjonowanie to zaawansowana technika architektoniczna, polegająca na logicznym podziale jednej, ogromnej tabeli na mniejsze, odseparowane fizycznie fragmenty nazywane partycjami. Z perspektywy aplikacji docelowej oraz zapytań SQL, tabela wciąż prezentuje się i zachowuje jak spójna, pojedyncza relacja.
+
+
+\subsection{Cele stosowania partycjonowania danych}
+\label{\detokenize{rozdzial_2/2.6/index:cele-stosowania-partycjonowania-danych}}
+\sphinxAtStartPar
+Implementacja mechanizmu partycjonowania w systemach relacyjnych jest podyktowana chęcią rozwiązania konkretnych problemów wydajnościowych i administracyjnych. Główne cele to:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Zwiększenie wydajności zapytań (Query Performance):} Fundamentalnym celem jest eliminacja konieczności skanowania całej tabeli (Full Table Scan). Dzięki mechanizmowi \sphinxstyleemphasis{Partition Pruning} (odcinanie partycji), planista zapytań analizuje warunki zdefiniowane w klauzuli \sphinxcode{\sphinxupquote{WHERE}} i kieruje odczyt wyłącznie do tych fizycznych plików, które mogą zawierać poszukiwane dane.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Optymalizacja procesów utrzymaniowych (Maintenance):} Olbrzymie tabele są trudne w utrzymaniu. Operacje takie jak \sphinxcode{\sphinxupquote{VACUUM}}, \sphinxcode{\sphinxupquote{REINDEX}} czy odtwarzanie kopii zapasowych mogą blokować zasoby przez wiele godzin. Partycjonowanie pozwala na wykonywanie tych operacji selektywnie, tylko na tych partycjach, które uległy modyfikacji.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Zarządzanie cyklem życia danych (Data Lifecycle Management):} W przypadku danych historycznych (np. logów), najszybszą metodą ich usunięcia jest operacja \sphinxcode{\sphinxupquote{DROP TABLE}} na starej partycji. Jest to operacja na metadanych, trwająca ułamki sekund, w przeciwieństwie do standardowego \sphinxcode{\sphinxupquote{DELETE}}, które w architekturze MVCC (Multi\sphinxhyphen{}Version Concurrency Control) generuje ogromne ilości „martwych krotek” (dead tuples) i obciąża dziennik transakcji (WAL).
+
+\end{itemize}
+
+
+\subsection{Zastosowanie partycjonowania}
+\label{\detokenize{rozdzial_2/2.6/index:zastosowanie-partycjonowania}}
+\sphinxAtStartPar
+Technika ta nie jest uniwersalnym rozwiązaniem dla każdej bazy danych, lecz sprawdza się w specyficznych, wymagających scenariuszach:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Hurtownie danych (OLAP):} Systemy analityczne gromadzące dane historyczne. Partycjonowanie pozwala tam na błyskawiczne agregowanie danych (np. sumowanie przychodów z konkretnego miesiąca) bez wczytywania do pamięci RAM danych z całej dekady.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Systemy transakcyjne (OLTP) o wysokim przyroście:} Aplikacje rejestrujące logi systemowe, odczyty z czujników IoT, dane telemetryczne czy rejestry transakcji finansowych (Time\sphinxhyphen{}Series Data), gdzie każdego dnia przybywają miliony nowych wierszy.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Implementacja Storage Tiering:} Możliwość fizycznego rozdzielenia danych na różne nośniki. Najnowsze i najczęściej odpytywane partycje (Hot Data) umieszcza się na ultra\sphinxhyphen{}szybkich macierzach NVMe, podczas gdy starsze, rzadko używane partycje (Cold Data) przenosi się na tańsze wolumeny dyskowe (HDD), co znacząco optymalizuje koszty infrastruktury.
+
+\end{itemize}
+
+
+\subsection{Zalety i wady partycjonowania}
+\label{\detokenize{rozdzial_2/2.6/index:zalety-i-wady-partycjonowania}}
+\sphinxAtStartPar
+Jak każda technika optymalizacyjna, partycjonowanie stanowi kompromis inżynieryjny (Trade\sphinxhyphen{}off).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Zalety:}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Spektakularny wzrost wydajności operacji odczytu, o ile zapytanie wykorzystuje klucz partycjonowania.
+
+\item {} 
+\sphinxAtStartPar
+Optymalne wykorzystanie pamięci operacyjnej (RAM) \textendash{} indeksy dla poszczególnych partycji są znacznie mniejsze i z większym prawdopodobieństwem zmieszczą się w całości w pamięci podręcznej (Cache).
+
+\item {} 
+\sphinxAtStartPar
+Możliwość bezinwazyjnego odłączania i dołączania gigabajtów danych niemal w czasie rzeczywistym.
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Wady:}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Zwiększony narzut (overhead) na planistę zapytań. Przy bardzo dużej liczbie partycji (np. tysiące fragmentów), czas samego planowania zapytania przez silnik bazy może być dłuższy niż czas jego wykonania.
+
+\item {} 
+\sphinxAtStartPar
+Ograniczenia strukturalne: w wielu systemach DBMS (w tym w PostgreSQL) globalne klucze główne (Primary Keys) i ograniczenia unikalności (UNIQUE) muszą z założenia zawierać w sobie kolumnę będącą kluczem partycjonowania, co bywa trudne do pogodzenia z logiką biznesową aplikacji.
+
+\item {} 
+\sphinxAtStartPar
+Spadek wydajności w przypadku zapytań omijących klucz partycjonowania \textendash{} silnik musi wówczas odpytać każdą fizyczną partycję z osobna.
+
+\end{itemize}
+
+
+\subsection{Implementacja partycjonowania w PostgreSQL}
+\label{\detokenize{rozdzial_2/2.6/index:implementacja-partycjonowania-w-postgresql}}
+\sphinxAtStartPar
+Począwszy od wersji 10, PostgreSQL oferuje natywne wsparcie dla partycjonowania deklaratywnego. Eliminuje to konieczność ręcznego pisania skomplikowanych wyzwalaczy czy reguł (rules). Silnik obsługuje trzy główne strategie przydziału danych:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Zakresowe (RANGE):} Dane są dzielone na podstawie ciągłych przedziałów wartości. Najczęściej wykorzystywanym kluczem są typy daty i czasu (np. jedna partycja dla \sphinxcode{\sphinxupquote{2025\sphinxhyphen{}01\sphinxhyphen{}01}} do \sphinxcode{\sphinxupquote{2025\sphinxhyphen{}01\sphinxhyphen{}31}}) lub sekwencje numeryczne.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Listowe (LIST):} Dane są dystrybuowane na podstawie konkretnych, dyskretnych wartości zdefiniowanych w tablicy. Metoda ta idealnie sprawdza się w przypadku podziału na kategorie biznesowe, takie jak „Status\_Zlecenia” (osobna partycja dla wartości \sphinxcode{\sphinxupquote{Zakończone}}, \sphinxcode{\sphinxupquote{W trakcie}}) lub regiony geograficzne.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Haszujące (HASH):} Wiersze są rozdzielane na zadaną liczbę partycji (modułów) z wykorzystaniem zaawansowanej, matematycznej funkcji skrótu. Strategia ta nie służy przyspieszaniu zapytań zakresowych, lecz idealnie równomiernemu rozłożeniu ciężaru I/O podczas masowych operacji wstawiania (INSERT) w systemach wielodyskowych.
+
+\end{itemize}
+
+
+\subsection{Ograniczenia i obejście w środowisku SQLite}
+\label{\detokenize{rozdzial_2/2.6/index:ograniczenia-i-obejscie-w-srodowisku-sqlite}}
+\sphinxAtStartPar
+W przeciwieństwie do potężnych, serwerowych silników RDBMS takich jak PostgreSQL, lekka i plikowa biblioteka SQLite \sphinxstylestrong{nie posiada} natywnego mechanizmu partycjonowania deklaratywnego. Wynika to z jej osadzonej (embedded) architektury.
+
+\sphinxAtStartPar
+Niemniej jednak, efekt partycjonowania w SQLite można emulować za pomocą programistycznego podejścia warstwowego:
+1. \sphinxstylestrong{Podział fizyczny:} Utworzenie wielu mniejszych, niezależnych tabel (np. \sphinxcode{\sphinxupquote{zlecenia\_2025}}, \sphinxcode{\sphinxupquote{zlecenia\_2026}}).
+2. \sphinxstylestrong{Warstwa logiczna:} Stworzenie wspólnego widoku (\sphinxcode{\sphinxupquote{VIEW}}), który scala wszystkie te tabele z wykorzystaniem operatora \sphinxcode{\sphinxupquote{UNION ALL}}. Umożliwia to wykonywanie zapytań \sphinxcode{\sphinxupquote{SELECT}} na jednej strukturze.
+3. \sphinxstylestrong{Zarządzanie modyfikacjami:} Obsługa instrukcji DML (\sphinxcode{\sphinxupquote{INSERT}}, \sphinxcode{\sphinxupquote{UPDATE}}, \sphinxcode{\sphinxupquote{DELETE}}) wymaga zdefiniowania na widoku zestawu wyzwalaczy (\sphinxcode{\sphinxupquote{TRIGGERS INSTEAD OF}}). Wyzwalacze te muszą przechwytywać dane w locie, analizować klucz (np. datę) i dynamicznie przekierowywać operację do odpowiedniej fizycznej pod\sphinxhyphen{}tabeli.
+
+\sphinxAtStartPar
+Choć to rozwiązanie jest funkcjonalne, należy pamiętać, że w SQLite każdorazowe uruchamianie wyzwalaczy generuje zauważalny narzut wydajnościowy w porównaniu do natywnego mechanizmu w PostgreSQL.
+
+\sphinxstepscope
+
+
+\section{Bezpieczeństwo Baz Danych}
+\label{\detokenize{rozdzial_2/2.7/index:bezpieczenstwo-baz-danych}}\label{\detokenize{rozdzial_2/2.7/index::doc}}
+\sphinxAtStartPar
+Dział 7 przeglądu literaturowego poświęcony architekturze bezpieczeństwa, mechanizmom ochrony oraz analizie podatności w nowoczesnych systemach zarządzania bazami danych.
+\begin{quote}\begin{description}
+\sphinxlineitem{Autorzy}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+Oskar Mąka
+
+\item {} 
+\sphinxAtStartPar
+Daniel Szokało
+
+\item {} 
+\sphinxAtStartPar
+Dawid Szokało
+
+\end{enumerate}
+
+\sphinxlineitem{Kierunek}
+\sphinxAtStartPar
+Informatyka Techniczna, Politechnika Wrocławska
+
+\sphinxlineitem{Przedmiot}
+\sphinxAtStartPar
+Bazy Danych / Projekt Laboratoryjny
+
+\end{description}\end{quote}
+
+\sphinxstepscope
+
+
+\subsection{1. Model bezpieczeństwa CIA i ochrona infrastruktury}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_1:model-bezpieczenstwa-cia-i-ochrona-infrastruktury}}\label{\detokenize{rozdzial_2/2.7/rozdzial_1::doc}}
+\sphinxAtStartPar
+Rozważając bezpieczeństwo systemów bazodanowych, należy spojrzeć na problem warstwowo. Najniższą, a zarazem najbardziej fundamentalną warstwą jest ochrona samej infrastruktury sprzętowej i sieciowej, na której operuje silnik bazy danych (DBMS). Zanim przejdziemy do szczegółowych konfiguracji silnika, konieczne jest zdefiniowanie nadrzędnych celów bezpieczeństwa oraz zapewnienie izolacji środowiska uruchomieniowego.
+
+
+\subsubsection{Triada CIA w środowisku bazodanowym}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_1:triada-cia-w-srodowisku-bazodanowym}}
+\sphinxAtStartPar
+Model \sphinxstylestrong{CIA} (ang. \sphinxstyleemphasis{Confidentiality, Integrity, Availability}) to klasyczny paradygmat bezpieczeństwa informacji. W kontekście relacyjnych i nierelacyjnych baz danych każdy z tych elementów realizowany jest przez specyficzne mechanizmy:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Poufność (Confidentiality):} Gwarantuje, że dane są dostępne wyłącznie dla autoryzowanych podmiotów. W bazach danych osiąga się to poprzez ścisłą kontrolę dostępu (np. RBAC), szyfrowanie danych w spoczynku (TDE \sphinxhyphen{} \sphinxstyleemphasis{Transparent Data Encryption}), maskowanie danych wrażliwych oraz szyfrowanie połączeń sieciowych (TLS).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Integralność (Integrity):} Zapewnia spójność i poprawność danych, chroniąc je przed nieautoryzowaną modyfikacją. Silniki bazodanowe realizują ten postulat natywnie poprzez właściwości ACID (szczególnie \sphinxstyleemphasis{Consistency}), więzy integralności (klucze obce, ograniczenia \sphinxstyleemphasis{CHECK}), a z punktu widzenia bezpieczeństwa \textendash{} poprzez audytowanie DML (Data Manipulation Language) i mechanizmy wykrywania anomalii.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Dostępność (Availability):} Oznacza pewność, że system odpowie na żądanie w akceptowalnym czasie. Zagrożeniem dla dostępności są awarie sprzętowe oraz ataki DoS. Obroną na poziomie bazy danych są klastry wysokiej dostępności (HA), replikacja (np. \sphinxstyleemphasis{Master\sphinxhyphen{}Slave}, \sphinxstyleemphasis{Multi\sphinxhyphen{}Master}), partycjonowanie oraz odpowiednio zaprojektowane mechanizmy Disaster Recovery.
+
+\end{itemize}
+
+
+\subsubsection{Izolacja sieciowa i architektura chmurowa (VPC)}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_1:izolacja-sieciowa-i-architektura-chmurowa-vpc}}
+\sphinxAtStartPar
+Nawet najlepiej skonfigurowany system uprawnień bazodanowych traci na znaczeniu, jeśli instancja wystawiona jest bezpośrednio do publicznej sieci Internet. Standardem inżynieryjnym w nowoczesnych wdrożeniach (zarówno on\sphinxhyphen{}premise, jak i cloud) jest głęboka separacja sieciowa.
+
+\sphinxAtStartPar
+W środowiskach chmurowych (np. AWS, Azure, GCP) bazy danych umieszcza się w dedykowanych chmurach prywatnych (\sphinxstylestrong{VPC} \sphinxhyphen{} \sphinxstyleemphasis{Virtual Private Cloud}). Dobrą praktyką jest wdrożenie architektury wielowarstwowej:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Warstwa publiczna (Public Subnet):} Zawiera load balancery i serwery webowe (np. Nginx), do których dostęp ma użytkownik końcowy.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Warstwa aplikacji (Private Subnet):} Środowisko uruchomieniowe backendu (np. Node.js, Spring Boot).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Warstwa danych (Database Subnet):} Najgłębiej ukryta podsieć prywatna bez routingu do Internetu (brak \sphinxstyleemphasis{Internet Gateway}). Dostęp do niej ma wyłącznie warstwa aplikacji poprzez ściśle określone reguły \sphinxstyleemphasis{Security Groups} lub \sphinxstyleemphasis{Network ACLs} (dopuszczające ruch tylko na konkretnym porcie, np. 5432 dla PostgreSQL, i tylko ze znanych adresów IP warstwy aplikacyjnej).
+
+\end{enumerate}
+
+\sphinxAtStartPar
+Takie podejście drastycznie zmniejsza powierzchnię ataku (ang. \sphinxstyleemphasis{attack surface}), eliminując ryzyko bezpośrednich ataków typu \sphinxstyleemphasis{brute\sphinxhyphen{}force} na porty bazy danych z zewnątrz.
+
+
+\subsubsection{Konteneryzacja a bezpieczeństwo bazy}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_1:konteneryzacja-a-bezpieczenstwo-bazy}}
+\sphinxAtStartPar
+Uruchamianie baz danych w kontenerach (np. Docker, Kubernetes) stało się powszechne, jednak niesie ze sobą specyficzne wektory zagrożeń. Kontenery dzielą jądro (kernel) z systemem hosta, co oznacza, że kompromitacja bazy danych może prowadzić do ucieczki z kontenera (ang. \sphinxstyleemphasis{container breakout}).
+
+\sphinxAtStartPar
+Aby zminimalizować to ryzyko, stosuje się następujące praktyki:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Brak uprawnień roota:} Procesy DBMS (np. \sphinxcode{\sphinxupquote{postgres}} lub \sphinxcode{\sphinxupquote{mysqld}}) nigdy nie powinny działać jako użytkownik \sphinxcode{\sphinxupquote{root}} wewnątrz kontenera. Standardowe obrazy często wymagają jawnego zdefiniowania dyrektywy \sphinxcode{\sphinxupquote{USER}} w pliku Dockerfile.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Ograniczenia zasobów (Cgroups):} Podatność silnika bazy na ataki typu \sphinxstyleemphasis{Denial of Service} można złagodzić na poziomie infrastruktury, nakładając twarde limity na zużycie CPU i pamięci RAM przez dany kontener. Zapobiega to sytuacji, w której przeciążona baza kładzie cały serwer hosta (Resource Exhaustion).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Read\sphinxhyphen{}Only Root Filesystem:} Kontener bazy danych powinien mieć zamontowany system plików w trybie tylko do odczytu, z wyjątkiem ściśle zdefiniowanych wolumenów (ang. \sphinxstyleemphasis{volumes}) przeznaczonych na pliki danych (np. \sphinxcode{\sphinxupquote{/var/lib/postgresql/data}}). Uniemożliwia to atakującemu wstrzyknięcie złośliwych skryptów do katalogów systemowych po udanym wykorzystaniu luki aplikacyjnej.
+
+\end{itemize}
+
+\sphinxstepscope
+
+
+\subsection{2. Ataki na bazy danych i luki w zabezpieczeniach}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_2:ataki-na-bazy-danych-i-luki-w-zabezpieczeniach}}\label{\detokenize{rozdzial_2/2.7/rozdzial_2::doc}}
+\sphinxAtStartPar
+Ponieważ bazy danych przechowują najbardziej krytyczne informacje organizacji, stanowią główny cel cyberataków. Według zestawień takich jak OWASP Top 10, podatności związane ze wstrzykiwaniem kodu (Injection) oraz błędną konfiguracją od lat utrzymują się w czołówce zagrożeń. Zrozumienie mechaniki tych ataków jest kluczowe do zaprojektowania skutecznych mechanizmów obronnych w warstwie aplikacyjnej i bazodanowej.
+
+
+\subsubsection{Wstrzykiwanie kodu SQL (SQL Injection)}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_2:wstrzykiwanie-kodu-sql-sql-injection}}
+\sphinxAtStartPar
+SQL Injection (SQLi) to podatność polegająca na możliwości modyfikacji zapytania SQL poprzez nieodpowiednio zwalidowane dane wejściowe. Pozwala to atakującemu na wykonanie nieautoryzowanych operacji na bazie danych.
+
+\sphinxAtStartPar
+Klasyczny przykład podatności (język PHP):
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{x}{\PYGZdl{}username = \PYGZdl{}\PYGZus{}POST[\PYGZsq{}username\PYGZsq{}];}
+\PYG{x}{\PYGZdl{}query = \PYGZdq{}SELECT * FROM users WHERE username = \PYGZsq{}\PYGZdl{}username\PYGZsq{}\PYGZdq{};}
+\PYG{x}{\PYGZdl{}db\PYGZhy{}\PYGZgt{}execute(\PYGZdl{}query);}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Jeśli atakujący jako parametr \sphinxcode{\sphinxupquote{username}} przekaże ciąg \sphinxcode{\sphinxupquote{\textquotesingle{} OR \textquotesingle{}1\textquotesingle{}=\textquotesingle{}1}}, zapytanie przyjmie postać:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{users}\PYG{+w}{ }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{username}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}\PYG{+w}{ }\PYG{k}{OR}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}1\PYGZsq{}}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Ponieważ warunek \sphinxcode{\sphinxupquote{\textquotesingle{}1\textquotesingle{}=\textquotesingle{}1\textquotesingle{}}} jest zawsze prawdziwy, silnik bazy danych zwróci wszystkie rekordy z tabeli \sphinxcode{\sphinxupquote{users}}, omijając mechanizm uwierzytelniania.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Rodzaje ataków SQLi:}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{In\sphinxhyphen{}Band SQLi (Classic):} Atakujący używa tego samego kanału komunikacyjnego do przeprowadzenia ataku i zebrania wyników. Najpopularniejsze to \sphinxstyleemphasis{Error\sphinxhyphen{}based SQLi} (wymuszanie błędów silnika w celu wycieku metadanych, np. struktury tabel) oraz \sphinxstyleemphasis{Union\sphinxhyphen{}based SQLi} (użycie operatora \sphinxcode{\sphinxupquote{UNION}} do dołączenia złośliwych zapytań do oryginalnego).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Inferential (Blind) SQLi:} Występuje, gdy aplikacja nie zwraca komunikatów o błędach ani bezpośrednich wyników zapytań. Atakujący musi wnioskować o strukturze danych na podstawie zachowania aplikacji.
+* \sphinxstylestrong{Boolean\sphinxhyphen{}based:} Wysyłanie zapytań warunkowych i obserwowanie, czy strona ładuje się inaczej.
+* \sphinxstylestrong{Time\sphinxhyphen{}based:} Zmuszanie bazy do wstrzymania działania (np. funkcjami \sphinxcode{\sphinxupquote{pg\_sleep()}} w PostgreSQL lub \sphinxcode{\sphinxupquote{WAITFOR DELAY}} w SQL Server), aby potwierdzić obecność podatności.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Out\sphinxhyphen{}of\sphinxhyphen{}Band SQLi:} Wykorzystywane rzadziej, opiera się na wymuszeniu przez silnik bazy danych żądania HTTP lub DNS do zewnętrznego serwera kontrolowanego przez atakującego.
+
+\end{enumerate}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Mitygacja:}
+Podstawową i najskuteczniejszą metodą obrony przed SQLi jest korzystanie z \sphinxstylestrong{zapytań parametryzowanych (Prepared Statements)} lub nowoczesnych systemów ORM (Object\sphinxhyphen{}Relational Mapping), które oddzielają składnię zapytań od danych wejściowych.
+
+
+\subsubsection{Ataki NoSQL Injection}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_2:ataki-nosql-injection}}
+\sphinxAtStartPar
+Wraz ze wzrostem popularności nierelacyjnych baz danych (np. MongoDB, CouchDB), pojawił się mit o ich całkowitej odporności na wstrzykiwanie kodu. Choć nie używają one tradycyjnego dialektu SQL, aplikacje z nich korzystające nadal mogą być podatne na modyfikację logiki zapytań.
+
+\sphinxAtStartPar
+Ataki te często bazują na wstrzykiwaniu operatorów bazy danych do zapytań, które aplikacja interpretuje jako obiekty JSON.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Przykład dla MongoDB:}
+Aplikacja Node.js oczekuje poświadczeń przekazanych w formacie JSON:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{db}\PYG{p}{.}\PYG{n+nx}{collection}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}users\PYGZsq{}}\PYG{p}{)}\PYG{p}{.}\PYG{n+nx}{find}\PYG{p}{(}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{username}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{req}\PYG{p}{.}\PYG{n+nx}{body}\PYG{p}{.}\PYG{n+nx}{username}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{password}\PYG{o}{:}\PYG{+w}{ }\PYG{n+nx}{req}\PYG{p}{.}\PYG{n+nx}{body}\PYG{p}{.}\PYG{n+nx}{password}
+\PYG{p}{\PYGZcb{}}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Atakujący wysyła zmodyfikowany payload z użyciem operatora logicznego \sphinxcode{\sphinxupquote{\$ne}} (Not Equal):
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}username\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{n+nt}{\PYGZdq{}\PYGZdl{}ne\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{\PYGZcb{},}
+\PYG{+w}{    }\PYG{n+nt}{\PYGZdq{}password\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{n+nt}{\PYGZdq{}\PYGZdl{}ne\PYGZdq{}}\PYG{p}{:}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+W rezultacie silnik MongoDB wykonuje zapytanie szukające użytkownika, którego login i hasło \sphinxstyleemphasis{nie są nullem}. Zapytanie zwraca pierwszy pasujący rekord (często administratora), umożliwiając logowanie bez znajomości hasła.
+
+
+\subsubsection{Przepełnienie bufora (Buffer Overflow) w DBMS}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_2:przepelnienie-bufora-buffer-overflow-w-dbms}}
+\sphinxAtStartPar
+Silniki baz danych (np. MySQL, PostgreSQL, Oracle) to skomplikowane aplikacje napisane najczęściej w językach C lub C++, co oznacza, że są potencjalnie narażone na błędy zarządzania pamięcią.
+
+\sphinxAtStartPar
+\sphinxstyleemphasis{Buffer Overflow} w kontekście baz danych występuje, gdy atakujący przesyła nieproporcjonalnie duży ciąg danych do bufora o stałej wielkości (np. w parametrze funkcji wbudowanej, mechanizmie autoryzacyjnym lub procedurze składowanej). Gdy dane wykraczają poza zaalokowany obszar pamięci, mogą nadpisać sąsiadujące obszary, w tym wskaźnik powrotu instrukcji (Instruction Pointer).
+
+\sphinxAtStartPar
+Może to prowadzić do:
+1. \sphinxstylestrong{Awarji silnika bazy danych (Crash)} \textendash{} przerywając ciągłość działania.
+2. \sphinxstylestrong{Wykonania dowolnego kodu (RCE \sphinxhyphen{} Remote Code Execution)} \textendash{} uruchomienia shellcode’u na serwerze z uprawnieniami procesu bazy danych, co stanowi bezpośrednie wejście do kompromitacji hosta (powiązane z ryzykiem opisanym w rozdziale o konteneryzacji).
+
+
+\subsubsection{Odmowa Usługi (DoS) na poziomie bazy danych}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_2:odmowa-uslugi-dos-na-poziomie-bazy-danych}}
+\sphinxAtStartPar
+Ataki Denial of Service na bazy danych różnią się od klasycznych ataków sieciowych. Mają one charakter aplikacyjny i celują w wyczerpanie zasobów sprzętowych serwera (CPU, RAM, I/O) lub limitów samego oprogramowania.
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Wyczerpanie puli połączeń (Connection Exhaustion):} Każdy DBMS ma zdefiniowany limit maksymalnej liczby jednoczesnych połączeń (np. parametr \sphinxcode{\sphinxupquote{max\_connections}} w PostgreSQL). Atakujący, często wykorzystując luki w warstwie aplikacji, może zainicjować tysiące zawieszonych lub bardzo powolnych sesji bazy, uniemożliwiając logowanie legalnym użytkownikom.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Asymetryczne obciążenie (Query\sphinxhyphen{}based DoS):} Atakujący wstrzykuje i uruchamia zapytania, które są syntaktycznie poprawne, ale drastycznie nieoptymalne kosztowo. Przykładem może być wymuszenie iloczynu kartezjańskiego (CROSS JOIN) na bardzo dużych tabelach bez odpowiednich indeksów, co może zablokować procesor serwera na kilka minut i doprowadzić do blokady całej aplikacji (Deadlock/Timeouts).
+
+\end{itemize}
+
+
+\subsubsection{Automatyzacja ataków: Narzędzia audytowe}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_2:automatyzacja-atakow-narzedzia-audytowe}}
+\sphinxAtStartPar
+W procesach testów penetracyjnych baz danych, analitycy bezpieczeństwa korzystają ze zautomatyzowanych frameworków. Najpopularniejszym z nich jest \sphinxstylestrong{sqlmap} \textendash{} potężne narzędzie open\sphinxhyphen{}source automatyzujące proces wykrywania podatności SQLi i przejmowania kontroli nad serwerami bazodanowymi.
+
+\sphinxAtStartPar
+W typowym scenariuszu audytu, uruchomienie polecenia:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+sqlmap\PYG{+w}{ }\PYGZhy{}u\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}http://podatna\PYGZhy{}aplikacja.local/item.php?id=1\PYGZdq{}}\PYG{+w}{ }\PYGZhy{}\PYGZhy{}dbs
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+pozwoli narzędziu na wykrycie typu wstrzyknięcia (np. czasowe lub błędowe), zidentyfikowanie używanego silnika DBMS oraz \textendash{} w razie sukcesu \textendash{} wyliczenie wszystkich baz danych dostępnych na serwerze (enumeracja instancji).
+
+\sphinxstepscope
+
+
+\subsection{3. Zarządzanie tożsamością, uwierzytelnianie i autoryzacja}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_3:zarzadzanie-tozsamoscia-uwierzytelnianie-i-autoryzacja}}\label{\detokenize{rozdzial_2/2.7/rozdzial_3::doc}}
+\sphinxAtStartPar
+Po zabezpieczeniu infrastruktury sieciowej oraz aplikacji przed atakami typu Injection, kolejną linią obrony jest ścisła kontrola dostępu do samych danych. W architekturze systemów bazodanowych proces ten opiera się na trzech filarach: zarządzaniu tożsamością (Identity Management), uwierzytelnianiu (Authentication) oraz autoryzacji (Authorization). Prawidłowa implementacja tych mechanizmów gwarantuje, że zasada najmniejszego uprzywilejowania (PoLP \sphinxhyphen{} Principle of Least Privilege) może być skutecznie egzekwowana w całym systemie.
+
+
+\subsubsection{Uwierzytelnianie w bazach danych}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_3:uwierzytelnianie-w-bazach-danych}}
+\sphinxAtStartPar
+Proces uwierzytelniania weryfikuje, czy podmiot (użytkownik końcowy, administrator lub usługa aplikacyjna) łączący się z bazą danych jest tym, za kogo się podaje. Współczesne silniki relacyjne (np. PostgreSQL, Oracle) oraz nierelacyjne odeszły od prostego przesyłania haseł tekstem jawnym (plaintext), wprowadzając bardziej zaawansowane mechanizmy:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Kryptograficzne protokoły uwierzytelniania:} Zamiast przestarzałych algorytmów (np. MD5), nowoczesne wdrożenia wykorzystują mechanizmy typu SCRAM\sphinxhyphen{}SHA\sphinxhyphen{}256 (Salted Challenge Response Authentication Mechanism). SCRAM zapobiega atakom typu \sphinxstyleemphasis{replay attack} oraz minimalizuje skutki ewentualnej kradzieży skrótów z serwera, ponieważ hasło nigdy nie jest przesyłane w otwartej formie.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Integracja z dostawcami tożsamości (IdP):} W środowiskach korporacyjnych unika się tworzenia lokalnych kont wewnątrz bazy (tzw. \sphinxstyleemphasis{database\sphinxhyphen{}native accounts}) dla użytkowników fizycznych. Zamiast tego silniki DBMS integruje się z centralnymi usługami katalogowymi (LDAP, Active Directory) lub wykorzystuje protokół Kerberos (np. poprzez GSSAPI). Pozwala to na centralne zarządzanie cyklem życia konta i automatyczne odbieranie dostępów w przypadku odejścia pracownika (tzw. \sphinxstyleemphasis{offboarding}).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Uwierzytelnianie certyfikatowe (mTLS \sphinxhyphen{} Mutual TLS):} Standard powszechnie stosowany w architekturze mikroserwisowej do komunikacji \sphinxstyleemphasis{machine\sphinxhyphen{}to\sphinxhyphen{}machine}. Oprócz szyfrowania samego kanału (TLS), serwer bazy danych żąda i weryfikuje certyfikat klienta (X.509) wystawiony przez wewnętrzne, zaufane centrum certyfikacji (CA).
+
+\end{itemize}
+
+
+\subsubsection{Autoryzacja i modele kontroli dostępu}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_3:autoryzacja-i-modele-kontroli-dostepu}}
+\sphinxAtStartPar
+Po udanym uwierzytelnieniu następuje faza autoryzacji, czyli weryfikacji, jakie operacje (SELECT, INSERT, UPDATE, DELETE) i na jakich obiektach (tabele, widoki, procedury) dany podmiot może wykonać.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Kontrola dostępu oparta na rolach (RBAC \sphinxhyphen{} Role\sphinxhyphen{}Based Access Control)}
+
+\sphinxAtStartPar
+Model RBAC to absolutny standard w systemach zarządzania bazami danych. Zamiast nadawać uprawnienia (GRANT) bezpośrednio pojedynczym użytkownikom, tworzy się logiczne role odzwierciedlające funkcje biznesowe lub techniczne (np. \sphinxcode{\sphinxupquote{app\_readonly}}, \sphinxcode{\sphinxupquote{app\_writer}}, \sphinxcode{\sphinxupquote{dba\_admin}}). Następnie konta personalne lub serwisowe przypisuje się do tych ról. Taka abstrakcja drastycznie upraszcza audyt i zarządzanie uprawnieniami.
+
+\sphinxAtStartPar
+Przykład implementacji RBAC (dialekt PostgreSQL):
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Utworzenie technicznej roli tylko do odczytu}
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{ROLE}\PYG{+w}{ }\PYG{n}{app\PYGZus{}readonly}\PYG{p}{;}
+\PYG{k}{GRANT}\PYG{+w}{ }\PYG{k}{CONNECT}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{k}{DATABASE}\PYG{+w}{ }\PYG{n}{production}\PYG{+w}{ }\PYG{k}{TO}\PYG{+w}{ }\PYG{n}{app\PYGZus{}readonly}\PYG{p}{;}
+\PYG{k}{GRANT}\PYG{+w}{ }\PYG{k}{USAGE}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{k}{SCHEMA}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{TO}\PYG{+w}{ }\PYG{n}{app\PYGZus{}readonly}\PYG{p}{;}
+\PYG{k}{GRANT}\PYG{+w}{ }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{k}{ALL}\PYG{+w}{ }\PYG{n}{TABLES}\PYG{+w}{ }\PYG{k}{IN}\PYG{+w}{ }\PYG{k}{SCHEMA}\PYG{+w}{ }\PYG{k}{public}\PYG{+w}{ }\PYG{k}{TO}\PYG{+w}{ }\PYG{n}{app\PYGZus{}readonly}\PYG{p}{;}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Przypisanie użytkownika raportującego do przygotowanej roli}
+\PYG{k}{GRANT}\PYG{+w}{ }\PYG{n}{app\PYGZus{}readonly}\PYG{+w}{ }\PYG{k}{TO}\PYG{+w}{ }\PYG{n}{report\PYGZus{}user}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Bezpieczeństwo na poziomie wierszy (Row\sphinxhyphen{}Level Security)}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_3:bezpieczenstwo-na-poziomie-wierszy-row-level-security}}
+\sphinxAtStartPar
+Tradycyjny model autoryzacji w bazach danych działa na poziomie całych struktur (np. blokuje lub zezwala na odczyt całej tabeli). Współczesne aplikacje, zwłaszcza budowane w modelu wielodostępnym (multi\sphinxhyphen{}tenant), często wymagają znacznie bardziej granularnej kontroli, aby użytkownik jednego klienta nie miał fizycznej możliwości odczytania rekordów należących do innego.
+
+\sphinxAtStartPar
+Z pomocą przychodzi mechanizm Row\sphinxhyphen{}Level Security (RLS). Pozwala on na nakładanie polityk bezpieczeństwa bezpośrednio na wiersze danych. Silnik bazy automatycznie i w sposób przezroczysty dokleja zdefiniowane warunki do każdego zapytania. Kluczową zaletą RLS jest fakt, że uniemożliwia on ominięcie logiki izolacyjnej w warstwie aplikacji \textendash{} nawet w przypadku wystąpienia luki SQL Injection.
+
+\sphinxAtStartPar
+Przykład definicji RLS (dialekt PostgreSQL):
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Włączenie weryfikacji RLS dla krytycznej tabeli}
+\PYG{k}{ALTER}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{n}{orders}\PYG{+w}{ }\PYG{n}{ENABLE}\PYG{+w}{ }\PYG{k}{ROW}\PYG{+w}{ }\PYG{k}{LEVEL}\PYG{+w}{ }\PYG{k}{SECURITY}\PYG{p}{;}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Utworzenie polityki izolującej dane między użytkownikami}
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{n}{POLICY}\PYG{+w}{ }\PYG{n}{isolate\PYGZus{}tenant\PYGZus{}policy}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{orders}
+\PYG{+w}{    }\PYG{k}{USING}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{tenant\PYGZus{}id}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{current\PYGZus{}setting}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}app.current\PYGZus{}tenant\PYGZsq{}}\PYG{p}{)}\PYG{p}{:}\PYG{p}{:}\PYG{n+nb}{int}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Zarządzanie poświadczeniami aplikacji (Secrets Management)}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_3:zarzadzanie-poswiadczeniami-aplikacji-secrets-management}}
+\sphinxAtStartPar
+Nawet najbardziej rygorystyczne mechanizmy wewnątrz samej bazy danych zawiodą, jeśli poświadczenia do niej (tzw. \sphinxstyleemphasis{connection strings}) zostaną umieszczone na stałe (hardcoded) w kodzie źródłowym i wypchnięte do repozytorium kodu.
+
+\sphinxAtStartPar
+Zgodnie z dobrymi praktykami nurtu DevSecOps, środowiska produkcyjne powinny wykorzystywać zewnętrzne systemy zarządzania sekretami (np. HashiCorp Vault, AWS Secrets Manager). Narzędzia te pozwalają na dynamiczne generowanie tymczasowych, krótkożyjących poświadczeń (tzw. \sphinxstyleemphasis{dynamic secrets}). W takim scenariuszu aplikacja uwierzytelnia się do Vaulta i otrzymuje login oraz hasło do bazy danych, które wygasają np. po godzinie. Po tym czasie usługa zarządzająca automatycznie usuwa (REVOKE) te poświadczenia z silnika bazy, co radykalnie zmniejsza okno potencjalnego ataku w przypadku ich wycieku.
+
+\sphinxstepscope
+
+
+\subsection{4. Kryptografia w bazach danych}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_4:kryptografia-w-bazach-danych}}\label{\detokenize{rozdzial_2/2.7/rozdzial_4::doc}}
+\sphinxAtStartPar
+Nawet najbardziej rygorystyczne mechanizmy kontroli dostępu i izolacji sieciowej mogą zawieść w obliczu zaawansowanych ataków (tzw. APT \textendash{} Advanced Persistent Threats) lub błędów ludzkich. W myśl zasady obrony w głąb (Defense in Depth), ostatnią linią ochrony informacji jest kryptografia. Jej implementacja w środowiskach bazodanowych dzieli się na trzy główne obszary: ochronę danych w spoczynku, w tranzycie oraz w użyciu.
+
+
+\subsubsection{Szyfrowanie danych w spoczynku (Data at Rest)}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_4:szyfrowanie-danych-w-spoczynku-data-at-rest}}
+\sphinxAtStartPar
+Szyfrowanie w spoczynku ma na celu zabezpieczenie fizycznych nośników danych przed nieautoryzowanym odczytem, na przykład w przypadku kradzieży serwera, dysku twardego lub nieautoryzowanego skopiowania plików kopii zapasowych.
+
+\sphinxAtStartPar
+Przemysłowym standardem w tym zakresie jest mechanizm \sphinxstylestrong{TDE (Transparent Data Encryption)}, natywnie wspierany przez silniki takie jak Microsoft SQL Server czy Oracle (dla PostgreSQL stosuje się często szyfrowanie na poziomie systemu plików, np. LUKS, lub dedykowane rozszerzenia). TDE działa na poziomie warstwy wejścia/wyjścia (I/O) silnika bazy danych:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Przezroczystość:} Aplikacja kliencka nie musi być modyfikowana. Dane są szyfrowane tuż przed zapisem na dysk i deszyfrowane w momencie wczytywania ich do pamięci operacyjnej (RAM) serwera.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Architektura kluczy:} Bezpieczeństwo TDE opiera się na hierarchii kluczy kryptograficznych. Dane właściwe szyfrowane są kluczem symetrycznym DEK (Data Encryption Key). Sam DEK jest z kolei chroniony (szyfrowany) asymetrycznym kluczem nadrzędnym MEK (Master Encryption Key), który powinien być przechowywany poza samym serwerem bazy danych \textendash{} najczęściej w sprzętowych modułach bezpieczeństwa (HSM) lub chmurowych usługach KMS (Key Management Service).
+
+\end{itemize}
+
+
+\subsubsection{Szyfrowanie danych w tranzycie (Data in Transit)}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_4:szyfrowanie-danych-w-tranzycie-data-in-transit}}
+\sphinxAtStartPar
+Przesyłanie danych między warstwą aplikacji a silnikiem bazy danych w postaci jawnej (plaintext) naraża system na ataki typu Man\sphinxhyphen{}in\sphinxhyphen{}the\sphinxhyphen{}Middle (MitM) oraz podsłuchiwanie pakietów (sniffing).
+
+\sphinxAtStartPar
+Aby temu zapobiec, wszystkie połączenia z bazą danych muszą być obligatoryjnie szyfrowane za pomocą protokołu \sphinxstylestrong{TLS (Transport Layer Security)}. Wymuszenie bezpiecznego kanału realizuje się zazwyczaj poprzez odpowiednią konfigurację parametrów połączenia.
+
+\sphinxAtStartPar
+Przykład wymuszenia TLS w konfiguracji PostgreSQL (\sphinxcode{\sphinxupquote{postgresql.conf}}):
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Włączenie obsługi protokołu TLS}
+\PYG{n+na}{ssl}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{on}
+\PYG{n+na}{ssl\PYGZus{}cert\PYGZus{}file}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{/etc/ssl/certs/db\PYGZhy{}server.crt}\PYG{l+s}{\PYGZsq{}}
+\PYG{n+na}{ssl\PYGZus{}key\PYGZus{}file}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{/etc/ssl/private/db\PYGZhy{}server.key}\PYG{l+s}{\PYGZsq{}}
+\PYG{c+c1}{\PYGZsh{} Odrzucanie połączeń używających przestarzałych, podatnych wersji protokołu}
+\PYG{n+na}{ssl\PYGZus{}min\PYGZus{}protocol\PYGZus{}version}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s}{\PYGZsq{}}\PYG{l+s}{TLSv1.2}\PYG{l+s}{\PYGZsq{}}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Po stronie klienta, ciąg połączeniowy (connection string) powinien zawierać dyrektywę bezwzględnie wymagającą weryfikacji certyfikatu (np. parametr \sphinxcode{\sphinxupquote{sslmode=verify\sphinxhyphen{}full}}).
+
+
+\subsubsection{Szyfrowanie na poziomie klienta (Client\sphinxhyphen{}Side Encryption)}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_4:szyfrowanie-na-poziomie-klienta-client-side-encryption}}
+\sphinxAtStartPar
+Mechanizm TDE chroni przed fizyczną kradzieżą nośników, ale nie zabezpiecza przed administratorem bazy danych (DBA) lub atakiem SQL Injection, ponieważ w momencie działania zapytania dane w pamięci serwera są w pełni odszyfrowane.
+
+\sphinxAtStartPar
+Odpowiedzią na ten problem jest szyfrowanie na poziomie aplikacji (lub kolumn w nowszych silnikach, np. funkcja \sphinxstyleemphasis{Always Encrypted} w SQL Server). W tym paradygmacie dane są szyfrowane w warstwie aplikacji (np. backendzie w Javie lub C\#) jeszcze przed wysłaniem ich do bazy.
+
+\sphinxAtStartPar
+Silnik bazy danych operuje wyłącznie na kryptogramach (ciphertext) i nigdy nie ma dostępu do kluczy deszyfrujących, co zapewnia najwyższy poziom poufności dla najbardziej wrażliwych kolumn (np. numerów PESEL, danych kart kredytowych). Kosztem takiego rozwiązania jest utrata możliwości wykonywania zaawansowanych operacji analitycznych (takich jak sumowanie, sortowanie czy wyszukiwanie z użyciem operatora LIKE) bezpośrednio po stronie DBMS.
+
+
+\subsubsection{Dynamiczne maskowanie danych i funkcje skrótu}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_4:dynamiczne-maskowanie-danych-i-funkcje-skrotu}}
+\sphinxAtStartPar
+Uzupełnieniem kryptografii jest technika \sphinxstylestrong{DDM (Dynamic Data Masking)}. Służy ona do ochrony wrażliwych danych w czasie rzeczywistym przed użytkownikami, którzy nie posiadają odpowiednich poświadczeń (np. analitykami biznesowymi lub programistami korzystającymi z kopii produkcyjnej). DDM maskuje wyniki zapytań (np. zwracając ciąg \sphinxcode{\sphinxupquote{****\sphinxhyphen{}****\sphinxhyphen{}****\sphinxhyphen{}1234}} zamiast pełnego numeru karty), podczas gdy same dane na dysku pozostają nienaruszone.
+
+\sphinxAtStartPar
+Ponadto, wracając do zagadnień z zakresu uwierzytelniania, należy pamiętać o kryptografii jednokierunkowej. Wrażliwe poświadczenia (takie jak hasła użytkowników aplikacji) nigdy nie mogą być przechowywane w formie szyfrowalnej (dwukierunkowej). Zamiast tego muszą być poddawane procesowi solenia (salting) i hashowania z wykorzystaniem funkcji spowalniających (Key Derivation Functions), takich jak \sphinxstylestrong{Argon2}, \sphinxstylestrong{bcrypt} lub \sphinxstylestrong{PBKDF2}, co skutecznie uniemożliwia ataki słownikowe i wykorzystanie tęczowych tablic (rainbow tables).
+
+\sphinxstepscope
+
+
+\subsection{5. Audyt, logowanie i wykrywanie anomalii}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_5:audyt-logowanie-i-wykrywanie-anomalii}}\label{\detokenize{rozdzial_2/2.7/rozdzial_5::doc}}
+\sphinxAtStartPar
+Nawet najsilniejsze mechanizmy prewencyjne, takie jak kontrola dostępu czy szyfrowanie, nie gwarantują stuprocentowego bezpieczeństwa. W przypadku udanego ataku lub błędu wewnętrznego (tzw. zagrożenia \sphinxstyleemphasis{Insider Threat}), kluczowe staje się odtworzenie przebiegu zdarzeń. Temu celowi służą mechanizmy audytu i logowania, które stanowią fundament dla systemów wykrywania anomalii oraz zapewniają niezaprzeczalność (ang. \sphinxstyleemphasis{Non\sphinxhyphen{}repudiation}) operacji wykonywanych na danych.
+
+
+\subsubsection{Znaczenie audytu i rodzaje logów bazodanowych}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_5:znaczenie-audytu-i-rodzaje-logow-bazodanowych}}
+\sphinxAtStartPar
+Audytowanie bazy danych to proces polegający na monitorowaniu i rejestrowaniu akcji użytkowników oraz procesów systemowych. Nie należy mylić go z klasycznymi logami transakcyjnymi (np. WAL w PostgreSQL czy Redo Logs w Oracle), które służą do odtwarzania bazy po awarii. Audyt bezpieczeństwa skupia się na tym \sphinxstylestrong{kto}, \sphinxstylestrong{kiedy}, \sphinxstylestrong{skąd} i \sphinxstylestrong{jaką} operację wykonał.
+
+\sphinxAtStartPar
+Większość nowoczesnych silników DBMS pozwala na granularną konfigurację logowania. Rejestrowane zdarzenia można podzielić na kilka kategorii:
+* \sphinxstylestrong{Logi uwierzytelniania:} Rejestrują udane i nieudane próby logowania (np. błędy \sphinxstyleemphasis{Access Denied}), co pozwala na szybkie wykrycie ataków typu brute\sphinxhyphen{}force.
+* \sphinxstylestrong{Logi DDL (Data Definition Language):} Śledzą zmiany w strukturze bazy (tworzenie i usuwanie tabel, modyfikacje uprawnień).
+* \sphinxstylestrong{Logi DML (Data Manipulation Language):} Najbardziej kosztowne wydajnościowo, ale niezbędne w systemach o wysokim rygorze bezpieczeństwa (np. bankowość, opieka zdrowotna). Pozwalają na śledzenie zapytań \sphinxcode{\sphinxupquote{SELECT}}, \sphinxcode{\sphinxupquote{UPDATE}} czy \sphinxcode{\sphinxupquote{DELETE}} na wrażliwych tabelach.
+
+\sphinxAtStartPar
+Przykładowo, natywne logowanie w PostgreSQL jest często niewystarczające dla zaawansowanego audytu. W środowiskach produkcyjnych powszechnie stosuje się rozszerzenie \sphinxstylestrong{pgAudit} (PostgreSQL Audit Extension), które dostarcza szczegółowe logowanie sesji i obiektów przy użyciu standardowych mechanizmów logowania wbudowanych w silnik.
+
+
+\subsubsection{Centralizacja logów i systemy SIEM}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_5:centralizacja-logow-i-systemy-siem}}
+\sphinxAtStartPar
+Przechowywanie logów audytowych wyłącznie na tym samym serwerze, na którym działa baza danych, jest poważnym błędem architektonicznym. W przypadku udanej kompromitacji hosta (np. poprzez ucieczkę z kontenera opisaną w rozdziale 1), atakujący w pierwszej kolejności zaciera ślady, modyfikując lub usuwając pliki logów.
+
+\sphinxAtStartPar
+Dlatego standardem rynkowym jest natychmiastowy eksport logów w czasie rzeczywistym do niezależnych systemów centralnych. Wykorzystuje się do tego architekturę SIEM (ang. \sphinxstyleemphasis{Security Information and Event Management}), z wykorzystaniem stosów technologicznych takich jak \sphinxstylestrong{ELK} (Elasticsearch, Logstash, Kibana) lub \sphinxstylestrong{Splunk}. Systemy te agregują logi nie tylko z baz danych, ale również z warstwy aplikacji, firewalli i systemów operacyjnych, pozwalając na korelację zdarzeń z różnych źródeł w celu identyfikacji złożonych ataków.
+
+
+\subsubsection{Database Activity Monitoring (DAM) i wykrywanie anomalii}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_5:database-activity-monitoring-dam-i-wykrywanie-anomalii}}
+\sphinxAtStartPar
+Tradycyjna analiza logów jest procesem reaktywnym (po fakcie). Aby przejść na model proaktywny, stosuje się systemy DAM (ang. \sphinxstyleemphasis{Database Activity Monitoring}), które monitorują ruch do bazy danych z zewnątrz (np. analizując ruch sieciowy (tzw. \sphinxstyleemphasis{packet sniffing}) lub podpinając się pod pule pamięci silnika). Dzięki temu system DAM jest odseparowany od samej bazy, co zapobiega modyfikacji jego działania nawet po przejęciu uprawnień administratora bazy (DBA).
+
+\sphinxAtStartPar
+Kluczową funkcją nowoczesnych systemów z tej kategorii jest \sphinxstylestrong{wykrywanie anomalii w oparciu o analizę behawioralną (UEBA)}. Zamiast opierać się wyłącznie na statycznych sygnaturach zagrożeń, systemy te wykorzystują algorytmy uczenia maszynowego do modelowania „normalnego” zachowania aplikacji i użytkowników.
+
+\sphinxAtStartPar
+System wykryje anomalię i podniesie alarm (lub zablokuje zapytanie), gdy np.:
+* Aplikacja webowa, która zazwyczaj pobiera pojedyncze rekordy w zapytaniach \sphinxcode{\sphinxupquote{SELECT}}, nagle próbuje wykonać zrzut (ang. \sphinxstyleemphasis{dump}) tysięcy wierszy z tabeli klientów \textendash{} co może świadczyć o udanym wstrzyknięciu kodu (SQLi z rozdziału 2) i próbie eksfiltracji danych.
+* Użytkownik o uprawnieniach administracyjnych loguje się do bazy z nietypowej geolokalizacji lub poza standardowymi godzinami pracy.
+* Gwałtownie rośnie liczba odrzucanych połączeń lub błędów składniowych SQL z określonego adresu IP wewnątrz sieci.
+
+\sphinxstepscope
+
+
+\subsection{6. Bezpieczeństwo kopii zapasowych i Disaster Recovery}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_6:bezpieczenstwo-kopii-zapasowych-i-disaster-recovery}}\label{\detokenize{rozdzial_2/2.7/rozdzial_6::doc}}
+\sphinxAtStartPar
+Systemy prewencyjne i detekcyjne nie zawsze są w stanie zatrzymać zaawansowane ataki, takie jak ransomware, czy też zapobiec fizycznym awariom infrastruktury. W takich scenariuszach ostateczną linią obrony stają się mechanizmy odtwarzania danych po awarii. Bezpieczeństwo samych kopii zapasowych jest równie krytyczne co bezpieczeństwo głównej instancji bazy danych \textendash{} skompromitowany backup często ostatecznie przekreśla szanse na powrót organizacji do normalnego funkcjonowania operacyjnego.
+
+
+\subsubsection{Zasada 3\sphinxhyphen{}2\sphinxhyphen{}1 i niezmienność kopii (Immutable Backups)}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_6:zasada-3-2-1-i-niezmiennosc-kopii-immutable-backups}}
+\sphinxAtStartPar
+Klasyczna reguła 3\sphinxhyphen{}2\sphinxhyphen{}1 (trzy kopie, na dwóch różnych nośnikach, z czego jedna w innej lokalizacji fizycznej lub geograficznej) pozostaje fundamentem ochrony danych. Jednakże, w dobie zaawansowanych ataków kryptograficznych, wymaga ona uzupełnienia o koncepcję niezmienności (ang. \sphinxstyleemphasis{Immutability}).
+
+\sphinxAtStartPar
+Współczesne złośliwe oprogramowanie często priorytetyzuje poszukiwanie dysków sieciowych oraz zasobów chmurowych z kopiami zapasowymi, aby je usunąć lub zaszyfrować przed zaatakowaniem głównego klastra bazy danych. Odpowiedzią inżynieryjną na to zagrożenie jest technologia zapisu WORM (ang. \sphinxstyleemphasis{Write Once, Read Many}). W nowoczesnej architekturze chmurowej (np. za pomocą mechanizmu AWS S3 Object Lock) gwarantuje ona, że zapisany plik backupu nie może zostać w żaden sposób zmodyfikowany ani usunięty przez zdefiniowany okres retencji. Ochrona ta działa nawet w przypadku całkowitej kompromitacji konta z najwyższymi uprawnieniami (ang. \sphinxstyleemphasis{root account compromise}).
+
+
+\subsubsection{Szyfrowanie archiwów i zarządzanie kluczami}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_6:szyfrowanie-archiwow-i-zarzadzanie-kluczami}}
+\sphinxAtStartPar
+Ponieważ logiczne i fizyczne kopie zapasowe opuszczają bezpieczne środowisko serwerowni lub głęboko izolowanej podsieci (VPC, o której mowa w rozdziale 1), absolutnym wymogiem jest ich szyfrowanie w spoczynku (ang. \sphinxstyleemphasis{Data at Rest Encryption}). Wykonanie zwykłego zrzutu bazy w postaci czystego tekstu i przesłanie go na zewnątrz to drastyczne ryzyko wycieku, uderzające bezpośrednio w postulat poufności.
+
+\sphinxAtStartPar
+W nowoczesnych wdrożeniach archiwizacji stosuje się dedykowane systemy KMS (ang. \sphinxstyleemphasis{Key Management Service}). Klucze szyfrujące używane do ochrony backupów powinny być ściśle odseparowane od infrastruktury samego klastra bazodanowego. Dodatkowo podczas procesu odtwarzania konieczna jest weryfikacja integralności archiwów przy użyciu funkcji skrótu (np. SHA\sphinxhyphen{}256), co pozwala upewnić się, że paczka danych nie uległa uszkodzeniu na etapie przesyłania.
+
+
+\subsubsection{Disaster Recovery (DR) i wskaźniki RTO/RPO}
+\label{\detokenize{rozdzial_2/2.7/rozdzial_6:disaster-recovery-dr-i-wskazniki-rto-rpo}}
+\sphinxAtStartPar
+Kopia zapasowa to jedynie nośnik danych; z perspektywy ciągłości biznesowej (ang. \sphinxstyleemphasis{Business Continuity}) liczy się sprawdzony proces ich przywracania. Architektura Disaster Recovery dla baz danych opiera się na dwóch krytycznych metrykach:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{RPO (Recovery Point Objective):} Maksymalny akceptowalny czas, z którego dane mogą zostać bezpowrotnie utracone. Minimalizację tego wskaźnika do okolic zera osiąga się poprzez ciągłą strumieniową archiwizację logów transakcyjnych (np. mechanizm \sphinxstyleemphasis{WAL archiving} w PostgreSQL).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{RTO (Recovery Time Objective):} Czas niezbędny na przywrócenie systemów bazodanowych do pełnego działania operacyjnego po awarii.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Dla systemów o rygorystycznym RTO (wymagających dostępności mierzonej w sekundach) tradycyjne odtwarzanie z plików jest niewystarczające. Stosuje się wówczas architekturę klastrów rozproszonych w modelach \sphinxstyleemphasis{Active\sphinxhyphen{}Passive} (ciągła, asynchroniczna replikacja do zapasowego centrum danych) lub \sphinxstyleemphasis{Active\sphinxhyphen{}Active} (synchroniczny zapis w wielu lokalizacjach, wymagający specjalnego rozwiązywania problemów ze spójnością i opóźnieniami sieciowymi, tzw. \sphinxstyleemphasis{split\sphinxhyphen{}brain}).
+
+\sphinxAtStartPar
+Niezależnie od stopnia skomplikowania architektury chmurowej, każda polityka Disaster Recovery pozostaje martwym dokumentem, dopóki nie zostanie poddana rygorystycznym, regularnym i udokumentowanym testom odtworzeniowym (\sphinxstyleemphasis{Disaster Recovery Drills}) w odizolowanym środowisku.
+
+\sphinxstepscope
+
+
+\section{Kopie zapasowe i odzyskiwanie danych}
+\label{\detokenize{rozdzial_2/2.8/index:kopie-zapasowe-i-odzyskiwanie-danych}}\label{\detokenize{rozdzial_2/2.8/index::doc}}\begin{quote}\begin{description}
+\sphinxlineitem{Autorzy}
+\sphinxAtStartPar
+Norbert Antonovitch, Michał Bednarczyk, Jan Balazs de Borbatviz
+
+\end{description}\end{quote}
+
+
+\subsection{Wstęp}
+\label{\detokenize{rozdzial_2/2.8/index:wstep}}
+\sphinxAtStartPar
+Kopie zapasowe w PostgreSQL można podzielić na dwa główne nurty: kopie logiczne wykonywane narzędziami \sphinxcode{\sphinxupquote{pg\_dump}} i \sphinxcode{\sphinxupquote{pg\_dumpall}}  oraz kopie fizyczne całego klastra wykonywane m.in. przez \sphinxcode{\sphinxupquote{pg\_basebackup}} wraz z archiwizacją WAL dla odzyskiwania punktowego PITR (Point\sphinxhyphen{}in\sphinxhyphen{}Time Recovery). Kopie logiczne są wygodne do odtwarzania pojedynczych obiektów i pojedynczych baz, natomiast kopie fizyczne są podstawą pełnego odtworzenia instancji, tablespaces i odzyskiwania po awariach.
+
+
+\subsection{Tworzenie kopii zapasowej całego systemu PostgreSQL \sphinxhyphen{} mechanizmy wbudowane}
+\label{\detokenize{rozdzial_2/2.8/index:tworzenie-kopii-zapasowej-calego-systemu-postgresql-mechanizmy-wbudowane}}
+\sphinxAtStartPar
+Najprostszym wbudowanym sposobem wykonania kopii całego klastra jest \sphinxcode{\sphinxupquote{pg\_dumpall}}, które eksportuje wszystkie bazy w klastrze oraz obiekty globalne wspólne dla całej instancji, takie jak role i przestrzenie tabel. Taki zrzut ma postać tekstowego skryptu SQL i odtwarza się go zwykle przez \sphinxcode{\sphinxupquote{psql}}, ale metoda ta jest logiczna, więc nie daje możliwości odzyskiwania punktowego przez WAL.
+
+\sphinxAtStartPar
+Drugim, ważniejszym z punktu widzenia odporności na awarie mechanizmem jest \sphinxcode{\sphinxupquote{pg\_basebackup}}, które tworzy fizyczną kopię działającego klastra bez blokowania normalnej pracy klientów. Narzędzie to wykonuje kopię całego klastra, a nie pojedynczych baz czy tabel, może pracować w formacie katalogowym lub \sphinxcode{\sphinxupquote{tar}} i może dołączać wymagane pliki WAL metodą stream, fetch albo none. Dokumentacja podkreśla też, że taka kopia może służyć zarówno do PITR, jak i do zbudowania serwera standby.
+
+\sphinxAtStartPar
+Aby pełna kopia fizyczna była użyteczna w scenariuszu odtwarzania do wybranego momentu, należy włączyć archiwizację WAL przez ustawienie co najmniej \sphinxcode{\sphinxupquote{wal\_level = replica}}, \sphinxcode{\sphinxupquote{archive\_mode = on}} oraz poprawnego \sphinxcode{\sphinxupquote{archive\_command}} albo \sphinxcode{\sphinxupquote{archive\_library}}. PostgreSQL zapisuje każdą zmianę w logu WAL, a po odtworzeniu kopii bazowej można odtworzyć kolejne segmenty WAL, aby dojść do stanu bieżącego lub do wskazanego punktu w czasie.
+
+\sphinxAtStartPar
+Przykładowe polecenia:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} logiczna kopia całego klastra}
+pg\PYGZus{}dumpall\PYG{+w}{ }\PYGZhy{}U\PYG{+w}{ }postgres\PYG{+w}{ }\PYGZhy{}\PYGZhy{}clean\PYG{+w}{ }\PYGZhy{}\PYGZhy{}file\PYG{o}{=}cluster.sql
+
+\PYG{c+c1}{\PYGZsh{} fizyczna kopia całego klastra z dołączeniem WAL}
+pg\PYGZus{}basebackup\PYG{+w}{ }\PYGZhy{}h\PYG{+w}{ }dbserver\PYG{+w}{ }\PYGZhy{}D\PYG{+w}{ }/backup/base\PYG{+w}{ }\PYGZhy{}Fp\PYG{+w}{ }\PYGZhy{}X\PYG{+w}{ }stream\PYG{+w}{ }\PYGZhy{}P
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+W praktyce do dokumentacji laboratoryjnej warto zaznaczyć, że \sphinxcode{\sphinxupquote{pg\_dumpall}} lepiej nadaje się do migracji i prostych kopii administracyjnych, a \sphinxcode{\sphinxupquote{pg\_basebackup}} z archiwizacją WAL do scenariuszy disaster recovery.
+
+
+\subsection{Tworzenie kopii zapasowych poszczególnych baz danych \sphinxhyphen{} mechanizmy wbudowane}
+\label{\detokenize{rozdzial_2/2.8/index:tworzenie-kopii-zapasowych-poszczegolnych-baz-danych-mechanizmy-wbudowane}}
+\sphinxAtStartPar
+Do wykonania kopii pojedynczej bazy służy \sphinxcode{\sphinxupquote{pg\_dump}}, które tworzy spójny zrzut nawet wtedy, gdy baza jest równocześnie używana przez innych użytkowników, i nie blokuje zwykłych operacji odczytu ani zapisu. Narzędzie obsługuje format tekstowy, custom, directory oraz tar, przy czym formaty archiwalne współpracują z \sphinxcode{\sphinxupquote{pg\_restore}} i pozwalają na selektywne odtwarzanie obiektów.
+
+\sphinxAtStartPar
+Istotne jest to, że \sphinxcode{\sphinxupquote{pg\_dump}} wykonuje kopię tylko jednej bazy danych. Format custom (\sphinxcode{\sphinxupquote{\sphinxhyphen{}Fc}}) i directory (\sphinxcode{\sphinxupquote{\sphinxhyphen{}Fd}}) są najbardziej elastyczne, bo pozwalają wybierać odtwarzane elementy, zmieniać kolejność odtwarzania, a w części scenariuszy także korzystać z odtwarzania równoległego.
+
+\sphinxAtStartPar
+Przykładowe polecenia:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} kopia pojedynczej bazy w formacie custom}
+pg\PYGZus{}dump\PYG{+w}{ }\PYGZhy{}U\PYG{+w}{ }postgres\PYG{+w}{ }\PYGZhy{}d\PYG{+w}{ }labdb\PYG{+w}{ }\PYGZhy{}Fc\PYG{+w}{ }\PYGZhy{}f\PYG{+w}{ }/backup/labdb.dump
+
+\PYG{c+c1}{\PYGZsh{} kopia pojedynczej bazy jako skrypt SQL}
+pg\PYGZus{}dump\PYG{+w}{ }\PYGZhy{}U\PYG{+w}{ }postgres\PYG{+w}{ }\PYGZhy{}d\PYG{+w}{ }labdb\PYG{+w}{ }\PYGZhy{}Fp\PYG{+w}{ }\PYGZhy{}f\PYG{+w}{ }/backup/labdb.sql
+
+\PYG{c+c1}{\PYGZsh{} odtworzenie archiwum custom}
+pg\PYGZus{}restore\PYG{+w}{ }\PYGZhy{}d\PYG{+w}{ }labdb\PYGZus{}restored\PYG{+w}{ }/backup/labdb.dump
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Jeżeli celem jest ochrona wybranych schematów lub tabel, \sphinxcode{\sphinxupquote{pg\_dump}} pozwala zawęzić zakres eksportu przez opcje takie jak \sphinxcode{\sphinxupquote{\sphinxhyphen{}n}} dla schematu i \sphinxcode{\sphinxupquote{\sphinxhyphen{}t}} dla tabeli. Trzeba jednak zaznaczyć, że wybiórczy zrzut nie gwarantuje kompletności zależności wszystkich obiektów w nowym, pustym środowisku, jeśli pominięto elementy, od których zależy odtwarzany obiekt.
+
+
+\subsection{Odzyskiwanie usuniętych lub uszkodzonych danych}
+\label{\detokenize{rozdzial_2/2.8/index:odzyskiwanie-usunietych-lub-uszkodzonych-danych}}
+\sphinxAtStartPar
+Sposób odzyskiwania zależy od tego, czy problem dotyczy pojedynczego obiektu logicznego, całej bazy, przestrzeni tabel, czy fizycznego uszkodzenia danych. PostgreSQL rozróżnia w praktyce odzyskiwanie logiczne z plików dump oraz odzyskiwanie fizyczne z kopii bazowej i archiwum WAL.
+
+
+\subsubsection{Odtwarzanie tabel i innych obiektów logicznych}
+\label{\detokenize{rozdzial_2/2.8/index:odtwarzanie-tabel-i-innych-obiektow-logicznych}}
+\sphinxAtStartPar
+Jeżeli wcześniej wykonano kopię \sphinxcode{\sphinxupquote{pg\_dump}} w formacie archiwalnym, można odtworzyć pojedynczą tabelę lub inny obiekt selektywnie przy pomocy \sphinxcode{\sphinxupquote{pg\_restore}}, bez przywracania całej bazy. To jest najprostszy wariant odzyskania przypadkowo usuniętej tabeli, o ile odpowiedni obiekt znajdował się w logicznej kopii zapasowej.
+
+\sphinxAtStartPar
+Przykład:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+pg\PYGZus{}restore\PYG{+w}{ }\PYGZhy{}d\PYG{+w}{ }labdb\PYG{+w}{ }\PYGZhy{}t\PYG{+w}{ }public.wyniki\PYG{+w}{ }/backup/labdb.dump
+\end{sphinxVerbatim}
+
+
+\subsubsection{Odtwarzanie usuniętej bazy danych}
+\label{\detokenize{rozdzial_2/2.8/index:odtwarzanie-usunietej-bazy-danych}}
+\sphinxAtStartPar
+Usuniętą bazę można najłatwiej odtworzyć z wcześniejszego zrzutu \sphinxcode{\sphinxupquote{pg\_dump}} tej konkretnej bazy albo z \sphinxcode{\sphinxupquote{pg\_dumpall}}, jeżeli wykonywano kopię całego klastra. W przypadku wymogu odtworzenia dokładnie do chwili sprzed usunięcia, potrzebna jest kopia fizyczna oraz archiwum WAL, ponieważ same zrzuty logiczne nie są częścią rozwiązania continuous archiving i nie wspierają PITR.
+
+
+\subsubsection{Odtwarzanie przestrzeni tabel i pełnego klastra}
+\label{\detokenize{rozdzial_2/2.8/index:odtwarzanie-przestrzeni-tabel-i-pelnego-klastra}}
+\sphinxAtStartPar
+Przestrzenie tabel są obiektami globalnymi klastra, dlatego ich definicje są uwzględniane przez \sphinxcode{\sphinxupquote{pg\_dumpall}}, a przy kopiach fizycznych \sphinxcode{\sphinxupquote{pg\_basebackup}} zachowuje także ich strukturę i mapowanie. Dokumentacja \sphinxcode{\sphinxupquote{pg\_basebackup}} wskazuje, że przy pracy z tablespaces można użyć mapowania \sphinxcode{\sphinxupquote{\sphinxhyphen{}\sphinxhyphen{}tablespace\sphinxhyphen{}mapping}}, a przy odtwarzaniu trzeba zweryfikować poprawność dowiązań symbolicznych i lokalizacji danych.
+
+\sphinxAtStartPar
+Przy fizycznym uszkodzeniu danych, katalogu PGDATA albo tabelpaces standardowa procedura obejmuje odtworzenie kopii bazowej, usunięcie starych plików danych, odtworzenie katalogów danych i tablespaces, skonfigurowanie \sphinxcode{\sphinxupquote{restore\_command}}, utworzenie pliku \sphinxcode{\sphinxupquote{recovery.signal}}, a następnie ponowne uruchomienie serwera w trybie recovery. PostgreSQL podczas odtwarzania odczytuje wymagane segmenty WAL i może dojść do stanu bieżącego albo zatrzymać się na wybranym punkcie odzyskiwania.
+
+
+\subsubsection{PITR i odzyskiwanie stanu sprzed błędu}
+\label{\detokenize{rozdzial_2/2.8/index:pitr-i-odzyskiwanie-stanu-sprzed-bledu}}
+\sphinxAtStartPar
+Najważniejszym mechanizmem odzyskiwania po usunięciu danych operacyjnych jest PITR, czyli przywrócenie systemu do chwili sprzed błędnej operacji, na przykład \sphinxcode{\sphinxupquote{DROP TABLE}} lub \sphinxcode{\sphinxupquote{DROP DATABASE}}. W takim scenariuszu odtwarza się kopię bazową, konfiguruje \sphinxcode{\sphinxupquote{restore\_command}}, a następnie ustawia cel odzyskiwania, np. przez czas, nazwany punkt przywracania lub identyfikator transakcji.
+
+\sphinxAtStartPar
+To rozwiązanie ma jednak ważne ograniczenie: nie służy do odzyskania pojedynczej tabeli „w miejscu” bez wpływu na resztę systemu, lecz do odtworzenia całego klastra do wcześniejszego stanu. Dlatego w praktyce laboratoryjnej często łączy się oba podejścia: regularne \sphinxcode{\sphinxupquote{pg\_dump}} dla obiektów logicznych i \sphinxcode{\sphinxupquote{pg\_basebackup}} z archiwizacją WAL dla pełnego recovery.
+
+
+\subsection{Dedykowane oprogramowanie i skrypty zewnętrzne do automatyzacji}
+\label{\detokenize{rozdzial_2/2.8/index:dedykowane-oprogramowanie-i-skrypty-zewnetrzne-do-automatyzacji}}
+\sphinxAtStartPar
+Wbudowane narzędzia PostgreSQL są wystarczające do ręcznego wykonywania kopii, ale w środowisku produkcyjnym często wykorzystuje się oprogramowanie automatyzujące harmonogramy, retencję, walidację i odtwarzanie. Dwa najczęściej wskazywane rozwiązania to Barman i pgBackRest, przy czym dostępna dokumentacja Barman bezpośrednio opisuje obsługę pełnych i przyrostowych kopii, archiwizacji WAL oraz automatycznego uruchamiania backupów.
+
+\sphinxAtStartPar
+Barman wykonuje kopie całego serwera PostgreSQL i wymaga poprawnej archiwizacji WAL, oferując różne metody kopii, w tym streaming przez \sphinxcode{\sphinxupquote{pg\_basebackup}}, \sphinxcode{\sphinxupquote{rsync}} oraz backupy snapshotowe w chmurze. Dokumentacja podaje też wsparcie dla backupów przyrostowych, limitowania pasma, kompresji i pracy z harmonogramem przez zewnętrzne mechanizmy systemowe, np. cron.
+
+\sphinxAtStartPar
+Przykładowe zastosowania narzędzi zewnętrznych:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Barman:} centralne repozytorium backupów, archiwizacja WAL, backupy pełne i przyrostowe, odzyskiwanie całych instancji.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{pgBackRest:} popularne narzędzie do wydajnych backupów i retencji, często używane w środowiskach HA oraz większych instalacjach PostgreSQL.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Własne skrypty Bash/PowerShell:} wywołanie \sphinxcode{\sphinxupquote{pg\_dump}}, \sphinxcode{\sphinxupquote{pg\_dumpall}} lub \sphinxcode{\sphinxupquote{pg\_basebackup}}, kompresja plików, rotacja katalogów, logowanie i wysyłka wyników przez e\sphinxhyphen{}mail lub do systemu monitoringu.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Przykładowy prosty skrypt automatyzujący kopię jednej bazy:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+ch}{\PYGZsh{}!/bin/bash}
+\PYG{n+nv}{DATA}\PYG{o}{=}\PYG{k}{\PYGZdl{}(}date\PYG{+w}{ }+\PYGZpc{}F\PYGZus{}\PYGZpc{}H\PYGZhy{}\PYGZpc{}M\PYG{k}{)}
+\PYG{n+nv}{KATALOG}\PYG{o}{=}/backup/postgres
+\PYG{n+nv}{BAZA}\PYG{o}{=}labdb
+
+mkdir\PYG{+w}{ }\PYGZhy{}p\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}KATALOG}\PYG{l+s+s2}{\PYGZdq{}}
+pg\PYGZus{}dump\PYG{+w}{ }\PYGZhy{}U\PYG{+w}{ }postgres\PYG{+w}{ }\PYGZhy{}d\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}BAZA}\PYG{l+s+s2}{\PYGZdq{}}\PYG{+w}{ }\PYGZhy{}Fc\PYG{+w}{ }\PYGZhy{}f\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}KATALOG}\PYG{l+s+s2}{/}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{BAZA}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZus{}}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{DATA}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{.dump}\PYG{l+s+s2}{\PYGZdq{}}
+find\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}KATALOG}\PYG{l+s+s2}{\PYGZdq{}}\PYG{+w}{ }\PYGZhy{}type\PYG{+w}{ }f\PYG{+w}{ }\PYGZhy{}name\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nv}{BAZA}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZus{}*.dump}\PYG{l+s+s2}{\PYGZdq{}}\PYG{+w}{ }\PYGZhy{}mtime\PYG{+w}{ }+7\PYG{+w}{ }\PYGZhy{}delete
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Taki skrypt jest prosty, ale nie zapewnia pełnego disaster recovery, bo nie obejmuje archiwizacji WAL i nie chroni całego klastra. Z tego powodu dla systemów krytycznych bardziej właściwe są narzędzia klasy Barman lub pgBackRest, które porządkują pełny proces backupu, retencji, testów i odtwarzania.
+
+
+\subsection{Podsumowanie}
+\label{\detokenize{rozdzial_2/2.8/index:podsumowanie}}
+\sphinxAtStartPar
+W rozdziale warto wyraźnie rozróżnić kopie logiczne i fizyczne, bo odpowiadają one na inne potrzeby eksploatacyjne. \sphinxcode{\sphinxupquote{pg\_dump}} i \sphinxcode{\sphinxupquote{pg\_dumpall}} są najlepsze do prostych eksportów i selektywnego odtwarzania, natomiast \sphinxcode{\sphinxupquote{pg\_basebackup}} z archiwizacją WAL jest podstawą odzyskiwania po poważnej awarii i realizacji PITR.
+
+\sphinxstepscope
+
+
+\chapter{Dokumentacja projektowa bazy danych}
+\label{\detokenize{rozdzial_3/index:dokumentacja-projektowa-bazy-danych}}\label{\detokenize{rozdzial_3/index::doc}}
+\sphinxAtStartPar
+Autorzy: Michał Bystrzak, Damian Dominiak
+
+
+\section{Wybór zagadnienia i opis procesów}
 \label{\detokenize{rozdzial_3/index:wybor-zagadnienia-i-opis-procesow}}
 \sphinxAtStartPar
 Tematem projektu jest relacyjna baza danych dla systemu zarządzania serwisem sprzętu IT. Aplikacja docelowa ma za zadanie obsługiwać pełen cykl życia zlecenia serwisowego \textendash{} od momentu przyjęcia sprzętu od klienta, poprzez diagnozę i zużycie części magazynowych, aż po ostateczne rozliczenie i wydanie naprawionego urządzenia.
@@ -188,7 +2644,7 @@ Tematem projektu jest relacyjna baza danych dla systemu zarządzania serwisem sp
 \end{enumerate}
 
 
-\section{3.2. Prototypy danych i analiza typów}
+\section{Prototypy danych i analiza typów}
 \label{\detokenize{rozdzial_3/index:prototypy-danych-i-analiza-typow}}
 \sphinxAtStartPar
 W celu weryfikacji kompletności gromadzonych informacji przygotowano prototypowe pliki z jednym wierszem danych dla centralnej encji systemu, jaką jest zlecenie serwisowe.
@@ -344,7 +2800,7 @@ INT
 \sphinxattableend\end{savenotes}
 
 
-\section{3.3. Model koncepcyjny bazy danych}
+\section{Model koncepcyjny bazy danych}
 \label{\detokenize{rozdzial_3/index:model-koncepcyjny-bazy-danych}}
 \sphinxAtStartPar
 Na etapie modelowania koncepcyjnego zdefiniowano główne wymagania informacyjne systemu. Zidentyfikowano encje, ich atrybuty oraz relacje zachodzące w analizowanym środowisku. Do wizualizacji wybrano notację Crow’s Foot (kurzych łapek) jako współczesny standard branżowy, który zapewnia wyższą czytelność i płynniejsze przejście do modelu logicznego niż tradycyjna notacja Chena.
@@ -394,7 +2850,7 @@ W modelu zidentyfikowano również związek wiele\sphinxhyphen{}do\sphinxhyphen{
 \caption{Rys. 1. Diagram koncepcyjny bazy danych serwisu IT.}\label{\detokenize{rozdzial_3/index:id1}}\end{figure}
 
 
-\section{3.4. Model logiczny i normalizacja}
+\section{Model logiczny i normalizacja}
 \label{\detokenize{rozdzial_3/index:model-logiczny-i-normalizacja}}
 \sphinxAtStartPar
 Model logiczny został opracowany na bazie modelu koncepcyjnego poprzez uszczegółowienie struktury i dostosowanie jej do paradygmatu relacyjnego.
@@ -433,13 +2889,13 @@ Zaprojektowana struktura została poddana procesowi normalizacji, osiągając \s
 \caption{Rys. 2. Diagram logiczny bazy danych serwisu IT w 3NF.}\label{\detokenize{rozdzial_3/index:id2}}\end{figure}
 
 
-\section{3.5. Model fizyczny}
+\section{Model fizyczny}
 \label{\detokenize{rozdzial_3/index:model-fizyczny}}
 \sphinxAtStartPar
 Na podstawie schematu logicznego przygotowano fizyczną implementację struktury danych z uwzględnieniem specyfiki dwóch różnych systemów zarządzania relacyjnymi bazami danych: SQLite oraz PostgreSQL.
 
 
-\subsection{3.5.1. Implementacja w środowisku SQLite}
+\subsection{Implementacja w środowisku SQLite}
 \label{\detokenize{rozdzial_3/index:implementacja-w-srodowisku-sqlite}}
 \sphinxAtStartPar
 Model wykorzystuje proste typowanie dostępne w silniku SQLite.
@@ -500,7 +2956,7 @@ Model wykorzystuje proste typowanie dostępne w silniku SQLite.
 \end{sphinxVerbatim}
 
 
-\subsection{3.5.2. Implementacja w środowisku PostgreSQL}
+\subsection{Implementacja w środowisku PostgreSQL}
 \label{\detokenize{rozdzial_3/index:implementacja-w-srodowisku-postgresql}}
 \sphinxAtStartPar
 Model dostosowany do zaawansowanych możliwości silnika PostgreSQL, wykorzystujący automatyczne generowanie kluczy głównych (typ \sphinxcode{\sphinxupquote{SERIAL}}), precyzyjne typowanie numeryczne (\sphinxcode{\sphinxupquote{NUMERIC}}) oraz rygorystyczne więzy integralności (np. \sphinxcode{\sphinxupquote{CHECK}}).
@@ -557,43 +3013,240 @@ Model dostosowany do zaawansowanych możliwości silnika PostgreSQL, wykorzystuj
 
 \sphinxstepscope
 
+
+\chapter{Definiowanie bazy i wprowadzanie danych}
+\label{\detokenize{rozdzial_4/index:definiowanie-bazy-i-wprowadzanie-danych}}\label{\detokenize{rozdzial_4/index::doc}}
 \sphinxAtStartPar
-/Author: {[}Damian Dominiak, Michał Bystrzak{]} / Date: 2026\sphinxhyphen{}05\sphinxhyphen{}15 / Version: 1.0 /
+Autorzy: Michał Bystrzak, Damian Dominiak
 
-
-\chapter{Rozdział 4. Definiowanie bazy i wprowadzanie danych}
-\label{\detokenize{rozdzial_4/index:rozdzial-4-definiowanie-bazy-i-wprowadzanie-danych}}\label{\detokenize{rozdzial_4/index::doc}}
 \sphinxAtStartPar
 W tym rozdziale opisano mechanizmy wykorzystane do wsadowego wprowadzania danych testowych do baz SQLite oraz PostgreSQL dla systemu serwisu IT.
 
 
-\section{4.1. Generowanie danych testowych}
+\section{Generowanie danych testowych}
 \label{\detokenize{rozdzial_4/index:generowanie-danych-testowych}}
 \sphinxAtStartPar
-W celu symulacji rzeczywistego środowiska pracy serwisu sprzętu IT, przygotowano skrypt w języku Python, który automatycznie generuje losowe dane testowe (m.in. dane klientów, urządzeń, pracowników oraz zleceń i zużytych części) i eksportuje je do plików w formacie CSV.
+W celu symulacji rzeczywistego środowiska pracy serwisu sprzętu IT, przygotowano skrypt w języku Python. Wykorzystuje on bibliotekę \sphinxcode{\sphinxupquote{csv}} do automatycznego generowania losowych danych (m.in. części magazynowych, zleceń) i eksportowania ich do płaskich plików.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{csv}
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{random}
+
+\PYG{c+c1}{\PYGZsh{} Generator danych dla tabeli CZESC}
+\PYG{n}{czesci} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+\PYG{n}{dostawcy} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Intel}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{AMD}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Samsung}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Asus}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Nvidia}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{101}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{czesci}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,} \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Podzespol\PYGZus{}Serwisowy\PYGZus{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{i}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{random}\PYG{o}{.}\PYG{n}{choice}\PYG{p}{(}\PYG{n}{dostawcy}\PYG{p}{)}\PYG{p}{,} \PYG{n}{random}\PYG{o}{.}\PYG{n}{randint}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{50}\PYG{p}{)}\PYG{p}{,} \PYG{n+nb}{round}\PYG{p}{(}\PYG{n}{random}\PYG{o}{.}\PYG{n}{uniform}\PYG{p}{(}\PYG{l+m+mf}{20.0}\PYG{p}{,} \PYG{l+m+mf}{1500.0}\PYG{p}{)}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{czesci.csv}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{w}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{newline}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{encoding}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{utf\PYGZhy{}8}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{file}\PYG{p}{:}
+    \PYG{n}{writer} \PYG{o}{=} \PYG{n}{csv}\PYG{o}{.}\PYG{n}{writer}\PYG{p}{(}\PYG{n}{file}\PYG{p}{)}
+    \PYG{n}{writer}\PYG{o}{.}\PYG{n}{writerow}\PYG{p}{(}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{ID\PYGZus{}Czesci}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Nazwa}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Producent}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Stan\PYGZus{}magazynowy}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Cena}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]}\PYG{p}{)}
+    \PYG{n}{writer}\PYG{o}{.}\PYG{n}{writerows}\PYG{p}{(}\PYG{n}{czesci}\PYG{p}{)}
+\end{sphinxVerbatim}
 
 
-\section{4.2. Import danych do PostgreSQL}
+\section{Import danych do PostgreSQL}
 \label{\detokenize{rozdzial_4/index:import-danych-do-postgresql}}
 \sphinxAtStartPar
-Dla silnika PostgreSQL zdecydowano się na wykorzystanie natywnego mechanizmu \sphinxcode{\sphinxupquote{COPY}}. Pozwala on na najszybszy bulk\sphinxhyphen{}insert danych z plików CSV.
+Dla silnika PostgreSQL zdecydowano się na wykorzystanie natywnego mechanizmu \sphinxcode{\sphinxupquote{COPY}}. Pozwala on na błyskawiczny bulk\sphinxhyphen{}insert danych bezpośrednio z plików CSV do tabeli \sphinxcode{\sphinxupquote{CZESC}}, omijając ogromny narzut wydajnościowy tradycyjnych instrukcji \sphinxcode{\sphinxupquote{INSERT}}.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Skrypt ładujący części magazynowe zgodnie ze strukturą zdefiniowaną w modelu fizycznym}
+\PYG{k}{COPY}\PYG{+w}{ }\PYG{n}{CZESC}\PYG{p}{(}\PYG{n}{ID\PYGZus{}Czesci}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Nazwa}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Producent}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Stan\PYGZus{}magazynowy}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Cena}\PYG{p}{)}
+\PYG{k}{FROM}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}/tmp/dane\PYGZus{}testowe/czesci.csv\PYGZsq{}}
+\PYG{k}{DELIMITER}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{},\PYGZsq{}}
+\PYG{n}{CSV}\PYG{+w}{ }\PYG{n}{HEADER}\PYG{p}{;}
+\end{sphinxVerbatim}
 
 
-\section{4.3. Import danych do SQLite}
+\section{Import danych do SQLite}
 \label{\detokenize{rozdzial_4/index:import-danych-do-sqlite}}
 \sphinxAtStartPar
-W przypadku bazy SQLite zaimplementowano skrypt w języku Python z wykorzystaniem wbudowanej biblioteki \sphinxcode{\sphinxupquote{sqlite3}}, który wczytuje dane z plików CSV i wykonuje instrukcje \sphinxcode{\sphinxupquote{INSERT}} wewnątrz transakcji, co znacząco optymalizuje czas wstawiania setek rekordów.
+W przypadku bazy SQLite zaimplementowano skrypt w języku Python z wykorzystaniem wbudowanej biblioteki \sphinxcode{\sphinxupquote{sqlite3}}. Skrypt wczytuje dane i ładuje je np. do tabeli \sphinxcode{\sphinxupquote{PRACOWNIK}} wewnątrz jednej spójnej transakcji, co drastycznie optymalizuje czas wstawiania rekordów.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{sqlite3}
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{csv}
+
+\PYG{n}{conn} \PYG{o}{=} \PYG{n}{sqlite3}\PYG{o}{.}\PYG{n}{connect}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{serwis\PYGZus{}it.db}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{cursor} \PYG{o}{=} \PYG{n}{conn}\PYG{o}{.}\PYG{n}{cursor}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{pracownicy.csv}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{encoding}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{utf\PYGZhy{}8}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{file}\PYG{p}{:}
+    \PYG{n}{dr} \PYG{o}{=} \PYG{n}{csv}\PYG{o}{.}\PYG{n}{DictReader}\PYG{p}{(}\PYG{n}{file}\PYG{p}{)}
+    \PYG{n}{to\PYGZus{}db} \PYG{o}{=} \PYG{p}{[}\PYG{p}{(}\PYG{n}{i}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Imie}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{i}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Nazwisko}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{i}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Stanowisko}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{dr}\PYG{p}{]}
+
+\PYG{c+c1}{\PYGZsh{} Wykorzystanie executemany() dla optymalizacji transakcji}
+\PYG{n}{cursor}\PYG{o}{.}\PYG{n}{executemany}\PYG{p}{(}
+    \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{INSERT INTO PRACOWNIK (Imie, Nazwisko, Stanowisko) VALUES (?, ?, ?);}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{to\PYGZus{}db}
+\PYG{p}{)}
+
+\PYG{n}{conn}\PYG{o}{.}\PYG{n}{commit}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{conn}\PYG{o}{.}\PYG{n}{close}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
 
 \sphinxstepscope
 
+
+\chapter{Zapytania do bazy danych}
+\label{\detokenize{rozdzial_5/index:zapytania-do-bazy-danych}}\label{\detokenize{rozdzial_5/index::doc}}
 \sphinxAtStartPar
-/Author: {[}Damian Dominiak, Michał Bystrzak{]} / Date: 2026\sphinxhyphen{}05\sphinxhyphen{}15 / Version: 1.0 /
+Autorzy: Michał Bystrzak, Damian Dominiak
+
+\sphinxAtStartPar
+Poniższa dokumentacja zawiera zaawansowane zapytania SQL zaimplementowane w projekcie, wykorzystujące mechanizmy takie jak podzapytania, złączenia (JOIN), agregacje oraz operatory zbiorowe w dialektach SQLite oraz PostgreSQL.
 
 
-\chapter{Rozdział 5. Zapytania do bazy danych}
-\label{\detokenize{rozdzial_5/index:rozdzial-5-zapytania-do-bazy-danych}}\label{\detokenize{rozdzial_5/index::doc}}
+\section{Średni koszt robocizny dla poszczególnych statusów}
+\label{\detokenize{rozdzial_5/index:sredni-koszt-robocizny-dla-poszczegolnych-statusow}}
 \sphinxAtStartPar
-Poniższa dokumentacja zawiera opisy funkcji odpowiedzialnych za wykonywanie zapytań do bazy danych (PostgreSQL oraz SQLite). Dokumentacja ta została wygenerowana automatycznie z komentarzy (docstrings) zawartych w module Pythona.
+Zapytanie oblicza średni koszt robocizny dla poszczególnych statusów zleceń, wykorzystując agregację \sphinxcode{\sphinxupquote{AVG()}} i grupowanie.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ROUND}\PYG{p}{(}\PYG{k}{AVG}\PYG{p}{(}\PYG{n}{Koszt\PYGZus{}robocizny}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{Sredni\PYGZus{}koszt}
+\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{ZLECENIE}
+\PYG{k}{GROUP}\PYG{+w}{ }\PYG{k}{BY}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\section{Marki urządzeń wymagające wymiany matrycy}
+\label{\detokenize{rozdzial_5/index:marki-urzadzen-wymagajace-wymiany-matrycy}}
+\sphinxAtStartPar
+Zapytanie zwraca unikalne marki urządzeń, dla których kiedykolwiek wydano z magazynu część o nazwie „Matryca”. Wykorzystuje podzapytanie z operatorem \sphinxcode{\sphinxupquote{IN}}.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{k}{DISTINCT}\PYG{+w}{ }\PYG{n}{Marka}
+\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{URZADZENIE}
+\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{ID\PYGZus{}Urzadzenia}\PYG{+w}{ }\PYG{k}{IN}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Urzadzenia}
+\PYG{+w}{    }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{URZADZENIE}\PYG{+w}{ }\PYG{n}{u}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{ZLECENIE}\PYG{+w}{ }\PYG{n}{z}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Urzadzenia}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{z}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Urzadzenia}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{ZUZYTE\PYGZus{}CZESCI}\PYG{+w}{ }\PYG{n}{zc}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{z}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Zlecenia}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{zc}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Zlecenia}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{CZESC}\PYG{+w}{ }\PYG{k}{c}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{zc}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Czesci}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{c}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Czesci}
+\PYG{+w}{    }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{k}{c}\PYG{p}{.}\PYG{n}{Nazwa}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Matryca\PYGZsq{}}
+\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\section{Klienci z oczekującymi zleceniami}
+\label{\detokenize{rozdzial_5/index:klienci-z-oczekujacymi-zleceniami}}
+\sphinxAtStartPar
+Wyszukuje klientów, którzy mają w systemie zlecenia o statusie „Oczekuje na części”, korzystając z operatora \sphinxcode{\sphinxupquote{EXISTS}}.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{Imie}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Nazwisko}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Email}
+\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{KLIENT}\PYG{+w}{ }\PYG{n}{k}
+\PYG{k}{WHERE}\PYG{+w}{ }\PYG{k}{EXISTS}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{l+m+mi}{1}
+\PYG{+w}{    }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{URZADZENIE}\PYG{+w}{ }\PYG{n}{u}
+\PYG{+w}{    }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{ZLECENIE}\PYG{+w}{ }\PYG{n}{z}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Urzadzenia}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{z}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Urzadzenia}
+\PYG{+w}{    }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Klienta}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{k}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Klienta}
+\PYG{+w}{    }\PYG{k}{AND}\PYG{+w}{ }\PYG{n}{z}\PYG{p}{.}\PYG{n}{Status}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Oczekuje na części\PYGZsq{}}
+\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\section{Urządzenia bez historii zleceń (SQLite)}
+\label{\detokenize{rozdzial_5/index:urzadzenia-bez-historii-zlecen-sqlite}}
+\sphinxAtStartPar
+Zwraca listę urządzeń, dla których nie zarejestrowano jeszcze żadnego zlecenia serwisowego, wykorzystując operator zbiorowy \sphinxcode{\sphinxupquote{EXCEPT}}.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{Numer\PYGZus{}seryjny}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{URZADZENIE}
+\PYG{k}{EXCEPT}
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{.}\PYG{n}{Numer\PYGZus{}seryjny}
+\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{URZADZENIE}\PYG{+w}{ }\PYG{n}{u}
+\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{ZLECENIE}\PYG{+w}{ }\PYG{n}{z}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Urzadzenia}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{z}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Urzadzenia}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\section{Pracownicy powyżej średniej wydajności}
+\label{\detokenize{rozdzial_5/index:pracownicy-powyzej-sredniej-wydajnosci}}
+\sphinxAtStartPar
+Znajduje pracowników, którzy obsłużyli więcej zleceń niż wynosi średnia dla wszystkich pracowników. Wykorzystuje zaawansowane podzapytanie w klauzuli \sphinxcode{\sphinxupquote{HAVING}}.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{.}\PYG{n}{Imie}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{.}\PYG{n}{Nazwisko}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{COUNT}\PYG{p}{(}\PYG{n}{z}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Zlecenia}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{Liczba\PYGZus{}Zlecen}
+\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{PRACOWNIK}\PYG{+w}{ }\PYG{n}{p}
+\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{ZLECENIE}\PYG{+w}{ }\PYG{n}{z}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Pracownika}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{z}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Pracownika}
+\PYG{k}{GROUP}\PYG{+w}{ }\PYG{k}{BY}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Pracownika}
+\PYG{k}{HAVING}\PYG{+w}{ }\PYG{k}{COUNT}\PYG{p}{(}\PYG{n}{z}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Zlecenia}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{k}{CAST}\PYG{p}{(}\PYG{k}{COUNT}\PYG{p}{(}\PYG{n}{ID\PYGZus{}Zlecenia}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n+nb}{FLOAT}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{k}{COUNT}\PYG{p}{(}\PYG{k}{DISTINCT}\PYG{+w}{ }\PYG{n}{ID\PYGZus{}Pracownika}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{ZLECENIE}
+\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\section{Zlecenia droższe niż średnia cena części}
+\label{\detokenize{rozdzial_5/index:zlecenia-drozsze-niz-srednia-cena-czesci}}
+\sphinxAtStartPar
+Zwraca szczegóły zleceń, w których koszt robocizny jest większy niż średnia cena części z magazynu, wykorzystując skalarne podzapytanie w klauzuli \sphinxcode{\sphinxupquote{WHERE}}.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{ID\PYGZus{}Zlecenia}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Koszt\PYGZus{}robocizny}
+\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{ZLECENIE}
+\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{Koszt\PYGZus{}robocizny}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{SELECT}\PYG{+w}{ }\PYG{k}{AVG}\PYG{p}{(}\PYG{n}{Cena}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{CZESC}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\section{Miesięczne przychody z robocizny (PostgreSQL)}
+\label{\detokenize{rozdzial_5/index:miesieczne-przychody-z-robocizny-postgresql}}
+\sphinxAtStartPar
+Analizuje miesięczne przychody z robocizny w serwisie, wykorzystując funkcję wyciągającą datę \sphinxcode{\sphinxupquote{EXTRACT()}} oraz agregację \sphinxcode{\sphinxupquote{SUM()}}.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT}
+\PYG{+w}{    }\PYG{k}{EXTRACT}\PYG{p}{(}\PYG{k}{YEAR}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{Data\PYGZus{}przyjecia}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{Rok}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{EXTRACT}\PYG{p}{(}\PYG{k}{MONTH}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{Data\PYGZus{}przyjecia}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{Miesiac}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{SUM}\PYG{p}{(}\PYG{n}{Koszt\PYGZus{}robocizny}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{Przychody}
+\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{ZLECENIE}
+\PYG{k}{GROUP}\PYG{+w}{ }\PYG{k}{BY}\PYG{+w}{ }\PYG{n}{Rok}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Miesiac}
+\PYG{k}{ORDER}\PYG{+w}{ }\PYG{k}{BY}\PYG{+w}{ }\PYG{n}{Rok}\PYG{+w}{ }\PYG{k}{DESC}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Miesiac}\PYG{+w}{ }\PYG{k}{DESC}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\section{Najczęściej zużywane części}
+\label{\detokenize{rozdzial_5/index:najczesciej-zuzywane-czesci}}
+\sphinxAtStartPar
+Wyszukuje części, które zostały zużyte w więcej niż 5 różnych zleceniach, wykorzystując \sphinxcode{\sphinxupquote{JOIN}}, \sphinxcode{\sphinxupquote{GROUP BY}} oraz klauzulę \sphinxcode{\sphinxupquote{HAVING}}.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{k}{c}\PYG{p}{.}\PYG{n}{Nazwa}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{COUNT}\PYG{p}{(}\PYG{n}{zc}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Zlecenia}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{Liczba\PYGZus{}Zlecen}
+\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{CZESC}\PYG{+w}{ }\PYG{k}{c}
+\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{ZUZYTE\PYGZus{}CZESCI}\PYG{+w}{ }\PYG{n}{zc}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{k}{c}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Czesci}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{zc}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Czesci}
+\PYG{k}{GROUP}\PYG{+w}{ }\PYG{k}{BY}\PYG{+w}{ }\PYG{k}{c}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Czesci}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{c}\PYG{p}{.}\PYG{n}{Nazwa}
+\PYG{k}{HAVING}\PYG{+w}{ }\PYG{k}{COUNT}\PYG{p}{(}\PYG{n}{zc}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Zlecenia}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\section{Klienci o największych wydatkach}
+\label{\detokenize{rozdzial_5/index:klienci-o-najwiekszych-wydatkach}}
+\sphinxAtStartPar
+Oblicza całkowity koszt zleceń dla poszczególnych klientów i zwraca tych z największymi wydatkami, wykorzystując złączenia wielu tabel.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{k}\PYG{p}{.}\PYG{n}{Imie}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{k}\PYG{p}{.}\PYG{n}{Nazwisko}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{SUM}\PYG{p}{(}\PYG{n}{z}\PYG{p}{.}\PYG{n}{Koszt\PYGZus{}robocizny}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{Wydatki\PYGZus{}Robocizna}
+\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{KLIENT}\PYG{+w}{ }\PYG{n}{k}
+\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{URZADZENIE}\PYG{+w}{ }\PYG{n}{u}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{k}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Klienta}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Klienta}
+\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{ZLECENIE}\PYG{+w}{ }\PYG{n}{z}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Urzadzenia}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{z}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Urzadzenia}
+\PYG{k}{GROUP}\PYG{+w}{ }\PYG{k}{BY}\PYG{+w}{ }\PYG{n}{k}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Klienta}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{k}\PYG{p}{.}\PYG{n}{Imie}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{k}\PYG{p}{.}\PYG{n}{Nazwisko}
+\PYG{k}{ORDER}\PYG{+w}{ }\PYG{k}{BY}\PYG{+w}{ }\PYG{n}{Wydatki\PYGZus{}Robocizna}\PYG{+w}{ }\PYG{k}{DESC}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\section{Całkowity koszt zlecenia (Robocizna + Części)}
+\label{\detokenize{rozdzial_5/index:calkowity-koszt-zlecenia-robocizna-czesci}}
+\sphinxAtStartPar
+Oblicza całkowity koszt zlecenia (robocizna + suma cen zużytych części przemnożona przez ich ilość). Wykorzystuje wielokrotne \sphinxcode{\sphinxupquote{JOIN}} oraz funkcję \sphinxcode{\sphinxupquote{COALESCE()}}.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT}
+\PYG{+w}{    }\PYG{n}{z}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Zlecenia}\PYG{p}{,}
+\PYG{+w}{    }\PYG{p}{(}\PYG{n}{z}\PYG{p}{.}\PYG{n}{Koszt\PYGZus{}robocizny}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{k}{COALESCE}\PYG{p}{(}\PYG{k}{SUM}\PYG{p}{(}\PYG{k}{c}\PYG{p}{.}\PYG{n}{Cena}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{zc}\PYG{p}{.}\PYG{n}{Ilosc}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{Calkowity\PYGZus{}Koszt}
+\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{ZLECENIE}\PYG{+w}{ }\PYG{n}{z}
+\PYG{k}{LEFT}\PYG{+w}{ }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{ZUZYTE\PYGZus{}CZESCI}\PYG{+w}{ }\PYG{n}{zc}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{z}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Zlecenia}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{zc}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Zlecenia}
+\PYG{k}{LEFT}\PYG{+w}{ }\PYG{k}{JOIN}\PYG{+w}{ }\PYG{n}{CZESC}\PYG{+w}{ }\PYG{k}{c}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{zc}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Czesci}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{c}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Czesci}
+\PYG{k}{GROUP}\PYG{+w}{ }\PYG{k}{BY}\PYG{+w}{ }\PYG{n}{z}\PYG{p}{.}\PYG{n}{ID\PYGZus{}Zlecenia}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{z}\PYG{p}{.}\PYG{n}{Koszt\PYGZus{}robocizny}\PYG{p}{;}
+\end{sphinxVerbatim}
 
 
 

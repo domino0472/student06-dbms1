@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Partycjonowanie Danych'
-copyright = '2026, Dominiak Bystrzak'
-author = 'Dominiak Bystrzak'
+copyright = '2026, Michał Bystrzak, Damian Dominiak'
+author = 'Michał Bystrzak, Damian Dominiak'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
