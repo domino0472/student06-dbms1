@@ -22,3 +22,6 @@
 [submodule "source/rozdzial_2/2.8"]
 	path = source/rozdzial_2/2.8
 	url = https://github.com/Koko9077/Kopie-zapasowe-i-odzyskiwanie-danych.git
+[submodule "source/rozdzial_2/2.4"]
+	path = source/rozdzial_2/2.4
+	url = https://github.com/OskarProgrammer/monitorowanie_i_diagnostyka.git
